@@ -7,10 +7,6 @@ A simple react application that view PDF files in browsers, built with React-PDF
 * React
 * React-PDF-Viewer
 
-## Similar Project
-
-* View PDF Files from Firebase Storage in React: https://github.com/HamzaAnwar1998/View-PDF-Files-from-Firebase-Storage-in-React
-
 ## Getting Started
 
 * On the comandline, at the project's root, run ```npm install``` to install app dependencies
