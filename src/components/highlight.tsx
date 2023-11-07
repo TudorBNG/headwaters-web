@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
     Button,
     DocumentLoadEvent,
@@ -33,13 +33,13 @@ interface HighlightExampleProps {
 }
 
 const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl }) => {
-    const [message, setMessage] = React.useState("");
-    const [notes, setNotes] = React.useState<Note[]>([]);
-    const notesContainerRef = React.useRef<HTMLDivElement | null>(null);
+    const [message, setMessage] = useState("");
+    const [notes, setNotes] = useState<Note[]>([]);
+    const notesContainerRef = useRef<HTMLDivElement | null>(null);
     let noteId = notes.length;
 
     const noteEles: Map<number, HTMLElement> = new Map();
-    const [currentDoc, setCurrentDoc] = React.useState<PdfJs.PdfDocument | null>(
+    const [currentDoc, setCurrentDoc] = useState<PdfJs.PdfDocument | null>(
         null
     );
 
@@ -170,7 +170,7 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl }) => {
 
     const { jumpToHighlightArea } = highlightPluginInstance;
 
-    React.useEffect(() => {
+    useEffect(() => {
         return () => {
             noteEles.clear();
         };
