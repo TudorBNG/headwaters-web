@@ -10,7 +10,6 @@ import {
 } from "@react-pdf-viewer/core";
 import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 import {
-    HighlightArea,
     highlightPlugin,
     MessageIcon,
     RenderHighlightContentProps,
@@ -21,27 +20,25 @@ import {
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 
-interface Note {
-    id: number;
-    content: string;
-    highlightAreas: HighlightArea[];
-    quote: string;
-}
+import { INote } from "../pages";
 
 interface HighlightExampleProps {
     fileUrl: string;
+    notes: INote[];
+    setNotes: Function
 }
 
-const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl }) => {
+const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, setNotes }) => {
     const [message, setMessage] = useState("");
-    const [notes, setNotes] = useState<Note[]>([]);
-    const notesContainerRef = useRef<HTMLDivElement | null>(null);
-    let noteId = notes.length;
+    const [selectedId, setSelectedId] = useState(-1);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [menuPosition, setMenuPosition] = useState({ x: 0, y: 0 });
 
     const noteEles: Map<number, HTMLElement> = new Map();
-    const [currentDoc, setCurrentDoc] = useState<PdfJs.PdfDocument | null>(
-        null
-    );
+    const notesContainerRef = useRef<HTMLDivElement | null>(null);
+    const [currentDoc, setCurrentDoc] = useState<PdfJs.PdfDocument | null>(null);
+
+    let noteId = notes.length;
 
     const handleDocumentLoad = (e: DocumentLoadEvent) => {
         setCurrentDoc(e.doc);
@@ -79,11 +76,10 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl }) => {
     const renderHighlightContent = (props: RenderHighlightContentProps) => {
         const addNote = () => {
             if (message !== "") {
-                const note: Note = {
+                const note: INote = {
                     id: ++noteId,
                     content: message,
                     highlightAreas: props.highlightAreas,
-                    quote: props.selectedText
                 };
                 setNotes(notes.concat([note]));
                 props.cancel();
@@ -127,7 +123,7 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl }) => {
         );
     };
 
-    const jumpToNote = (note: Note) => {
+    const jumpToNote = (note: INote) => {
         activateTab(3);
         const notesContainer = notesContainerRef.current;
         if (noteEles.has(note.id) && notesContainer) {
@@ -163,12 +159,53 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl }) => {
     );
 
     const highlightPluginInstance = highlightPlugin({
-        renderHighlightTarget,
-        renderHighlightContent,
+        // renderHighlightTarget,
+        // renderHighlightContent,
         renderHighlights
     });
 
     const { jumpToHighlightArea } = highlightPluginInstance;
+
+    const handleContextMenu = (event: any, id: number) => {
+        console.log('Mouse clicked = ', id);
+
+        event.preventDefault();
+        setMenuPosition({ x: event.clientX, y: event.clientY });
+        setIsMenuOpen(true);
+        setSelectedId(id);
+    };
+
+    const handleNoteClick = (event: any, area: any) => {
+        event.preventDefault();
+
+        if (isMenuOpen) {
+            setIsMenuOpen(false);
+
+        } else {
+            jumpToHighlightArea(area);
+        }
+    }
+
+    const deleteNote = (id: number) => {
+        console.log('delete = ', id);
+        if (id !== -1) {
+            setSelectedId(-1);
+            setNotes([...notes].filter((note) => { return note.id !== id }));
+        }
+    }
+
+    const RightClickMenu = ({ x, y, isOpen }) => {
+        return (
+            <div
+                className={`right-click-menu ${isOpen && 'open'}`}
+                style={{ top: y, left: x }}
+            >
+                <ul>
+                    <li onClick={() => deleteNote(selectedId)}>Delete</li>
+                </ul>
+            </div>
+        );
+    };
 
     useEffect(() => {
         return () => {
@@ -181,7 +218,8 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl }) => {
             ref={notesContainerRef}
             style={{
                 overflow: "auto",
-                width: "100%"
+                width: "100%",
+                position: "relative"
             }}
         >
             {notes.length === 0 && (
@@ -191,32 +229,24 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl }) => {
                 return (
                     <div
                         key={note.id}
-                        style={{
-                            borderBottom: "1px solid rgba(0, 0, 0, .3)",
-                            cursor: "pointer",
-                            padding: "8px"
-                        }}
-                        onClick={() => jumpToHighlightArea(note.highlightAreas[0])}
+                        className="note-element"
+                        onContextMenu={(e) => handleContextMenu(e, note.id)}
+
                         ref={(ref): void => {
                             noteEles.set(note.id, ref as HTMLElement);
                         }}
                     >
-                        <blockquote
-                            style={{
-                                borderLeft: "2px solid rgba(0, 0, 0, 0.2)",
-                                fontSize: ".75rem",
-                                lineHeight: 1.5,
-                                margin: "0 0 8px 0",
-                                paddingLeft: "8px",
-                                textAlign: "justify"
-                            }}
-                        >
-                            {note.quote}
-                        </blockquote>
-                        {note.content}
+                        <div className="note-content" onClick={(e) => { handleNoteClick(e, note.highlightAreas[0]) }}>
+                            <div>{note.content}</div>
+                        </div>
+
+                        <div className="x-trash" onClick={() => { deleteNote(note.id) }}>
+                            <i className="bi bi-trash"></i>
+                        </div>
                     </div>
                 );
             })}
+            <RightClickMenu x={menuPosition.x} y={menuPosition.y} isOpen={isMenuOpen} />
         </div>
     );
 
