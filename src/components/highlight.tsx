@@ -146,7 +146,9 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, set
                                     {},
                                     {
                                         background: "yellow",
-                                        opacity: 0.4
+                                        opacity: 0.4,
+                                        // zIndex: 100,
+                                        // cursor: 'pointer'
                                     },
                                     props.getCssProperties(area, props.rotation)
                                 )}
@@ -191,6 +193,7 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, set
         if (id !== -1) {
             setSelectedId(-1);
             setNotes([...notes].filter((note) => { return note.id !== id }));
+            setIsMenuOpen(false);
         }
     }
 
