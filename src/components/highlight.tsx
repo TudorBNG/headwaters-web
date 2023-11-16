@@ -6,7 +6,8 @@ import {
     Position,
     PrimaryButton,
     Tooltip,
-    Viewer
+    Viewer,
+    RenderPageProps
 } from "@react-pdf-viewer/core";
 import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 import {
@@ -39,6 +40,16 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, set
     const [currentDoc, setCurrentDoc] = useState<PdfJs.PdfDocument | null>(null);
 
     let noteId = notes.length;
+
+    const defaultLayoutPluginInstance = defaultLayoutPlugin({
+        sidebarTabs: (defaultTabs) =>
+            defaultTabs.concat({
+                content: sidebarNotes,
+                icon: <MessageIcon />,
+                title: "Notes"
+            })
+    });
+    const { activateTab } = defaultLayoutPluginInstance;
 
     const handleDocumentLoad = (e: DocumentLoadEvent) => {
         setCurrentDoc(e.doc);
@@ -123,14 +134,16 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, set
         );
     };
 
-    const jumpToNote = (note: INote) => {
-        activateTab(3);
-        const notesContainer = notesContainerRef.current;
-        if (noteEles.has(note.id) && notesContainer) {
-            notesContainer.scrollTop = noteEles
-                .get(note.id)
-                .getBoundingClientRect().top;
-        }
+    const renderPage = (props: RenderPageProps) => {
+        return (
+            <>
+                {props.canvasLayer.children}
+                <div style={{ userSelect: 'none' }}>
+                    {props.textLayer.children}
+                </div>
+                {props.annotationLayer.children}
+            </ >
+        );
     };
 
     const renderHighlights = (props: RenderHighlightsProps) => (
@@ -161,12 +174,22 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, set
     );
 
     const highlightPluginInstance = highlightPlugin({
-        // renderHighlightTarget,
-        // renderHighlightContent,
+        renderHighlightTarget,
+        renderHighlightContent,
         renderHighlights
     });
 
     const { jumpToHighlightArea } = highlightPluginInstance;
+
+    const jumpToNote = (note: INote) => {
+        activateTab(3);
+        const notesContainer = notesContainerRef.current;
+        if (noteEles.has(note.id) && notesContainer) {
+            notesContainer.scrollTop = noteEles
+                .get(note.id)
+                .getBoundingClientRect().top;
+        }
+    };
 
     const handleContextMenu = (event: any, id: number) => {
         console.log('Mouse clicked = ', id);
@@ -182,7 +205,6 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, set
 
         if (isMenuOpen) {
             setIsMenuOpen(false);
-
         } else {
             jumpToHighlightArea(area);
         }
@@ -209,12 +231,6 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, set
             </div>
         );
     };
-
-    useEffect(() => {
-        return () => {
-            noteEles.clear();
-        };
-    }, []);
 
     const sidebarNotes = (
         <div
@@ -253,15 +269,11 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, set
         </div>
     );
 
-    const defaultLayoutPluginInstance = defaultLayoutPlugin({
-        sidebarTabs: (defaultTabs) =>
-            defaultTabs.concat({
-                content: sidebarNotes,
-                icon: <MessageIcon />,
-                title: "Notes"
-            })
-    });
-    const { activateTab } = defaultLayoutPluginInstance;
+    useEffect(() => {
+        return () => {
+            noteEles.clear();
+        };
+    }, []);
 
     return (
         // <div
@@ -273,8 +285,9 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, set
             fileUrl={fileUrl}
             plugins={[highlightPluginInstance, defaultLayoutPluginInstance]}
             onDocumentLoad={handleDocumentLoad}
+        // renderPage={renderPage}
         />
-        // </div>
+        // </div > 
     );
 };
 

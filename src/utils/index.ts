@@ -45,10 +45,10 @@ export const ConvertNoteObject = (data: any) => {
 
       const highlightAreas = {
         pageIndex: myObj[key]['page num'] - 1,
-        height: 90 * ((y1 - y0) / unit) / height,
+        height: 94 * ((y1 - y0) / unit) / height,
         width: 97.5 * ((x1 - x0) / unit) / width,
         left: 97 * (x0 / unit) / width,
-        top: 111 * (y0 / unit) / height,
+        top: 106.6 * (y0 / unit) / height,
       }
 
       notes.push({

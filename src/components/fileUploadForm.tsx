@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 interface IProps {
   setPdfFile: Function
+  setFile: Function
 }
 
 const FileUploadForm = (props: IProps) => {
@@ -16,6 +17,8 @@ const FileUploadForm = (props: IProps) => {
     // console.log(selectedFile.type);
     if (selectedFile) {
       if (selectedFile && allowedFiles.includes(selectedFile.type)) {
+        props.setFile(selectedFile);
+
         let reader = new FileReader();
         reader.readAsDataURL(selectedFile);
         reader.onloadend = (e: any) => {

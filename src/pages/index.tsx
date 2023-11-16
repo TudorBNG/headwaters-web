@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-// Import Worker
+import axios from 'axios';
 import { Worker } from "@react-pdf-viewer/core";
 import {
   HighlightArea,
@@ -18,22 +18,45 @@ export interface INote {
 }
 
 const Main = () => {
-  // pdf file onChange state
   const [pdfFile, setPdfFile] = useState(null);
+  const [file, setFile] = useState(null);
   const [notes, setNotes] = useState<INote[]>([]);
   // const [highLightData, setHighLightData] = useState(null);
 
+  const server = 'http://localhost:8000';
+
   const processPDF = () => {
     if (pdfFile) {
-      fetch('/response.txt')
-        .then(response => response.json())
-        .then(async (data) => {
-          if (data) {
-            setNotes(ConvertNoteObject(data));
-          }
+      const formData = new FormData();
+      formData.append('file', file);
+
+      axios.post(`${server}/api/highlight`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+        .then(response => {
+          // Handle success
+          console.log(response);
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+          // Handle error
+          console.log(error);
+        });
+
+      // fetch('/response.txt')
+      //   .then(response => response.json())
+      //   .then(async (data) => {
+      //     if (data) {
+      //       setNotes(ConvertNoteObject(data));
+      //     }
+      //   })
+      //   .catch(error => console.log(error));
     }
+  }
+
+  const savePDF = () => {
+
   }
 
   useEffect(() => {
@@ -42,9 +65,15 @@ const Main = () => {
 
   return (
     <div className="container">
-      <FileUploadForm setPdfFile={setPdfFile} />
+      <FileUploadForm setPdfFile={setPdfFile} setFile={setFile} />
 
-      <h5 className='py-2'>View PDF<button className='btn btn-outline-secondary float-end' onClick={processPDF}>Process PDF</button></h5>
+      <h5 className='py-3'>
+        View PDF
+        <span className='float-end'>
+          <button className='btn btn-outline-secondary mx-2' onClick={processPDF}>Process PDF</button>
+          <button className='btn btn-outline-secondary' onClick={savePDF}>Save PDF</button>
+        </span>
+      </h5>
       <div className="viewer">
         {/* render this if we have a pdf file */}
         {pdfFile && (
