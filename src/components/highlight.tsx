@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
     Button,
     DocumentLoadEvent,
@@ -6,11 +6,11 @@ import {
     Position,
     PrimaryButton,
     Tooltip,
-    Viewer
+    Viewer,
+    RenderPageProps
 } from "@react-pdf-viewer/core";
 import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 import {
-    HighlightArea,
     highlightPlugin,
     MessageIcon,
     RenderHighlightContentProps,
@@ -21,27 +21,35 @@ import {
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 
-interface Note {
-    id: number;
-    content: string;
-    highlightAreas: HighlightArea[];
-    quote: string;
-}
+import { INote } from "../pages";
 
 interface HighlightExampleProps {
     fileUrl: string;
+    notes: INote[];
+    setNotes: Function
 }
 
-const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl }) => {
-    const [message, setMessage] = React.useState("");
-    const [notes, setNotes] = React.useState<Note[]>([]);
-    const notesContainerRef = React.useRef<HTMLDivElement | null>(null);
-    let noteId = notes.length;
+const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, setNotes }) => {
+    const [message, setMessage] = useState("");
+    const [selectedId, setSelectedId] = useState(-1);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [menuPosition, setMenuPosition] = useState({ x: 0, y: 0 });
 
     const noteEles: Map<number, HTMLElement> = new Map();
-    const [currentDoc, setCurrentDoc] = React.useState<PdfJs.PdfDocument | null>(
-        null
-    );
+    const notesContainerRef = useRef<HTMLDivElement | null>(null);
+    const [currentDoc, setCurrentDoc] = useState<PdfJs.PdfDocument | null>(null);
+
+    let noteId = notes.length;
+
+    const defaultLayoutPluginInstance = defaultLayoutPlugin({
+        sidebarTabs: (defaultTabs) =>
+            defaultTabs.concat({
+                content: sidebarNotes,
+                icon: <MessageIcon />,
+                title: "Notes"
+            })
+    });
+    const { activateTab } = defaultLayoutPluginInstance;
 
     const handleDocumentLoad = (e: DocumentLoadEvent) => {
         setCurrentDoc(e.doc);
@@ -79,7 +87,7 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl }) => {
     const renderHighlightContent = (props: RenderHighlightContentProps) => {
         const addNote = () => {
             if (message !== "") {
-                const note: Note = {
+                const note: INote = {
                     id: ++noteId,
                     content: message,
                     highlightAreas: props.highlightAreas,
@@ -127,14 +135,16 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl }) => {
         );
     };
 
-    const jumpToNote = (note: Note) => {
-        activateTab(3);
-        const notesContainer = notesContainerRef.current;
-        if (noteEles.has(note.id) && notesContainer) {
-            notesContainer.scrollTop = noteEles
-                .get(note.id)
-                .getBoundingClientRect().top;
-        }
+    const renderPage = (props: RenderPageProps) => {
+        return (
+            <>
+                {props.canvasLayer.children}
+                <div style={{ userSelect: 'none' }}>
+                    {props.textLayer.children}
+                </div>
+                {props.annotationLayer.children}
+            </ >
+        );
     };
 
     const renderHighlights = (props: RenderHighlightsProps) => (
@@ -150,7 +160,9 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl }) => {
                                     {},
                                     {
                                         background: "yellow",
-                                        opacity: 0.4
+                                        opacity: 0.4,
+                                        // zIndex: 100,
+                                        // cursor: 'pointer'
                                     },
                                     props.getCssProperties(area, props.rotation)
                                 )}
@@ -170,65 +182,113 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl }) => {
 
     const { jumpToHighlightArea } = highlightPluginInstance;
 
-    React.useEffect(() => {
-        return () => {
-            noteEles.clear();
-        };
-    }, []);
+    const jumpToNote = (note: INote) => {
+        activateTab(3);
+        const notesContainer = notesContainerRef.current;
+        if (noteEles.has(note.id) && notesContainer) {
+            notesContainer.scrollTop = noteEles
+                .get(note.id)
+                .getBoundingClientRect().top;
+        }
+    };
+
+    const handleContextMenu = (event: any, id: number) => {
+        console.log('Mouse clicked = ', id);
+
+        event.preventDefault();
+        setMenuPosition({ x: event.clientX, y: event.clientY });
+        setIsMenuOpen(true);
+        setSelectedId(id);
+    };
+
+    const handleNoteClick = (event: any, area: any) => {
+        event.preventDefault();
+
+        if (isMenuOpen) {
+            setIsMenuOpen(false);
+        } else {
+            jumpToHighlightArea(area);
+        }
+    }
+
+    const deleteNote = (id: number) => {
+        console.log('delete = ', id);
+        if (id !== -1) {
+            setSelectedId(-1);
+            setNotes([...notes].filter((note) => { return note.id !== id }));
+            setIsMenuOpen(false);
+        }
+    }
+
+    const RightClickMenu = ({ x, y, isOpen }) => {
+        return (
+            <div
+                className={`right-click-menu ${isOpen && 'open'}`}
+                style={{ top: y, left: x }}
+            >
+                <ul>
+                    <li onClick={() => deleteNote(selectedId)}>Delete</li>
+                </ul>
+            </div>
+        );
+    };
 
     const sidebarNotes = (
         <div
             ref={notesContainerRef}
             style={{
                 overflow: "auto",
-                width: "100%"
+                width: "100%",
+                position: "relative"
             }}
         >
             {notes.length === 0 && (
                 <div style={{ textAlign: "center" }}>There is no note</div>
             )}
-            {notes.map((note) => {
+            {notes.map((note: INote) => {
                 return (
                     <div
                         key={note.id}
-                        style={{
-                            borderBottom: "1px solid rgba(0, 0, 0, .3)",
-                            cursor: "pointer",
-                            padding: "8px"
-                        }}
-                        onClick={() => jumpToHighlightArea(note.highlightAreas[0])}
+                        className="note-element"
+                        onContextMenu={(e) => handleContextMenu(e, note.id)}
+
                         ref={(ref): void => {
                             noteEles.set(note.id, ref as HTMLElement);
                         }}
                     >
-                        <blockquote
-                            style={{
-                                borderLeft: "2px solid rgba(0, 0, 0, 0.2)",
-                                fontSize: ".75rem",
-                                lineHeight: 1.5,
-                                margin: "0 0 8px 0",
-                                paddingLeft: "8px",
-                                textAlign: "justify"
-                            }}
-                        >
-                            {note.quote}
-                        </blockquote>
-                        {note.content}
+                        <div className="note-content" onClick={(e) => { handleNoteClick(e, note.highlightAreas[0]) }}>
+                            <div>
+                                <blockquote
+                                    style={{
+                                        borderLeft: "2px solid rgba(0, 0, 0, 0.2)",
+                                        fontSize: ".75rem",
+                                        lineHeight: 1.5,
+                                        margin: "0 0 8px 0",
+                                        paddingLeft: "8px",
+                                        textAlign: "justify"
+                                    }}
+                                >
+                                    {note.quote}
+                                </blockquote>
+                                {note.content}
+                            </div>
+                        </div>
+
+                        <div className="x-trash" onClick={() => { deleteNote(note.id) }}>
+                            <i className="bi bi-trash"></i>
+                        </div>
                     </div>
                 );
             })}
+            <RightClickMenu x={menuPosition.x} y={menuPosition.y} isOpen={isMenuOpen} />
         </div>
     );
 
-    const defaultLayoutPluginInstance = defaultLayoutPlugin({
-        sidebarTabs: (defaultTabs) =>
-            defaultTabs.concat({
-                content: sidebarNotes,
-                icon: <MessageIcon />,
-                title: "Notes"
-            })
-    });
-    const { activateTab } = defaultLayoutPluginInstance;
+    useEffect(() => {
+        return () => {
+            noteEles.clear();
+        };
+    }, []);
 
     return (
         // <div
@@ -240,8 +300,9 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl }) => {
             fileUrl={fileUrl}
             plugins={[highlightPluginInstance, defaultLayoutPluginInstance]}
             onDocumentLoad={handleDocumentLoad}
+        // renderPage={renderPage}
         />
-        // </div>
+        // </div > 
     );
 };
 

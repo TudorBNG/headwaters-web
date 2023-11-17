@@ -1,0 +1,110 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+
+form {
+  margin: 30px 0px;
+}
+
+.viewer {
+  background-color: #e4e4e4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 800px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+span {
+  margin-top: 3px;
+}
+
+.right-click-menu {
+  position: fixed;
+  background-color: rgb(245, 245, 245);
+  background-color: white;
+  padding: 0;
+  box-shadow: rgba(66, 66, 66, 0.09) 0px 1px 2px;
+  transition: height 0.2s ease-in-out;
+  height: 0;
+  z-index: 100;
+  overflow: hidden;
+  border-radius: 0 3px 3px 3px;
+
+  &.open {
+    height: 35px;
+    border-bottom: 2px solid rgb(200, 200, 200);
+    border-right: 2px solid rgb(200, 200, 200);
+    border-top: 1px solid rgb(240, 240, 240);
+    border-left: 1px solid rgb(240, 240, 240);
+  }
+
+  & ul {
+    list-style-type: none;
+    padding: 5px 0 0 0;
+    margin: 0;
+    height: 100%;
+
+    li {
+      padding: 0 50px 0 20px;
+
+      &:hover {
+        background-color: rgb(196, 196, 196);
+        cursor: pointer;
+      }
+    }
+  }
+
+  &:hover {
+    box-shadow: rgba(66, 66, 66, 0.09) 0px 1px 2px;
+  }
+}
+
+.note-element {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  display: inline-flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, .3);
+  cursor: pointer;
+
+  .note-content {
+    border-radius: 10px;
+    border-right: 1px solid gray;
+    overflow: visible;
+    width: 100%;
+
+    div {
+      width: 100%;
+      height: 100%;
+      padding: 8px;
+      background-color: white;
+
+      &:hover {
+        background-color: rgb(231, 231, 231);
+        transition: all 0.2s ease-in-out;
+      }
+    }
+  }
+
+  .x-trash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 3px;
+
+    i {
+      color: #555;
+      margin: auto;
+    }
+
+    &:hover {
+      background-color: rgb(231, 231, 231);
+      color: rgb(0 0 0);
+
+      i {
+        color: #000;
+      }
+    }
+  }
+}
