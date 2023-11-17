@@ -91,6 +91,7 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, set
                     id: ++noteId,
                     content: message,
                     highlightAreas: props.highlightAreas,
+                    quote: props.selectedText
                 };
                 setNotes(notes.concat([note]));
                 props.cancel();
@@ -244,7 +245,7 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, set
             {notes.length === 0 && (
                 <div style={{ textAlign: "center" }}>There is no note</div>
             )}
-            {notes.map((note) => {
+            {notes.map((note: INote) => {
                 return (
                     <div
                         key={note.id}
@@ -256,7 +257,21 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, set
                         }}
                     >
                         <div className="note-content" onClick={(e) => { handleNoteClick(e, note.highlightAreas[0]) }}>
-                            <div>{note.content}</div>
+                            <div>
+                                <blockquote
+                                    style={{
+                                        borderLeft: "2px solid rgba(0, 0, 0, 0.2)",
+                                        fontSize: ".75rem",
+                                        lineHeight: 1.5,
+                                        margin: "0 0 8px 0",
+                                        paddingLeft: "8px",
+                                        textAlign: "justify"
+                                    }}
+                                >
+                                    {note.quote}
+                                </blockquote>
+                                {note.content}
+                            </div>
                         </div>
 
                         <div className="x-trash" onClick={() => { deleteNote(note.id) }}>

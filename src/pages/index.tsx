@@ -14,6 +14,7 @@ import { ConvertNoteObject } from '../utils';
 export interface INote {
   id: number;
   content: string;
+  quote: string;
   highlightAreas: HighlightArea[];
 }
 
@@ -32,12 +33,14 @@ const Main = () => {
 
       axios.post(`${server}/api/highlight`, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
+          'Access-Control-Allow-Origin': '*',
         }
       })
         .then(response => {
           // Handle success
           console.log(response);
+          setNotes(ConvertNoteObject(response.data));
         })
         .catch(error => {
           // Handle error
@@ -56,10 +59,32 @@ const Main = () => {
   }
 
   const savePDF = () => {
+    if (pdfFile) {
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('highlight', JSON.stringify(notes));
 
+      // axios.post(`${server}/api/simple_save_pdf`, formData, {
+      axios.post(`${server}/api/save_pdf`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          'Access-Control-Allow-Origin': '*',
+        }
+      })
+        .then(response => {
+          // Handle success
+          console.log(response);
+          setNotes(ConvertNoteObject(response.data));
+        })
+        .catch(error => {
+          // Handle error
+          console.log(error);
+        });
+    }
   }
 
   useEffect(() => {
+    console.log('-------------------- Highlight Data ---------------------- ');
     console.log(notes);
   }, [notes])
 

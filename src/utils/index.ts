@@ -19,6 +19,9 @@ export const ConvertNoteObject = (data: any) => {
   const myObj: IObject = {};
   const notes: INote[] = [];
 
+  console.log('-------------- jsonData from backend ----------- ');
+  console.log(jsonData);
+
   Object.keys(jsonData).map((key1: any) => {
     Object.keys(jsonData[key1]).map((key2: string) => {
       if (!myObj[key2]) {
@@ -53,7 +56,8 @@ export const ConvertNoteObject = (data: any) => {
 
       notes.push({
         id: index,
-        content: myObj[key]['text'],
+        content: '',
+        quote: myObj[key]['text'],
         highlightAreas: [highlightAreas]
       })
     }
