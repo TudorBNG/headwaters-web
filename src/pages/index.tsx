@@ -22,7 +22,6 @@ const Main = () => {
   const [pdfFile, setPdfFile] = useState(null);
   const [file, setFile] = useState(null);
   const [notes, setNotes] = useState<INote[]>([]);
-  // const [highLightData, setHighLightData] = useState(null);
 
   const server = 'http://localhost:8000';
 
@@ -38,23 +37,12 @@ const Main = () => {
         }
       })
         .then(response => {
-          // Handle success
-          console.log(response);
+          console.log('response = ', response);
           setNotes(ConvertNoteObject(response.data));
         })
         .catch(error => {
-          // Handle error
           console.log(error);
         });
-
-      // fetch('/response.txt')
-      //   .then(response => response.json())
-      //   .then(async (data) => {
-      //     if (data) {
-      //       setNotes(ConvertNoteObject(data));
-      //     }
-      //   })
-      //   .catch(error => console.log(error));
     }
   }
 
@@ -64,20 +52,33 @@ const Main = () => {
       formData.append('file', file);
       formData.append('highlight', JSON.stringify(notes));
 
-      // axios.post(`${server}/api/simple_save_pdf`, formData, {
       axios.post(`${server}/api/save_pdf`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Access-Control-Allow-Origin': '*',
-        }
+        },
+        responseType: 'blob'
       })
         .then(response => {
           // Handle success
-          console.log(response);
-          setNotes(ConvertNoteObject(response.data));
+          const file = new Blob(
+            [response.data],
+            { type: 'application/pdf' }
+          );
+          const fileURL = URL.createObjectURL(file);
+
+          const link = document.createElement('a');
+          link.href = fileURL;
+          link.setAttribute(
+            'download',
+            `highlight.pdf`,
+          );
+
+          document.body.appendChild(link);
+          link.click();
+          link.parentNode.removeChild(link);
         })
         .catch(error => {
-          // Handle error
           console.log(error);
         });
     }
