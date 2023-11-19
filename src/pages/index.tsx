@@ -23,7 +23,7 @@ const Main = () => {
   const [file, setFile] = useState(null);
   const [notes, setNotes] = useState<INote[]>([]);
 
-  const server = 'http://localhost:8000';
+  const server = 'https://ml-spec-highlight-6d271575d3c3.herokuapp.com';
 
   const processPDF = () => {
     if (pdfFile) {
