@@ -45,12 +45,12 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, set
 
     const defaultLayoutPluginInstance = defaultLayoutPlugin({
         sidebarTabs: (defaultTabs) =>
-            defaultTabs.concat({
+            [defaultTabs[0], defaultTabs[1]].concat({
                 content: sidebarNotes,
                 icon: <MessageIcon />,
                 title: "Notes"
             }),
-        setInitialTab: () => Promise.resolve(3),
+        setInitialTab: () => Promise.resolve(2),
     });
     const { activateTab } = defaultLayoutPluginInstance;
     const { toggleTab } = defaultLayoutPluginInstance;
@@ -62,7 +62,7 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, set
             // User opens new document
             setNotes([]);
         }
-        activateTab(3);
+        activateTab(2);
     };
 
     const renderHighlightTarget = (props: RenderHighlightTargetProps) => (
