@@ -22,10 +22,13 @@ const Main = () => {
   const [pdfFile, setPdfFile] = useState(null);
   const [file, setFile] = useState(null);
   const [notes, setNotes] = useState<INote[]>([]);
+  const [processing, setProcessing] = useState(false);
+  const [saving, setSaving] = useState(false);
 
-  const server = 'https://ml-spec-highlight-6d271575d3c3.herokuapp.com';
+  const server = 'http://127.0.0.1:8000';
 
   const processPDF = () => {
+    setProcessing(true);
     if (pdfFile) {
       const formData = new FormData();
       formData.append('file', file);
@@ -39,14 +42,18 @@ const Main = () => {
         .then(response => {
           console.log('response = ', response);
           setNotes(ConvertNoteObject(response.data));
+          setProcessing(false);
         })
         .catch(error => {
           console.log(error);
+          setProcessing(false);
         });
     }
+    // setProcessing(false)
   }
 
   const savePDF = () => {
+    setSaving(true);
     if (pdfFile) {
       const formData = new FormData();
       formData.append('file', file);
@@ -77,9 +84,11 @@ const Main = () => {
           document.body.appendChild(link);
           link.click();
           link.parentNode.removeChild(link);
+          setSaving(false);
         })
         .catch(error => {
           console.log(error);
+          setSaving(false);
         });
     }
   }
@@ -96,8 +105,8 @@ const Main = () => {
       <h5 className='py-3'>
         View PDF
         <span className='float-end'>
-          <button className='btn btn-outline-secondary mx-2' onClick={processPDF}>Process PDF</button>
-          <button className='btn btn-outline-secondary' onClick={savePDF}>Save PDF</button>
+          <button className='btn btn-outline-secondary mx-2' onClick={processPDF} disabled={processing}>{processing ? 'Processing...' : 'Process PDF'}</button>
+          <button className='btn btn-outline-secondary' onClick={savePDF} disabled={saving}>{saving ? 'Saving...' : 'Save PDF'}</button>
         </span>
       </h5>
       <div className="viewer">
