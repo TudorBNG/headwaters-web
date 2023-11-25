@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, ReactElement } from "react";
 import {
     Button,
     DocumentLoadEvent,
@@ -9,7 +9,7 @@ import {
     Viewer,
     RenderPageProps
 } from "@react-pdf-viewer/core";
-import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
+import { defaultLayoutPlugin, ToolbarProps, ToolbarSlot } from "@react-pdf-viewer/default-layout";
 import {
     highlightPlugin,
     MessageIcon,
@@ -29,6 +29,8 @@ interface HighlightExampleProps {
     setNotes: Function
 }
 
+
+
 const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, setNotes }) => {
     const [message, setMessage] = useState("");
     const [selectedId, setSelectedId] = useState(-1);
@@ -40,16 +42,77 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, set
     const [currentDoc, setCurrentDoc] = useState<PdfJs.PdfDocument | null>(null);
 
     let noteId = notes.length;
+    const renderToolbar = (Toolbar: (props: ToolbarProps) => ReactElement) => (
+        <Toolbar>
+            {(props: ToolbarSlot) => {
+                const {
+                    CurrentPageInput,
+                    Download,
+                    EnterFullScreen,
+                    GoToNextPage,
+                    GoToPreviousPage,
+                    NumberOfPages,
+                    Print,
+                    ShowSearchPopover,
+                    Zoom,
+                    ZoomIn,
+                    ZoomOut,
+                } = props;
+                return (
+                    <>
+                        <div style={{ padding: '0px 2px' }}>
+                            <ShowSearchPopover />
+                        </div>
+                        <div style={{ padding: '0px 2px' }}>
+                            <ZoomOut />
+                        </div>
+                        <div style={{ padding: '0px 2px' }}>
+                            <Zoom />
+                        </div>
+                        <div style={{ padding: '0px 2px' }}>
+                            <ZoomIn />
+                        </div>
+                        <div style={{ padding: '0px 2px', marginLeft: 'auto' }}>
+                            <GoToPreviousPage />
+                        </div>
+                        <div style={{ padding: '0px 2px', width: '4rem' }}>
+                            <CurrentPageInput />
+                        </div>
+                        <div style={{ padding: '0px 2px' }}>
+                            / <NumberOfPages />
+                        </div>
+                        <div style={{ padding: '0px 2px' }}>
+                            <GoToNextPage />
+                        </div>
+                        {/* <div style={{ padding: '0px 2px', marginLeft: 'auto' }}>
+                            <EnterFullScreen />
+                        </div>
+                        <div style={{ padding: '0px 2px' }}>
+                            <Download />
+                        </div>
+                        <div style={{ padding: '0px 2px' }}>
+                            <Print />
+                        </div> */}
+                    </>
+                );
+            }}
+        </Toolbar>
+    );
+
 
     const defaultLayoutPluginInstance = defaultLayoutPlugin({
         sidebarTabs: (defaultTabs) =>
-            defaultTabs.concat({
+            [defaultTabs[0], defaultTabs[1]].concat({
                 content: sidebarNotes,
                 icon: <MessageIcon />,
                 title: "Notes"
-            })
+            }),
+        setInitialTab: () => Promise.resolve(2),
+        renderToolbar,
     });
     const { activateTab } = defaultLayoutPluginInstance;
+    const { toggleTab } = defaultLayoutPluginInstance;
+    // toggleTab(2)
 
     const handleDocumentLoad = (e: DocumentLoadEvent) => {
         setCurrentDoc(e.doc);
@@ -57,6 +120,7 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, set
             // User opens new document
             setNotes([]);
         }
+        activateTab(2);
     };
 
     const renderHighlightTarget = (props: RenderHighlightTargetProps) => (
