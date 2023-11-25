@@ -29,6 +29,8 @@ interface HighlightExampleProps {
     setNotes: Function
 }
 
+
+
 const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, setNotes }) => {
     const [message, setMessage] = useState("");
     const [selectedId, setSelectedId] = useState(-1);
@@ -47,7 +49,8 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, set
                 content: sidebarNotes,
                 icon: <MessageIcon />,
                 title: "Notes"
-            })
+            }),
+        setInitialTab: () => Promise.resolve(3),
     });
     const { activateTab } = defaultLayoutPluginInstance;
 
