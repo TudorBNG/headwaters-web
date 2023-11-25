@@ -53,6 +53,8 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, set
         setInitialTab: () => Promise.resolve(3),
     });
     const { activateTab } = defaultLayoutPluginInstance;
+    const { toggleTab } = defaultLayoutPluginInstance;
+    // toggleTab(2)
 
     const handleDocumentLoad = (e: DocumentLoadEvent) => {
         setCurrentDoc(e.doc);
@@ -60,6 +62,7 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, set
             // User opens new document
             setNotes([]);
         }
+        activateTab(3);
     };
 
     const renderHighlightTarget = (props: RenderHighlightTargetProps) => (
