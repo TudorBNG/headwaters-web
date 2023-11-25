@@ -44,83 +44,36 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, set
     let noteId = notes.length;
     const renderToolbar = (Toolbar: (props: ToolbarProps) => ReactElement) => (
         <Toolbar>
-            {(slots: ToolbarSlot) => {
+            {(props: ToolbarSlot) => {
                 const {
                     CurrentPageInput,
-                    CurrentScale,
+                    Download,
+                    EnterFullScreen,
                     GoToNextPage,
                     GoToPreviousPage,
                     NumberOfPages,
+                    Print,
+                    ShowSearchPopover,
+                    Zoom,
                     ZoomIn,
                     ZoomOut,
-                } = slots;
+                } = props;
                 return (
-                    <div
-                        style={{
-                            alignItems: 'center',
-                            display: 'flex',
-                        }}
-                    >
+                    <>
                         <div style={{ padding: '0px 2px' }}>
-                            <ZoomOut>
-                                {(props) => (
-                                    <button
-                                        style={{
-                                            backgroundColor: '#357edd',
-                                            border: 'none',
-                                            borderRadius: '4px',
-                                            color: '#ffffff',
-                                            cursor: 'pointer',
-                                            padding: '8px',
-                                        }}
-                                        onClick={props.onClick}
-                                    >
-                                        Zoom out
-                                    </button>
-                                )}
-                            </ZoomOut>
+                            <ShowSearchPopover />
                         </div>
                         <div style={{ padding: '0px 2px' }}>
-                            <CurrentScale>{(props) => <span>{`${Math.round(props.scale * 100)}%`}</span>}</CurrentScale>
+                            <ZoomOut />
                         </div>
                         <div style={{ padding: '0px 2px' }}>
-                            <ZoomIn>
-                                {(props) => (
-                                    <button
-                                        style={{
-                                            backgroundColor: '#357edd',
-                                            border: 'none',
-                                            borderRadius: '4px',
-                                            color: '#ffffff',
-                                            cursor: 'pointer',
-                                            padding: '8px',
-                                        }}
-                                        onClick={props.onClick}
-                                    >
-                                        Zoom in
-                                    </button>
-                                )}
-                            </ZoomIn>
+                            <Zoom />
+                        </div>
+                        <div style={{ padding: '0px 2px' }}>
+                            <ZoomIn />
                         </div>
                         <div style={{ padding: '0px 2px', marginLeft: 'auto' }}>
-                            <GoToPreviousPage>
-                                {(props) => (
-                                    <button
-                                        style={{
-                                            backgroundColor: props.isDisabled ? '#96ccff' : '#357edd',
-                                            border: 'none',
-                                            borderRadius: '4px',
-                                            color: '#ffffff',
-                                            cursor: props.isDisabled ? 'not-allowed' : 'pointer',
-                                            padding: '8px',
-                                        }}
-                                        disabled={props.isDisabled}
-                                        onClick={props.onClick}
-                                    >
-                                        Previous page
-                                    </button>
-                                )}
-                            </GoToPreviousPage>
+                            <GoToPreviousPage />
                         </div>
                         <div style={{ padding: '0px 2px', width: '4rem' }}>
                             <CurrentPageInput />
@@ -129,26 +82,18 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, set
                             / <NumberOfPages />
                         </div>
                         <div style={{ padding: '0px 2px' }}>
-                            <GoToNextPage>
-                                {(props) => (
-                                    <button
-                                        style={{
-                                            backgroundColor: props.isDisabled ? '#96ccff' : '#357edd',
-                                            border: 'none',
-                                            borderRadius: '4px',
-                                            color: '#ffffff',
-                                            cursor: props.isDisabled ? 'not-allowed' : 'pointer',
-                                            padding: '8px',
-                                        }}
-                                        disabled={props.isDisabled}
-                                        onClick={props.onClick}
-                                    >
-                                        Next page
-                                    </button>
-                                )}
-                            </GoToNextPage>
+                            <GoToNextPage />
                         </div>
-                    </div>
+                        {/* <div style={{ padding: '0px 2px', marginLeft: 'auto' }}>
+                            <EnterFullScreen />
+                        </div>
+                        <div style={{ padding: '0px 2px' }}>
+                            <Download />
+                        </div>
+                        <div style={{ padding: '0px 2px' }}>
+                            <Print />
+                        </div> */}
+                    </>
                 );
             }}
         </Toolbar>
