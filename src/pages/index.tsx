@@ -105,9 +105,28 @@ const Main = () => {
       <h5 className='py-3'>
         View PDF
         <span className='float-end'>
-          <button className='btn btn-outline-secondary mx-2' onClick={processPDF} disabled={processing}>{processing ? 'Processing...' : 'Process PDF'}</button>
-          <button className='btn btn-outline-secondary' onClick={savePDF} disabled={saving}>{saving ? 'Saving...' : 'Save PDF'}</button>
-        </span>
+          <button className='btn btn-outline-secondary mx-2' onClick={processPDF} disabled={processing}>{processing ? (
+            <>
+              <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              <span className="sr-only"> Processing...</span>
+            </>
+          ) : (
+            'Process PDF'
+          )}</button>
+          <button
+            className='btn btn-outline-secondary'
+            onClick={savePDF}
+            disabled={saving}
+          >
+            {saving ? (
+              <>
+                <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                <span className="sr-only"> Saving...</span>
+              </>
+            ) : (
+              'Save PDF'
+            )}
+          </button>        </span>
       </h5>
       <div className="viewer">
         {/* render this if we have a pdf file */}
