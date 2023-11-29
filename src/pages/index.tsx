@@ -26,7 +26,7 @@ const Main = () => {
   const [saving, setSaving] = useState(false);
   const [processCompleted, setProcessCompleted] = useState(false);
 
-  const server = 'http://127.0.0.1:8000';
+  const server = 'https://ml-spec-highlight-6d271575d3c3.herokuapp.com';
 
   const processPDF = () => {
     setProcessing(true);
