@@ -25,6 +25,7 @@ const Main = () => {
   const [processing, setProcessing] = useState(false);
   const [saving, setSaving] = useState(false);
   const [processCompleted, setProcessCompleted] = useState(false);
+  const [processFailed, setProcessFailed] = useState(false);
 
   const server = 'https://ml-spec-highlight-6d271575d3c3.herokuapp.com';
 
@@ -45,10 +46,12 @@ const Main = () => {
           setNotes(ConvertNoteObject(response.data));
           setProcessing(false);
           setProcessCompleted(true);
+          setProcessFailed(false);
         })
         .catch(error => {
           console.log(error);
           setProcessing(false);
+          setProcessFailed(true);
         });
     }
     // setProcessing(false)
@@ -108,7 +111,7 @@ const Main = () => {
         View PDF
         <span className='float-end'>
           <button
-            className={`btn ${processCompleted ? 'btn-success' : 'btn-outline-secondary'} mx-2`}
+            className={`btn ${processCompleted ? 'btn-success' : processFailed ? 'btn-danger' : 'btn-outline-secondary'} mx-2`}
             onClick={processPDF}
             disabled={processing}
           >
@@ -122,6 +125,11 @@ const Main = () => {
                 <>
                   <span className="mr-2">&#10003;</span> {/* Check mark symbol */}
             Process Completed
+          </>
+              ) : processFailed ? (
+                <>
+                  <span className="mr-2">&#10060;</span> {/* Cross mark symbol */}
+            Process Failed
           </>
               ) : (
                 'Process PDF'
