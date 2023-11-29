@@ -24,6 +24,7 @@ const Main = () => {
   const [notes, setNotes] = useState<INote[]>([]);
   const [processing, setProcessing] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [processCompleted, setProcessCompleted] = useState(false);
 
   const server = 'https://ml-spec-highlight-6d271575d3c3.herokuapp.com';
 
@@ -43,6 +44,7 @@ const Main = () => {
           console.log('response = ', response);
           setNotes(ConvertNoteObject(response.data));
           setProcessing(false);
+          setProcessCompleted(true);
         })
         .catch(error => {
           console.log(error);
@@ -105,14 +107,27 @@ const Main = () => {
       <h5 className='py-3'>
         View PDF
         <span className='float-end'>
-          <button className='btn btn-outline-secondary mx-2' onClick={processPDF} disabled={processing}>{processing ? (
-            <>
-              <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-              <span className="sr-only"> Processing...</span>
-            </>
-          ) : (
-            'Process PDF'
-          )}</button>
+          <button
+            className={`btn ${processCompleted ? 'btn-success' : 'btn-outline-secondary'} mx-2`}
+            onClick={processPDF}
+            disabled={processing}
+          >
+            {processing ? (
+              <>
+                <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                <span className="sr-only"> Processing...</span>
+              </>
+            ) : (
+              processCompleted ? (
+                <>
+                  <span className="mr-2">&#10003;</span> {/* Check mark symbol */}
+            Process Completed
+          </>
+              ) : (
+                'Process PDF'
+              )
+            )}
+          </button>
           <button
             className='btn btn-outline-secondary'
             onClick={savePDF}
