@@ -27,7 +27,7 @@ const Main = () => {
   const [processCompleted, setProcessCompleted] = useState(false);
   const [processFailed, setProcessFailed] = useState(false);
 
-  const server = 'https://ml-spec-highlight-6d271575d3c3.herokuapp.com';
+  const server = 'https://tk64sfyklbku3h6cviltbs7xde0vxdqm.lambda-url.us-east-1.on.aws';
 
   const processPDF = () => {
     setProcessing(true);
