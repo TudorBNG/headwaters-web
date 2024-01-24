@@ -17,12 +17,15 @@ export interface INote {
   quote: string;
   highlightAreas: HighlightArea[];
   label?: string;
+  rating?: number;
 }
 
 const Main = () => {
   const [pdfFile, setPdfFile] = useState(null);
   const [file, setFile] = useState(null);
   const [notes, setNotes] = useState<INote[]>([]);
+  const [initialNotes, setInitialNotes] = useState<INote[]>([]);
+  const [labels, setLabels] = useState<string[]>([]);
   const [processing, setProcessing] = useState(false);
   const [saving, setSaving] = useState(false);
   const [processCompleted, setProcessCompleted] = useState(false);
@@ -44,7 +47,10 @@ const Main = () => {
       })
         .then(response => {
           console.log('response = ', response);
-          setNotes(ConvertNoteObject(response.data));
+          const {notes: convertedNotes, labels: notesLabels} = ConvertNoteObject(response.data);
+          setInitialNotes(convertedNotes);
+          setNotes(convertedNotes);
+          setLabels(notesLabels);
           setProcessing(false);
           setProcessCompleted(true);
           setProcessFailed(false);
@@ -156,7 +162,7 @@ const Main = () => {
         {/* render this if we have a pdf file */}
         {pdfFile && (
           <Worker workerUrl="/pdf.worker.min.js">
-            <HighlightExample fileUrl={pdfFile} notes={notes} setNotes={setNotes}></HighlightExample>
+            <HighlightExample fileUrl={pdfFile} notes={notes} setNotes={setNotes} initialNotes={initialNotes} setInitialNotes={setInitialNotes} labels={labels}></HighlightExample>
           </Worker>
         )}
 
