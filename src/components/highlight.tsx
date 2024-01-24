@@ -23,25 +23,51 @@ import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 
 import { INote } from "../pages";
 
+import { useCallback } from "react";
+
 interface HighlightExampleProps {
     fileUrl: string;
+    initialNotes: INote[];
+    setInitialNotes: Function;
     notes: INote[];
-    setNotes: Function
+    setNotes: Function;
+    labels: string[];
 }
 
 
 
-const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, setNotes }) => {
+const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, setInitialNotes, notes, setNotes, labels = [] }) => {
     const [message, setMessage] = useState("");
     const [selectedId, setSelectedId] = useState(-1);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [menuPosition, setMenuPosition] = useState({ x: 0, y: 0 });
+    const [currentFilter, setCurrentFilter] = useState<string>('All');
 
     const noteEles: Map<number, HTMLElement> = new Map();
     const notesContainerRef = useRef<HTMLDivElement | null>(null);
     const [currentDoc, setCurrentDoc] = useState<PdfJs.PdfDocument | null>(null);
 
     let noteId = notes.length;
+
+    const filterNotes = useCallback((filter: string) => {
+        switch (filter) {
+            case 'All':
+                setNotes([...initialNotes]);
+                break;
+            case 'Liked':
+                setNotes([...initialNotes.filter(note => note.rating === 1)]);
+                break;
+            case 'Disliked':
+                setNotes([...initialNotes.filter(note => note.rating === -1)]);
+                break;
+            default:
+                setNotes([...initialNotes].filter((note) => note.label === filter));
+                break;
+        }
+
+        setCurrentFilter(filter);
+    }, [initialNotes, setNotes])
+
     const renderToolbar = (Toolbar: (props: ToolbarProps) => ReactElement) => (
         <Toolbar>
             {(props: ToolbarSlot) => {
@@ -72,6 +98,27 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, notes, set
                         <div style={{ padding: '0px 2px' }}>
                             <ZoomIn />
                         </div>
+
+                        {labels.length && (
+                            <div>
+                                <select 
+                                name="filter" 
+                                value={currentFilter}
+                                onChange={(event) => filterNotes(event.target.value)}
+                                className='filter-dropdown'
+                                >
+                                    <option value={'All'} key={labels.length}>{'All'}</option>
+                                    {labels.map((label, index) => (
+                                            <option value={label} key={index}>{label}</option>
+                                        )
+                                    )}
+                                    <option value={'Liked'} key={labels.length + 1}>{'Liked'}</option>
+                                    <option value={'Disliked'} key={labels.length + 2}>{'Disliked'}</option>
+                                </select>
+                            </div>
+                            )
+                        }
+
                         <div style={{ padding: '0px 2px', marginLeft: 'auto' }}>
                             <GoToPreviousPage />
                         </div>
