@@ -16,6 +16,7 @@ export interface INote {
   content: string;
   quote: string;
   highlightAreas: HighlightArea[];
+  label?: string;
 }
 
 const Main = () => {
