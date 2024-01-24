@@ -1,4 +1,5 @@
 import { INote } from "../pages";
+import * as mockData from './mock-data-with-labels.json'
 
 export const ConvertNoteObject = (data: any) => {
   const height = 11.7;
@@ -7,6 +8,7 @@ export const ConvertNoteObject = (data: any) => {
 
   interface IObject {
     [key: string]: {
+	  label: string,
       'page num': number,
       quads: number[],
       score: number,
@@ -15,7 +17,11 @@ export const ConvertNoteObject = (data: any) => {
     }
   }
 
-  const jsonData = JSON.parse(data);
+  const labels = [];
+  
+  //replace with: const jsonData = JSON.parse(data); once BE returns labels
+  const jsonData = mockData; 
+
   const myObj: IObject = {};
   const notes: INote[] = [];
 
@@ -23,6 +29,7 @@ export const ConvertNoteObject = (data: any) => {
     Object.keys(jsonData[key1]).map((key2: string) => {
       if (!myObj[key2]) {
         myObj[key2] = {
+		  label: '',
           'page num': -1,
           quads: [],
           score: -1,
@@ -51,14 +58,17 @@ export const ConvertNoteObject = (data: any) => {
         top: 106.6 * (y0 / unit) / height,
       }
 
+	  labels.push(myObj[key]['label'])
+
       notes.push({
         id: index,
         content: '',
         quote: myObj[key]['text'],
-        highlightAreas: [highlightAreas]
+        highlightAreas: [highlightAreas],
+		label: myObj[key]['label']
       })
     }
   })
 
-  return notes;
+  return {notes, labels: [...new Set(labels)]};
 }
