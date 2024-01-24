@@ -23,6 +23,9 @@ import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 
 import { INote } from "../pages";
 
+import {Button as IconButton} from 'antd'
+
+import { DislikeTwoTone, LikeTwoTone } from "@ant-design/icons";
 import { useCallback } from "react";
 
 interface HighlightExampleProps {
@@ -258,6 +261,17 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
         );
     };
 
+    const noteRating = ({rating, noteId}) => {
+        console.log(rating === -1 ? 'Disliked': 'Liked', 'id', noteId);
+
+        setNotes([...notes?.map(note => note.id === noteId ? {...note, rating } : note)]);
+        setInitialNotes([...initialNotes?.map(note => note.id === noteId ? {...note, rating } : note)]);
+    }
+
+    useEffect(()=>{
+        filterNotes(currentFilter)
+    }, [initialNotes, currentFilter, filterNotes])
+
     const renderHighlights = (props: RenderHighlightsProps) => (
         <div>
             {notes.map((note) => (
@@ -266,19 +280,25 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
                         .filter((area) => area.pageIndex === props.pageIndex)
                         .map((area, idx) => (
                             <div
+                                className="highlight-container"
                                 key={idx}
                                 style={Object.assign(
                                     {},
                                     {
                                         background: "yellow",
                                         opacity: 0.4,
-                                        // zIndex: 100,
+                                        zIndex: 100,
                                         // cursor: 'pointer'
                                     },
                                     props.getCssProperties(area, props.rotation)
                                 )}
                                 onClick={() => jumpToNote(note)}
-                            />
+                            >
+                                <div className={`buttons-container ${!note.rating ? 'buttons-container-display' : ''}`}>
+                                    <IconButton className={`icon-button ${note.rating === -1 ? 'icon-button-red' : ''}`} icon={<DislikeTwoTone className="button-icon" twoToneColor={'#ff0000'} />} onClick={() => noteRating({rating: -1, noteId: note.id})} />
+                                    <IconButton className={`icon-button ${note.rating === 1 ? 'icon-button-green' : ''}`} icon={<LikeTwoTone className="button-icon" twoToneColor={'#00b00c'} />} onClick={() => noteRating({rating: 1, noteId: note.id})} />
+                                </div>
+                            </div>
                         ))}
                 </React.Fragment>
             ))}
@@ -288,7 +308,7 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
     const highlightPluginInstance = highlightPlugin({
         renderHighlightTarget,
         renderHighlightContent,
-        renderHighlights
+        renderHighlights,
     });
 
     const { jumpToHighlightArea } = highlightPluginInstance;
