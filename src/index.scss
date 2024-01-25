@@ -109,11 +109,32 @@ span {
   }
 }
 
-.filter-dropdown{
+.filter-dropdown {
   height: 25px;
   border-radius: 10px;
   padding-left: 10px;
   padding-right: 5px;
+}
+
+.highlight-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &-title {
+    width: 100%;
+  }
+
+  &-dropdown {
+    display: flex;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    width: 100%;
+  }
+
+  &-textarea {
+    border: 1px solid rgba(0, 0, 0, .3);
+  }
 }
 
 .highlight-container {
