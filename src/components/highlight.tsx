@@ -264,13 +264,12 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
     const noteRating = ({rating, noteId}) => {
         console.log(rating === -1 ? 'Disliked': 'Liked', 'id', noteId);
 
-        setNotes([...notes?.map(note => note.id === noteId ? {...note, rating } : note)]);
         setInitialNotes([...initialNotes?.map(note => note.id === noteId ? {...note, rating } : note)]);
     }
 
     useEffect(()=>{
         filterNotes(currentFilter)
-    }, [initialNotes, currentFilter, filterNotes])
+    }, [initialNotes])
 
     const renderHighlights = (props: RenderHighlightsProps) => (
         <div>
