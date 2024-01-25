@@ -49,8 +49,9 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
     const noteEles: Map<number, HTMLElement> = new Map();
     const notesContainerRef = useRef<HTMLDivElement | null>(null);
     const [currentDoc, setCurrentDoc] = useState<PdfJs.PdfDocument | null>(null);
+    const [highlightLabel, setHighlightLabel] = useState(labels[0] || '');
 
-    let noteId = notes.length;
+    let noteId = initialNotes.length;
 
     const filterNotes = useCallback((filter: string) => {
         switch (filter) {
@@ -182,7 +183,7 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
                 left: `${props.selectionRegion.left}%`,
                 top: `${props.selectionRegion.top + props.selectionRegion.height}%`,
                 transform: "translate(0, 8px)",
-                zIndex: 1
+                zIndex: 120
             }}
         >
             <Tooltip
@@ -199,15 +200,18 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
     );
 
     const renderHighlightContent = (props: RenderHighlightContentProps) => {
+
         const addNote = () => {
             if (message !== "") {
                 const note: INote = {
                     id: ++noteId,
                     content: message,
                     highlightAreas: props.highlightAreas,
-                    quote: props.selectedText
+                    quote: props.selectedText,
+                    label: highlightLabel,
                 };
-                setNotes(notes.concat([note]));
+                setHighlightLabel(labels[0]);
+                setInitialNotes(initialNotes.concat([note]));
                 props.cancel();
             }
         };
@@ -222,27 +226,39 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
                     position: "absolute",
                     left: `${props.selectionRegion.left}%`,
                     top: `${props.selectionRegion.top + props.selectionRegion.height}%`,
-                    zIndex: 1
+                    zIndex: 121
                 }}
             >
-                <div>
+                <div className={"highlight-modal"}>
+                    <span className={"highlight-modal-title"}>Choose a label: </span>
+                    <select 
+                    name="label" 
+                    value={highlightLabel}
+                    onChange={(event) => setHighlightLabel(event.target.value)}
+                    className={'filter-dropdown highlight-modal-dropdown'}
+                    >
+                        {labels.map((label, index) => (
+                                <option value={label} key={index}>{label}</option>
+                            )
+                        )}
+                    </select>
+                    <span className={"highlight-modal-title"}>Add description: </span>
                     <textarea
                         rows={3}
-                        style={{
-                            border: "1px solid rgba(0, 0, 0, .3)"
-                        }}
+                        className={"highlight-modal-textarea"}
                         onChange={(e) => setMessage(e.target.value)}
                     ></textarea>
                 </div>
                 <div
                     style={{
                         display: "flex",
-                        marginTop: "8px"
+                        marginTop: "8px",
+                        justifyContent: 'space-between'
                     }}
                 >
-                    <div style={{ marginRight: "8px" }}>
-                        <PrimaryButton onClick={addNote}>Add</PrimaryButton>
-                    </div>
+  
+                    <PrimaryButton onClick={addNote}>Add</PrimaryButton>
+  
                     <Button onClick={props.cancel}>Cancel</Button>
                 </div>
             </div>
@@ -270,6 +286,10 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
     useEffect(()=>{
         filterNotes(currentFilter)
     }, [initialNotes])
+
+    useEffect(() => {
+        setHighlightLabel(labels[0])
+    }, [labels])
 
     const renderHighlights = (props: RenderHighlightsProps) => (
         <div>
@@ -345,7 +365,7 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
         console.log('delete = ', id);
         if (id !== -1) {
             setSelectedId(-1);
-            setNotes([...notes].filter((note) => { return note.id !== id }));
+            setInitialNotes([...initialNotes].filter((note) => { return note.id !== id }));
             setIsMenuOpen(false);
         }
     }
