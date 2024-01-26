@@ -48,6 +48,8 @@ const Main = () => {
         .then(response => {
           console.log('response = ', response);
           const {notes: convertedNotes, labels: notesLabels} = ConvertNoteObject(response.data);
+          notesLabels.push(notesLabels.splice(notesLabels.indexOf('None'), 1)[0])
+
           setInitialNotes(convertedNotes);
           setNotes(convertedNotes);
           setLabels(notesLabels);
