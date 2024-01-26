@@ -50,6 +50,7 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
     const notesContainerRef = useRef<HTMLDivElement | null>(null);
     const [currentDoc, setCurrentDoc] = useState<PdfJs.PdfDocument | null>(null);
     const [highlightLabel, setHighlightLabel] = useState(labels[0] || '');
+    const [showCommentInput, setShowCommentInput] = useState<boolean>(false);
 
     let noteId = initialNotes.length;
 
@@ -202,18 +203,18 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
     const renderHighlightContent = (props: RenderHighlightContentProps) => {
 
         const addNote = () => {
-            if (message !== "") {
-                const note: INote = {
-                    id: ++noteId,
-                    content: message,
-                    highlightAreas: props.highlightAreas,
-                    quote: props.selectedText,
-                    label: highlightLabel,
-                };
-                setHighlightLabel(labels[0]);
-                setInitialNotes(initialNotes.concat([note]));
-                props.cancel();
-            }
+            const note: INote = {
+                id: ++noteId,
+                content: message,
+                highlightAreas: props.highlightAreas,
+                quote: props.selectedText,
+                label: highlightLabel,
+            };
+
+            setHighlightLabel(labels[0]);
+            setInitialNotes(initialNotes.concat([note]));
+            setShowCommentInput(false);
+            props.cancel();
         };
 
         return (
@@ -242,12 +243,21 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
                             )
                         )}
                     </select>
-                    <span className={"highlight-modal-title"}>Add description: </span>
-                    <textarea
-                        rows={3}
-                        className={"highlight-modal-textarea"}
-                        onChange={(e) => setMessage(e.target.value)}
-                    ></textarea>
+                    <span className={"highlight-modal-title"}>
+                        <input type={"checkbox"} className={"highlight-modal-checkbox"} checked={showCommentInput} onChange={() => setShowCommentInput(!showCommentInput)} />
+                        Add a comment
+                    </span>
+                    {showCommentInput && (
+                        <>
+                            <span className={"highlight-modal-title"}>Write a comment: </span>
+                            <textarea
+                                rows={3}
+                                className={"highlight-modal-textarea"}
+                                onChange={(e) => setMessage(e.target.value)}
+                            ></textarea>
+                        </>
+                        )
+                    }
                 </div>
                 <div
                     style={{
