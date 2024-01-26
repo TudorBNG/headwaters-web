@@ -59,12 +59,6 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
             case 'All':
                 setNotes([...initialNotes]);
                 break;
-            case 'Liked':
-                setNotes([...initialNotes.filter(note => note.rating === 1)]);
-                break;
-            case 'Disliked':
-                setNotes([...initialNotes.filter(note => note.rating === -1)]);
-                break;
             default:
                 setNotes([...initialNotes].filter((note) => note.label === filter));
                 break;
@@ -113,8 +107,6 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
                                 className='filter-dropdown'
                                 >
                                     <option value={'All'} key={labels.length}>{'All'}</option>
-                                    <option value={'Liked'} key={labels.length + 1}>{'Liked'}</option>
-                                    <option value={'Disliked'} key={labels.length + 2}>{'Disliked'}</option>
                                     {labels.map((label, index) => (
                                             <option value={label} key={index}>{label}</option>
                                         )
