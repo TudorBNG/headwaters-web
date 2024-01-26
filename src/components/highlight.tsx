@@ -314,8 +314,24 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
                                 onClick={() => jumpToNote(note)}
                             >
                                 <div className={`buttons-container ${!note.rating ? 'buttons-container-display' : ''}`}>
-                                    <IconButton className={`icon-button ${note.rating === -1 ? 'icon-button-red' : ''}`} icon={<DislikeTwoTone className="button-icon" twoToneColor={'#ff0000'} />} onClick={() => noteRating({rating: -1, noteId: note.id})} />
-                                    <IconButton className={`icon-button ${note.rating === 1 ? 'icon-button-green' : ''}`} icon={<LikeTwoTone className="button-icon" twoToneColor={'#00b00c'} />} onClick={() => noteRating({rating: 1, noteId: note.id})} />
+                                    <IconButton
+                                        className={`icon-button ${note.rating === -1 ? 'icon-button-red' : ''}`}
+                                        icon={<DislikeTwoTone className="button-icon" twoToneColor={'#ff0000'} />}
+                                        onClick={(event) => {
+                                                event.stopPropagation();
+                                                noteRating({rating: -1, noteId: note.id});
+                                            }
+                                        }
+                                    />
+                                    <IconButton
+                                        className={`icon-button ${note.rating === 1 ? 'icon-button-green' : ''}`}
+                                        icon={<LikeTwoTone className="button-icon" twoToneColor={'#00b00c'} />}
+                                        onClick={(event) => {
+                                                event.stopPropagation();
+                                                noteRating({rating: 1, noteId: note.id});
+                                            }
+                                        }
+                                    />
                                 </div>
                             </div>
                         ))}
