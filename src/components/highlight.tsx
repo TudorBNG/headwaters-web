@@ -306,8 +306,7 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
                                 style={Object.assign(
                                     {},
                                     {
-                                        background: "yellow",
-                                        opacity: 0.4,
+                                        backgroundColor: "rgba(255, 255, 0, 0.396)",
                                         zIndex: 100,
                                         // cursor: 'pointer'
                                     },
@@ -425,7 +424,7 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
                         }}
                     >
                         <div className="note-content" onClick={(e) => { handleNoteClick(e, note.highlightAreas[0]) }}>
-                            <div>
+                            <div className={"note-content-body"}>
                                 <blockquote
                                     style={{
                                         borderLeft: "2px solid rgba(0, 0, 0, 0.2)",
@@ -439,6 +438,26 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
                                     {note.quote}
                                 </blockquote>
                                 {note.content}
+                                <div className={`summary-rating-buttons-container ${!note.rating ? 'summary-rating-buttons-display' : ''}`}>
+                                    <IconButton
+                                        className={`icon-button ${note.rating === -1 ? 'icon-button-red' : ''}`}
+                                        icon={<DislikeTwoTone className="button-icon" twoToneColor={'#ff0000'} />}
+                                        onClick={(event) => {
+                                                event.stopPropagation();
+                                                noteRating({rating: -1, noteId: note.id});
+                                            }
+                                        }
+                                    />
+                                    <IconButton
+                                        className={`icon-button ${note.rating === 1 ? 'icon-button-green' : ''}`}
+                                        icon={<LikeTwoTone className="button-icon" twoToneColor={'#00b00c'} />}
+                                        onClick={(event) => {
+                                                event.stopPropagation();
+                                                noteRating({rating: 1, noteId: note.id});
+                                            }
+                                        }
+                                    />
+                                </div>
                             </div>
                         </div>
 
