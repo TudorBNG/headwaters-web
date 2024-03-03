@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 interface IProps {
   setPdfFile: Function
   setFile: Function
+  setInitialNotes: Function
+  inputRef: any
 }
 
 const FileUploadForm = (props: IProps) => {
@@ -14,7 +16,6 @@ const FileUploadForm = (props: IProps) => {
 
   const handleFile = (e: any) => {
     let selectedFile = e.target.files[0];
-    // console.log(selectedFile.type);
     if (selectedFile) {
       if (selectedFile && allowedFiles.includes(selectedFile.type)) {
         props.setFile(selectedFile);
@@ -25,6 +26,7 @@ const FileUploadForm = (props: IProps) => {
           setPdfError('');
           props.setPdfFile(e.target.result);
         };
+        props.setInitialNotes([]);
       } else {
         setPdfError("Not a valid pdf: Please select only PDF");
         props.setPdfFile(null);
@@ -39,6 +41,7 @@ const FileUploadForm = (props: IProps) => {
       <label><h5>Upload PDF</h5></label>
       <br></br>
       <input
+        ref={props.inputRef}
         type="file"
         className="form-control"
         onChange={handleFile}

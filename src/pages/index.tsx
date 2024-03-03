@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import axios from 'axios';
 import { Worker } from "@react-pdf-viewer/core";
@@ -10,6 +10,7 @@ import FileUploadForm from '../components/fileUploadForm';
 import HighlightExample from "../components/highlight";
 
 import { ConvertNoteObject } from '../utils';
+import FileDropdown from '../components/fileDropdown';
 
 export interface INote {
   id: number;
@@ -17,7 +18,6 @@ export interface INote {
   quote: string;
   highlightAreas: HighlightArea[];
   label?: string;
-  rating?: number;
 }
 
 const Main = () => {
@@ -28,10 +28,72 @@ const Main = () => {
   const [labels, setLabels] = useState<string[]>([]);
   const [processing, setProcessing] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [savingCurrentHighlights, setSavingCurrentHighlights] = useState(false);
+  const [fileIsLoading, setFileIsLoading] = useState(false);
   const [processCompleted, setProcessCompleted] = useState(false);
   const [processFailed, setProcessFailed] = useState(false);
+  const [files, setUserFiles] = useState([]);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const inputRef = useRef(null);
+
+  const dropdownRef = useRef(null);
+
+  const user = JSON.parse(localStorage.getItem('keystone-auth'))?.user;
 
   const server = 'https://tk64sfyklbku3h6cviltbs7xde0vxdqm.lambda-url.us-east-1.on.aws';
+
+  const getUserLibrary = async () => {
+    await axios.get(`${server}/api/get_user_library?user=${user}`)
+      .then(responseFiles => setUserFiles(responseFiles.data))
+      .catch((error) => {
+        console.error('Error on receiving library ', error)
+      })
+  }
+
+  const getPdfFile = async ({ filename }: { filename: string }) => {
+    setFileIsLoading(true);
+    inputRef.current.value = null;
+    await fetch(`${server}/api/get_pdf_file?user=${user}&filename=${filename}`)
+      .then(response => response.blob())
+      .then((pdf) => {
+        const pdfFile = new File([pdf], filename)
+        setFile(pdfFile)
+
+        const pdfUrl = window.URL.createObjectURL(pdf);
+        setPdfFile(pdfUrl)
+      }).catch(error => {
+        console.error('Error on receiving the PDF ', error);
+        setFileIsLoading(false);
+      })
+
+    await axios.get(`${server}/api/get_pdf_highlights?user=${user}&filename=${filename}`)
+      .then(response => response.data)
+      .then(highlights => {
+        try {
+          const parsedHighlights = JSON.parse(highlights);
+
+          const extractedLabels = [...new Set<string>(parsedHighlights.map((highlight: { label: string }) => highlight?.label))]
+          extractedLabels.push(extractedLabels.splice(extractedLabels.indexOf('None'), 1)[0])
+
+          setInitialNotes(parsedHighlights);
+          setNotes(parsedHighlights);
+          setLabels(extractedLabels);
+          setFileIsLoading(false);
+        } catch (error) {
+          console.error('Error on parsing the highlights ', error);
+          setFileIsLoading(false);
+        }
+
+      }).catch(error => {
+        console.error('Error on receiving the highlights ', error);
+        setFileIsLoading(false);
+      })
+  }
+
+  useEffect(() => {
+    getUserLibrary();
+  }, [user])
 
   const processPDF = () => {
     setProcessing(true);
@@ -47,7 +109,7 @@ const Main = () => {
       })
         .then(response => {
           console.log('response = ', response);
-          const {notes: convertedNotes, labels: notesLabels} = ConvertNoteObject(response.data);
+          const { notes: convertedNotes, labels: notesLabels } = ConvertNoteObject(response.data);
           notesLabels.push(notesLabels.splice(notesLabels.indexOf('None'), 1)[0])
 
           setInitialNotes(convertedNotes);
@@ -63,7 +125,6 @@ const Main = () => {
           setProcessFailed(true);
         });
     }
-    // setProcessing(false)
   }
 
   const savePDF = () => {
@@ -107,14 +168,65 @@ const Main = () => {
     }
   }
 
+  const saveCurrentHighlights = async () => {
+    if (pdfFile) {
+      setSavingCurrentHighlights(true);
+
+      // Save Highlights to S3
+      const highlightsFormData = new FormData();
+      highlightsFormData.append('highlight', JSON.stringify(initialNotes));
+
+      await axios.post(`${server}/api/save_highlights?user=${user}&pdf_filename=${file?.name}`, highlightsFormData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          'Access-Control-Allow-Origin': '*',
+        },
+      })
+        .catch(error => {
+          console.error('Error on saving highlights ', error)
+          setSavingCurrentHighlights(false);
+        })
+
+      // Save PDF to S3
+      const pdfFormData = new FormData();
+      pdfFormData.append('file', file);
+
+      await axios.post(`${server}/api/save_pdf_s3?user=${user}&pdf_filename=${file?.name}`, pdfFormData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          'Access-Control-Allow-Origin': '*',
+        },
+      })
+        .then(() => {
+          setSavingCurrentHighlights(false);
+          getUserLibrary();
+        })
+        .catch(error => {
+          console.error('Error on saving pdf to S3 ', error)
+          setSavingCurrentHighlights(false);
+        })
+    }
+  }
+
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setDropdownOpen(false);
+    }
+  }
+
   useEffect(() => {
-    console.log('-------------------- Highlight Data ---------------------- ');
-    console.log(notes);
-  }, [notes])
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownRef]);
+
 
   return (
     <div className="container">
-      <FileUploadForm setPdfFile={setPdfFile} setFile={setFile} />
+      <FileUploadForm setPdfFile={setPdfFile} setFile={setFile} setInitialNotes={setInitialNotes} inputRef={inputRef} />
+
+      {!!files.length && <FileDropdown files={files} getPdfFile={getPdfFile} fileIsLoading={fileIsLoading} dropdownRef={dropdownRef} isOpen={dropdownOpen} setIsOpen={setDropdownOpen} />}
 
       <h5 className='py-3'>
         View PDF
@@ -133,13 +245,13 @@ const Main = () => {
               processCompleted ? (
                 <>
                   <span className="mr-2">&#10003;</span> {/* Check mark symbol */}
-            Process Completed
-          </>
+                  Process Completed
+                </>
               ) : processFailed ? (
                 <>
                   <span className="mr-2">&#10060;</span> {/* Cross mark symbol */}
-            Process Failed
-          </>
+                  Process Failed
+                </>
               ) : (
                 'Process PDF'
               )
@@ -158,7 +270,23 @@ const Main = () => {
             ) : (
               'Save PDF'
             )}
-          </button>        </span>
+          </button>
+          <button
+            className='btn btn-outline-secondary'
+            style={{ marginLeft: '8px' }}
+            onClick={saveCurrentHighlights}
+            disabled={savingCurrentHighlights}
+          >
+            {savingCurrentHighlights ? (
+              <>
+                <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                <span className="sr-only"> Saving...</span>
+              </>
+            ) : (
+              'Save Current Highlights'
+            )}
+          </button>
+        </span>
       </h5>
       <div className="viewer">
         {/* render this if we have a pdf file */}

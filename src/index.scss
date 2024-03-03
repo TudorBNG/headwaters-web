@@ -74,16 +74,6 @@ span {
     overflow: visible;
     width: 100%;
 
-    .summary-rating-buttons-display {
-      display: none !important;
-    }
-
-    &:hover {
-      .summary-rating-buttons-display {
-        display: flex !important;
-      }
-    }
-
     .note-content-body {
       width: 100%;
       height: 100%;
@@ -94,42 +84,6 @@ span {
         background-color: rgb(231, 231, 231);
         transition: all 0.2s ease-in-out;
       }
-    }
-
-    .summary-rating-buttons-container{
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-      padding: 5px 20%;
-
-      .icon-button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
-        opacity: 1;
-        z-index: 101;
-        border-radius: 20;
-        vertical-align: baseline;
-  
-        &:hover {
-          background-color: rgb(231, 231, 231);
-        }
-  
-        .button-icon {
-          margin: 0;
-          padding: 0;
-        }
-      }
-  
-      .icon-button-red {
-        background-color: #ff0000ca;
-      }
-  
-      .icon-button-green {
-        background-color: #00ff00;
-      }
-
     }
   }
 
@@ -192,52 +146,4 @@ span {
 .highlight-container {
   display: flex;
   align-items: center;
-
-  .buttons-container-display {
-    display: none !important;
-  }
-
-  &:hover {
-    .buttons-container-display {
-      display: flex !important;
-    }
-  }
-
-  .buttons-container {
-    position: absolute;
-    display: flex;
-    left: -70px;
-    width: 70px;
-    justify-content: space-between;
-    z-index: 120;
-    opacity: 1;
-
-    .icon-button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0;
-      opacity: 1;
-      z-index: 101;
-      border-radius: 20;
-      vertical-align: baseline;
-
-      &:hover {
-        background-color: rgb(231, 231, 231);
-      }
-
-      .button-icon {
-        margin: 0;
-        padding: 0;
-      }
-    }
-
-    .icon-button-red {
-      background-color: #ff0000ca;
-    }
-
-    .icon-button-green {
-      background-color: #00ff00;
-    }
-  }
 }

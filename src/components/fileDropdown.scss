@@ -1,0 +1,43 @@
+.file-dropdown {
+    width: 40%;
+
+    &-header {
+        width: 100%;
+        height: 40px;
+        border: 1px solid lightgray;
+        border-radius: 10px;    
+        background-color: darkgray;
+        font-weight: 600;
+    }
+
+    &-list {
+        border: 1px solid lightgray;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        background-color: darkgray;
+        margin-top: 2px;
+
+        &-item {
+            border: 0px;
+            background-color: darkgray;
+            height: 30px;
+            overflow: hidden;
+            
+            &:first-child {
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+            }
+
+            &:last-child {
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+            
+            &:hover {
+                background-color: lightgray;
+            }
+
+        }
+    }
+}

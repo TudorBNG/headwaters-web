@@ -23,9 +23,6 @@ import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 
 import { INote } from "../pages";
 
-import {Button as IconButton} from 'antd'
-
-import { DislikeTwoTone, LikeTwoTone } from "@ant-design/icons";
 import { useCallback } from "react";
 
 interface HighlightExampleProps {
@@ -100,20 +97,20 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
 
                         {labels.length && (
                             <div>
-                                <select 
-                                name="filter" 
-                                value={currentFilter}
-                                onChange={(event) => filterNotes(event.target.value)}
-                                className='filter-dropdown'
+                                <select
+                                    name="filter"
+                                    value={currentFilter}
+                                    onChange={(event) => filterNotes(event.target.value)}
+                                    className='filter-dropdown'
                                 >
                                     <option value={'All'} key={labels.length}>{'All'}</option>
                                     {labels.map((label, index) => (
-                                            <option value={label} key={index}>{label}</option>
-                                        )
+                                        <option value={label} key={index}>{label}</option>
+                                    )
                                     )}
                                 </select>
                             </div>
-                            )
+                        )
                         }
 
                         <div style={{ padding: '0px 2px', marginLeft: 'auto' }}>
@@ -162,7 +159,6 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
         setCurrentDoc(e.doc);
         if (currentDoc && currentDoc !== e.doc) {
             // User opens new document
-            setNotes([]);
         }
         activateTab(2);
     };
@@ -224,15 +220,15 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
             >
                 <div className={"highlight-modal"}>
                     <span className={"highlight-modal-title"}>Choose a label: </span>
-                    <select 
-                    name="label" 
-                    value={highlightLabel}
-                    onChange={(event) => setHighlightLabel(event.target.value)}
-                    className={'filter-dropdown highlight-modal-dropdown'}
+                    <select
+                        name="label"
+                        value={highlightLabel}
+                        onChange={(event) => setHighlightLabel(event.target.value)}
+                        className={'filter-dropdown highlight-modal-dropdown'}
                     >
                         {labels.map((label, index) => (
-                                <option value={label} key={index}>{label}</option>
-                            )
+                            <option value={label} key={index}>{label}</option>
+                        )
                         )}
                     </select>
                     <span className={"highlight-modal-title"}>
@@ -248,7 +244,7 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
                                 onChange={(e) => setMessage(e.target.value)}
                             ></textarea>
                         </>
-                        )
+                    )
                     }
                 </div>
                 <div
@@ -258,9 +254,9 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
                         justifyContent: 'space-between'
                     }}
                 >
-  
+
                     <PrimaryButton onClick={addNote}>Add</PrimaryButton>
-  
+
                     <Button onClick={props.cancel}>Cancel</Button>
                 </div>
             </div>
@@ -279,13 +275,7 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
         );
     };
 
-    const noteRating = ({rating, noteId}) => {
-        console.log(rating === -1 ? 'Disliked': 'Liked', 'id', noteId);
-
-        setInitialNotes([...initialNotes?.map(note => note.id === noteId ? {...note, rating } : note)]);
-    }
-
-    useEffect(()=>{
+    useEffect(() => {
         filterNotes(currentFilter)
     }, [initialNotes])
 
@@ -313,28 +303,7 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
                                     props.getCssProperties(area, props.rotation)
                                 )}
                                 onClick={() => jumpToNote(note)}
-                            >
-                                <div className={`buttons-container ${!note.rating ? 'buttons-container-display' : ''}`}>
-                                    <IconButton
-                                        className={`icon-button ${note.rating === -1 ? 'icon-button-red' : ''}`}
-                                        icon={<DislikeTwoTone className="button-icon" twoToneColor={'#ff0000'} />}
-                                        onClick={(event) => {
-                                                event.stopPropagation();
-                                                noteRating({rating: -1, noteId: note.id});
-                                            }
-                                        }
-                                    />
-                                    <IconButton
-                                        className={`icon-button ${note.rating === 1 ? 'icon-button-green' : ''}`}
-                                        icon={<LikeTwoTone className="button-icon" twoToneColor={'#00b00c'} />}
-                                        onClick={(event) => {
-                                                event.stopPropagation();
-                                                noteRating({rating: 1, noteId: note.id});
-                                            }
-                                        }
-                                    />
-                                </div>
-                            </div>
+                            />
                         ))}
                 </React.Fragment>
             ))}
@@ -438,26 +407,6 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
                                     {note.quote}
                                 </blockquote>
                                 {note.content}
-                                <div className={`summary-rating-buttons-container ${!note.rating ? 'summary-rating-buttons-display' : ''}`}>
-                                    <IconButton
-                                        className={`icon-button ${note.rating === -1 ? 'icon-button-red' : ''}`}
-                                        icon={<DislikeTwoTone className="button-icon" twoToneColor={'#ff0000'} />}
-                                        onClick={(event) => {
-                                                event.stopPropagation();
-                                                noteRating({rating: -1, noteId: note.id});
-                                            }
-                                        }
-                                    />
-                                    <IconButton
-                                        className={`icon-button ${note.rating === 1 ? 'icon-button-green' : ''}`}
-                                        icon={<LikeTwoTone className="button-icon" twoToneColor={'#00b00c'} />}
-                                        onClick={(event) => {
-                                                event.stopPropagation();
-                                                noteRating({rating: 1, noteId: note.id});
-                                            }
-                                        }
-                                    />
-                                </div>
                             </div>
                         </div>
 
