@@ -11,6 +11,7 @@ import HighlightExample from "../components/highlight";
 
 import { ConvertNoteObject } from '../utils';
 import FileDropdown from '../components/fileDropdown';
+import { uploadFileToPresignedUrl } from '../utils/pdfManager';
 
 export interface INote {
   id: number;
@@ -41,7 +42,7 @@ const Main = () => {
 
   const user = JSON.parse(localStorage.getItem('keystone-auth'))?.user;
 
-  const server = 'https://tk64sfyklbku3h6cviltbs7xde0vxdqm.lambda-url.us-east-1.on.aws';
+  const server = 'http://127.0.0.1:8000'; //'https://tk64sfyklbku3h6cviltbs7xde0vxdqm.lambda-url.us-east-1.on.aws';
 
   const getUserLibrary = async () => {
     await axios.get(`${server}/api/get_user_library?user=${user}`)
@@ -95,76 +96,84 @@ const Main = () => {
     getUserLibrary();
   }, [user])
 
-  const processPDF = () => {
+  const processPDF = async () => {
     setProcessing(true);
     if (pdfFile) {
-      const formData = new FormData();
-      formData.append('file', file);
-
-      axios.post(`${server}/api/highlight`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          'Access-Control-Allow-Origin': '*',
-        }
-      })
-        .then(response => {
-          console.log('response = ', response);
-          const { notes: convertedNotes, labels: notesLabels } = ConvertNoteObject(response.data);
-          notesLabels.push(notesLabels.splice(notesLabels.indexOf('None'), 1)[0])
-
-          setInitialNotes(convertedNotes);
-          setNotes(convertedNotes);
-          setLabels(notesLabels);
-          setProcessing(false);
-          setProcessCompleted(true);
-          setProcessFailed(false);
+      await uploadFileToPresignedUrl({ user, file, server }).then(() => {
+        axios.post(`${server}/api/highlight?user=${user}&filename=${file?.name}`, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            'Access-Control-Allow-Origin': '*',
+          }
         })
+          .then(response => {
+            const { notes: convertedNotes, labels: notesLabels } = ConvertNoteObject(response.data);
+            notesLabels.push(notesLabels.splice(notesLabels.indexOf('None'), 1)[0])
+
+            setInitialNotes(convertedNotes);
+            setNotes(convertedNotes);
+            setLabels(notesLabels);
+            setProcessing(false);
+            setProcessCompleted(true);
+            setProcessFailed(false);
+          })
+          .catch(error => {
+            console.log('Error on processing highlights ', error);
+            setProcessing(false);
+            setProcessFailed(true);
+          });
+
+      })
         .catch(error => {
-          console.log(error);
+          console.log('Error on uploading file to presigned url ', error);
           setProcessing(false);
           setProcessFailed(true);
         });
     }
   }
 
-  const savePDF = () => {
+  const savePDF = async () => {
     setSaving(true);
     if (pdfFile) {
       const formData = new FormData();
-      formData.append('file', file);
       formData.append('highlight', JSON.stringify(notes));
 
-      axios.post(`${server}/api/save_pdf`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          'Access-Control-Allow-Origin': '*',
-        },
-        responseType: 'blob'
-      })
-        .then(response => {
-          // Handle success
-          const file = new Blob(
-            [response.data],
-            { type: 'application/pdf' }
-          );
-          const fileURL = URL.createObjectURL(file);
+      await uploadFileToPresignedUrl({ user, file, server })
+        .then(() => axios.post(`${server}/api/save_pdf?user=${user}&filename=${file?.name}`, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            'Access-Control-Allow-Origin': '*',
+          },
+          responseType: 'blob'
+        })
+          .then(response => {
+            // Handle success
+            const file = new Blob(
+              [response.data],
+              { type: 'application/pdf' }
+            );
+            const fileURL = URL.createObjectURL(file);
 
-          const link = document.createElement('a');
-          link.href = fileURL;
-          link.setAttribute(
-            'download',
-            `highlight.pdf`,
-          );
+            const link = document.createElement('a');
+            link.href = fileURL;
+            link.setAttribute(
+              'download',
+              `highlight.pdf`,
+            );
 
-          document.body.appendChild(link);
-          link.click();
-          link.parentNode.removeChild(link);
+            document.body.appendChild(link);
+            link.click();
+            link.parentNode.removeChild(link);
+            setSaving(false);
+          })
+          .catch(error => {
+            console.log('Error on downloading the pdf ', error);
+            setSaving(false);
+          })
+        ).catch((error) => {
+          console.error('Error on uploading file to presigned url ', error);
           setSaving(false);
         })
-        .catch(error => {
-          console.log(error);
-          setSaving(false);
-        });
     }
   }
 
@@ -188,15 +197,7 @@ const Main = () => {
         })
 
       // Save PDF to S3
-      const pdfFormData = new FormData();
-      pdfFormData.append('file', file);
-
-      await axios.post(`${server}/api/save_pdf_s3?user=${user}&pdf_filename=${file?.name}`, pdfFormData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          'Access-Control-Allow-Origin': '*',
-        },
-      })
+      await uploadFileToPresignedUrl({ user, file, server })
         .then(() => {
           setSavingCurrentHighlights(false);
           getUserLibrary();
@@ -226,7 +227,7 @@ const Main = () => {
     <div className="container">
       <FileUploadForm setPdfFile={setPdfFile} setFile={setFile} setInitialNotes={setInitialNotes} inputRef={inputRef} />
 
-      {!!files.length && <FileDropdown files={files} getPdfFile={getPdfFile} fileIsLoading={fileIsLoading} dropdownRef={dropdownRef} isOpen={dropdownOpen} setIsOpen={setDropdownOpen} />}
+      {!!files.length && <FileDropdown files={files} getPdfFile={getPdfFile} fileIsLoading={fileIsLoading} dropdownRef={dropdownRef} isOpen={dropdownOpen} setIsOpen={setDropdownOpen} currentFilename={file?.name || ''} />}
 
       <h5 className='py-3'>
         View PDF

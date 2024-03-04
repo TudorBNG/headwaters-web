@@ -46,8 +46,8 @@ const Login = () => {
             <span className={'login-header'}>Keystone</span>
             <div className={'login-form'}>
                 <div className={'login-form-inputs'}>
-                    <input className={`login-form-username ${incorrectLoginAttempt && 'login-form-incorrect'}`} type={"text"} value={username} onChange={(event) => setUsername(event.target.value)} />
-                    <input className={`login-form-password ${incorrectLoginAttempt && 'login-form-incorrect'}`} type={"password"} value={password} onChange={(event) => setPassword(event.target.value)} />
+                    <input className={`login-form-username ${incorrectLoginAttempt && 'login-form-incorrect'}`} type={"text"} placeholder={"username"} value={username} onChange={(event) => setUsername(event.target.value)} />
+                    <input className={`login-form-password ${incorrectLoginAttempt && 'login-form-incorrect'}`} type={"password"} placeholder={"password"} value={password} onChange={(event) => setPassword(event.target.value)} />
                 </div>
                 <button className={'login-form-button'} onClick={triggerLogin}>Log in</button>
             </div>

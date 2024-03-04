@@ -8,9 +8,10 @@ interface FileDropdownInput {
     dropdownRef: MutableRefObject<any>;
     isOpen: boolean;
     setIsOpen: Function;
+    currentFilename: string;
 }
 
-const FileDropdown = ({ dropdownRef, files = [], getPdfFile, fileIsLoading = false, isOpen = false, setIsOpen }: FileDropdownInput) => {
+const FileDropdown = ({ dropdownRef, files = [], getPdfFile, fileIsLoading = false, isOpen = false, setIsOpen, currentFilename }: FileDropdownInput) => {
 
 
 
@@ -26,7 +27,7 @@ const FileDropdown = ({ dropdownRef, files = [], getPdfFile, fileIsLoading = fal
             {isOpen && (
                 <div className={'file-dropdown-list'}>
                     {files.map((filename, index) => (
-                        <button className={'file-dropdown-list-item'} key={index} onClick={() => triggerGetFile(filename)}>
+                        <button className={`file-dropdown-list-item ${filename === currentFilename && 'file-dropdown-list-item-selected'}`} key={index} onClick={() => triggerGetFile(filename)}>
                             {filename}
                         </button>
                     ))}
