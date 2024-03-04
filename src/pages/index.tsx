@@ -42,7 +42,7 @@ const Main = () => {
 
   const user = JSON.parse(localStorage.getItem('keystone-auth'))?.user;
 
-  const server = 'http://127.0.0.1:8000'; //'https://tk64sfyklbku3h6cviltbs7xde0vxdqm.lambda-url.us-east-1.on.aws';
+  const server = 'https://tk64sfyklbku3h6cviltbs7xde0vxdqm.lambda-url.us-east-1.on.aws';
 
   const getUserLibrary = async () => {
     await axios.get(`${server}/api/get_user_library?user=${user}`)
