@@ -6,12 +6,14 @@ import {
   HighlightArea,
 } from "@react-pdf-viewer/highlight";
 
-import FileUploadForm from '../components/fileUploadForm';
-import HighlightExample from "../components/highlight";
+import Highlights from "../../components/highlight";
 
-import { ConvertNoteObject } from '../utils';
-import FileDropdown from '../components/fileDropdown';
-import { uploadFileToPresignedUrl } from '../utils/pdfManager';
+import { ConvertNoteObject } from '../../utils';
+
+import { uploadFileToPresignedUrl } from '../../utils/pdfManager';
+import { useLocation } from 'react-router';
+
+import './main.scss'
 
 export interface INote {
   id: number;
@@ -33,28 +35,18 @@ const Main = () => {
   const [fileIsLoading, setFileIsLoading] = useState(false);
   const [processCompleted, setProcessCompleted] = useState(false);
   const [processFailed, setProcessFailed] = useState(false);
-  const [files, setUserFiles] = useState([]);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const inputRef = useRef(null);
+  const [selectedNote, setSelectedNote] = useState<INote>();
 
-  const dropdownRef = useRef(null);
+  const { state } = useLocation();
 
   const user = JSON.parse(localStorage.getItem('keystone-auth'))?.user;
 
   const server = 'https://tk64sfyklbku3h6cviltbs7xde0vxdqm.lambda-url.us-east-1.on.aws';
 
-  const getUserLibrary = async () => {
-    await axios.get(`${server}/api/get_user_library?user=${user}`)
-      .then(responseFiles => setUserFiles(responseFiles.data))
-      .catch((error) => {
-        console.error('Error on receiving library ', error)
-      })
-  }
-
   const getPdfFile = async ({ filename }: { filename: string }) => {
     setFileIsLoading(true);
-    inputRef.current.value = null;
+
     await fetch(`${server}/api/get_pdf_file?user=${user}&filename=${filename}`)
       .then(response => response.blob())
       .then((pdf) => {
@@ -72,6 +64,10 @@ const Main = () => {
       .then(response => response.data)
       .then(highlights => {
         try {
+          if (highlights?.message && highlights?.message === 'File not found in S3') {
+            setFileIsLoading(false);
+            return;
+          }
           const parsedHighlights = JSON.parse(highlights);
 
           const extractedLabels = [...new Set<string>(parsedHighlights.map((highlight: { label: string }) => highlight?.label))]
@@ -91,10 +87,6 @@ const Main = () => {
         setFileIsLoading(false);
       })
   }
-
-  useEffect(() => {
-    getUserLibrary();
-  }, [user])
 
   const processPDF = async () => {
     setProcessing(true);
@@ -200,7 +192,6 @@ const Main = () => {
       await uploadFileToPresignedUrl({ user, file, server })
         .then(() => {
           setSavingCurrentHighlights(false);
-          getUserLibrary();
         })
         .catch(error => {
           console.error('Error on saving pdf to S3 ', error)
@@ -209,26 +200,18 @@ const Main = () => {
     }
   }
 
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setDropdownOpen(false);
-    }
+  const deleteNote = (id: number) => {
+    setInitialNotes([...initialNotes].filter((note) => { return note.id !== id }));
+    setSelectedNote(null)
   }
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [dropdownRef]);
+    getPdfFile({ filename: state?.filename })
+  }, [state?.filename])
 
 
-  return (
+  return (<>
     <div className="container">
-      <FileUploadForm setPdfFile={setPdfFile} setFile={setFile} setInitialNotes={setInitialNotes} inputRef={inputRef} />
-
-      {!!files.length && <FileDropdown files={files} getPdfFile={getPdfFile} fileIsLoading={fileIsLoading} dropdownRef={dropdownRef} isOpen={dropdownOpen} setIsOpen={setDropdownOpen} currentFilename={file?.name || ''} />}
-
       <h5 className='py-3'>
         View PDF
         <span className='float-end'>
@@ -289,18 +272,34 @@ const Main = () => {
           </button>
         </span>
       </h5>
-      <div className="viewer">
-        {/* render this if we have a pdf file */}
-        {pdfFile && (
-          <Worker workerUrl="/pdf.worker.min.js">
-            <HighlightExample fileUrl={pdfFile} notes={notes} setNotes={setNotes} initialNotes={initialNotes} setInitialNotes={setInitialNotes} labels={labels}></HighlightExample>
-          </Worker>
-        )}
+      <div style={{ display: 'flex', width: '100%' }}>
+        <div className="viewer">
+          {/* render this if we have a pdf file */}
+          {pdfFile && (
+            <Worker workerUrl="/pdf.worker.min.js">
+              <Highlights fileUrl={pdfFile} notes={notes} setNotes={setNotes} initialNotes={initialNotes} setInitialNotes={setInitialNotes} labels={labels} setSelectedNote={setSelectedNote}></Highlights>
+            </Worker>
+          )}
 
-        {/* render this if we have pdfFile state null   */}
-        {!pdfFile && <>No file is selected yet</>}
+
+          {/* render this if we have pdfFile state null   */}
+          {!pdfFile && <>No file is selected yet</>}
+        </div>
+        {selectedNote && <div>
+          <div className={"highlights-notes-popup"}>
+            <div className={"notes-popup-body"}>
+              <span>Notes:</span>
+              <p>{selectedNote?.content}</p>
+            </div>
+            <div className={"notes-popup-buttons-container"}>
+              <button className={"notes-popup-button delete-button"} onClick={() => deleteNote(selectedNote.id)}>Remove</button>
+              <button className={"notes-popup-button cancel-button"} onClick={() => setSelectedNote(null)}>Cancel</button>
+            </div>
+          </div>
+        </div>}
       </div>
     </div>
+  </>
   )
 }
 

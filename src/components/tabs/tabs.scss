@@ -1,0 +1,17 @@
+.tabs-container {
+    display: flex;
+    flex: 1;
+    padding: 30px 0px;
+
+    .tab-button {
+        margin-right: 30px;
+        width: 150px;
+        height: 50px;
+        border-radius: 20px;
+        font-weight: 600;
+
+        &-selected {
+            background-color: darkgray;
+        }
+    }
+}

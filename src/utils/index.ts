@@ -1,4 +1,4 @@
-import { INote } from "../pages";
+import { INote } from "../pages/main/main";
 
 export const ConvertNoteObject = (data: any) => {
   const height = 11.7;
@@ -7,7 +7,7 @@ export const ConvertNoteObject = (data: any) => {
 
   interface IObject {
     [key: string]: {
-	  label: string,
+      label: string,
       'page num': number,
       quads: number[],
       score: number,
@@ -27,7 +27,7 @@ export const ConvertNoteObject = (data: any) => {
     Object.keys(jsonData[key1]).map((key2: string) => {
       if (!myObj[key2]) {
         myObj[key2] = {
-		      label: '',
+          label: '',
           'page num': -1,
           quads: [],
           score: -1,
@@ -56,17 +56,17 @@ export const ConvertNoteObject = (data: any) => {
         top: 106.6 * (y0 / unit) / height,
       }
 
-	    labels.push(myObj[key]['label'])
+      labels.push(myObj[key]['label'])
 
       notes.push({
         id: index,
         content: '',
         quote: myObj[key]['text'],
         highlightAreas: [highlightAreas],
-		    label: myObj[key]['label']
+        label: myObj[key]['label']
       })
     }
   })
 
-  return {notes, labels: [...new Set(labels)]};
+  return { notes, labels: [...new Set(labels)] };
 }

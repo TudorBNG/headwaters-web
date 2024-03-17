@@ -21,7 +21,7 @@ import {
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 
-import { INote } from "../pages";
+import { INote } from "../pages/main/main";
 
 import { useCallback } from "react";
 
@@ -32,11 +32,12 @@ interface HighlightExampleProps {
     notes: INote[];
     setNotes: Function;
     labels: string[];
+    setSelectedNote: Function;
 }
 
 
 
-const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, setInitialNotes, notes, setNotes, labels = [] }) => {
+const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, setInitialNotes, notes, setNotes, labels = [], setSelectedNote }) => {
     const [message, setMessage] = useState("");
     const [selectedId, setSelectedId] = useState(-1);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -69,12 +70,9 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
             {(props: ToolbarSlot) => {
                 const {
                     CurrentPageInput,
-                    Download,
-                    EnterFullScreen,
                     GoToNextPage,
                     GoToPreviousPage,
                     NumberOfPages,
-                    Print,
                     ShowSearchPopover,
                     Zoom,
                     ZoomIn,
@@ -125,15 +123,6 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
                         <div style={{ padding: '0px 2px' }}>
                             <GoToNextPage />
                         </div>
-                        {/* <div style={{ padding: '0px 2px', marginLeft: 'auto' }}>
-                            <EnterFullScreen />
-                        </div>
-                        <div style={{ padding: '0px 2px' }}>
-                            <Download />
-                        </div>
-                        <div style={{ padding: '0px 2px' }}>
-                            <Print />
-                        </div> */}
                     </>
                 );
             }}
@@ -303,6 +292,7 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
                                     props.getCssProperties(area, props.rotation)
                                 )}
                                 onClick={() => jumpToNote(note)}
+                                onDoubleClick={() => setSelectedNote(note)}
                             />
                         ))}
                 </React.Fragment>
@@ -320,11 +310,9 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
 
     const jumpToNote = (note: INote) => {
         activateTab(3);
-        const notesContainer = notesContainerRef.current;
-        if (noteEles.has(note.id) && notesContainer) {
-            notesContainer.scrollTop = noteEles
-                .get(note.id)
-                .getBoundingClientRect().top;
+
+        if (noteEles.has(note.id)) {
+            noteEles.get(note.id).scrollIntoView()
         }
     };
 
@@ -372,11 +360,7 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
     const sidebarNotes = (
         <div
             ref={notesContainerRef}
-            style={{
-                overflow: "auto",
-                width: "100%",
-                position: "relative"
-            }}
+            className={"notes-container"}
         >
             {notes.length === 0 && (
                 <div style={{ textAlign: "center" }}>There is no note</div>
@@ -406,7 +390,7 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
                                 >
                                     {note.quote}
                                 </blockquote>
-                                {note.content}
+                                {note?.content}
                             </div>
                         </div>
 
@@ -426,20 +410,18 @@ const HighlightExample: React.FC<HighlightExampleProps> = ({ fileUrl, initialNot
         };
     }, []);
 
-    return (
-        // <div
-        //   style={{
-        //     height: "100%"
-        //   }}
-        // >
+    return (<>
+
         <Viewer
             fileUrl={fileUrl}
             plugins={[highlightPluginInstance, defaultLayoutPluginInstance]}
             onDocumentLoad={handleDocumentLoad}
         // renderPage={renderPage}
         />
-        // </div > 
+
+
+    </>
     );
 };
 
-export default HighlightExample;
+export default Highlights;

@@ -1,0 +1,32 @@
+.job-container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 80px;
+    box-shadow: 2px 3px 2px rgb(160, 160, 160);
+    border-radius: 20px;
+    background-color: lightgray;
+
+    .tabs {
+        display: flex;
+        width: 100%;
+        border-bottom: 1px solid rgb(177, 177, 177);
+        padding: 0px 40px;
+    }
+
+    .body-container {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 30px 30px 0px 30px;
+    }
+
+    .action-container {
+        display: flex;
+        flex: 1;
+    }
+}

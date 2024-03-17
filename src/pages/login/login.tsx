@@ -19,7 +19,7 @@ const Login = () => {
         const authData = JSON.parse(rawAuthData);
 
         if (authData && authData?.user && authData?.timeToGo > moment().unix()) {
-            navigate('/keystone')
+            navigate('/job', { state: { tab: 0 } })
         }
 
     }, []);
@@ -35,7 +35,7 @@ const Login = () => {
             }
 
             localStorage.setItem('keystone-auth', JSON.stringify(authItem));
-            navigate('/keystone')
+            navigate('/job', { state: { tab: 0 } })
         } else {
             setIncorrectLoginAttempt(true);
         }

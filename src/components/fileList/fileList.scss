@@ -1,0 +1,94 @@
+.filelist-container {
+    display: flex;
+    flex: 1;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+
+    table {
+        display: flex;
+        flex: 1;
+        height: 100%;
+        background-color: white;
+        flex-direction: column;
+        border-radius: 20px;
+        border: 1px lightgray solid;
+
+        .tr-selected {
+            background-color: lightgray;
+            box-shadow: 5px 3px 3px rgb(160, 160, 160);
+        }
+
+        tr {
+            display: flex;
+            height: 40px;
+
+            &:first-of-type {
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+                background-color: white !important;
+
+                &:hover {
+                    cursor: auto;
+                }
+            }
+
+            &:last-of-type {
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
+            }
+
+            &:hover {
+                background-color: darkgray;
+                cursor: pointer;
+            }
+
+            th {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                border-bottom: 1px solid black;
+                border: 1px lightgray solid;
+                color: #686868;
+                font-size: 15px;
+            }
+
+            td {
+                display: flex;
+                border-left: 1px lightgray solid;
+                border-top: 1px lightgray solid;
+                justify-content: center;
+                align-items: center;
+                clear: both;
+                overflow: hidden;
+                white-space: nowrap;
+
+                span {
+                    display: flex;
+                    flex: 1;
+                    height: 100%;
+                    justify-content: flex-start;
+                    align-items: center;
+                    padding: 20px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+
+    .filelist-footer {
+        display: flex;
+        margin-top: 30px;
+        justify-content: flex-end;
+        align-items: center;
+        height: 100px;
+
+        .select-file-button {
+            width: 150px;
+            height: 40px;
+            border-radius: 15px;
+            font-weight: 600;
+        }
+    }
+}

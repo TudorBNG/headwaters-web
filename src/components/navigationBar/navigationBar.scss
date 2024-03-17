@@ -1,0 +1,29 @@
+.navigation-bar-container {
+    margin-bottom: 50px;
+}
+
+.navigation-bar {
+    display: flex;
+    flex: 1;
+    height: 70px;
+    background-color: #c2c2c2;
+    margin-bottom: 80px;
+    align-items: center;
+    padding: 0px 20px;
+    justify-content: space-between;
+
+    .logo {
+        height: 60px;
+        border-radius: 20px;
+        border: 1px solid;
+        cursor: pointer;
+    }
+
+    .upload-pdf-button {
+        width: 150px;
+        height: 40px;
+        border-radius: 15px;
+        font-weight: 600;
+    }
+
+}
