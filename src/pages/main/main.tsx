@@ -10,7 +10,7 @@ import Highlights from "../../components/highlight";
 
 import { ConvertNoteObject } from '../../utils';
 
-import { uploadFileToPresignedUrl } from '../../utils/pdfManager';
+import { getFileUsingPresignedUrl, uploadFileToPresignedUrl } from '../../utils/pdfManager';
 import { useLocation } from 'react-router';
 
 import './main.scss'
@@ -47,9 +47,10 @@ const Main = () => {
   const getPdfFile = async ({ filename }: { filename: string }) => {
     setFileIsLoading(true);
 
-    await fetch(`${server}/api/get_pdf_file?user=${user}&filename=${filename}`)
+    await getFileUsingPresignedUrl({ user, filename, server })
       .then(response => response.blob())
       .then((pdf) => {
+
         const pdfFile = new File([pdf], filename)
         setFile(pdfFile)
 
@@ -214,63 +215,70 @@ const Main = () => {
     <div className="container">
       <h5 className='py-3'>
         View PDF
-        <span className='float-end'>
-          <button
-            className={`btn ${processCompleted ? 'btn-success' : processFailed ? 'btn-danger' : 'btn-outline-secondary'} mx-2`}
-            onClick={processPDF}
-            disabled={processing}
-          >
-            {processing ? (
-              <>
-                <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                <span className="sr-only"> Processing...</span>
-              </>
-            ) : (
-              processCompleted ? (
+        <div className='main-buttons-container'>
+          <div className={"wrapper"}>
+            <div className={"tooltip"}>Analyses PDF and generates new highlights using AI</div>
+            <button
+              className={`btn ${processCompleted ? 'btn-success' : processFailed ? 'btn-danger' : 'btn-outline-secondary'} mx-2`}
+              onClick={processPDF}
+              disabled={processing}
+            >
+              {processing ? (
                 <>
-                  <span className="mr-2">&#10003;</span> {/* Check mark symbol */}
-                  Process Completed
-                </>
-              ) : processFailed ? (
-                <>
-                  <span className="mr-2">&#10060;</span> {/* Cross mark symbol */}
-                  Process Failed
+                  <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  <span className="sr-only"> Processing...</span>
                 </>
               ) : (
-                'Process PDF'
-              )
-            )}
-          </button>
-          <button
-            className='btn btn-outline-secondary'
-            onClick={savePDF}
-            disabled={saving}
-          >
-            {saving ? (
-              <>
-                <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                <span className="sr-only"> Saving...</span>
-              </>
-            ) : (
-              'Save PDF'
-            )}
-          </button>
-          <button
-            className='btn btn-outline-secondary'
-            style={{ marginLeft: '8px' }}
-            onClick={saveCurrentHighlights}
-            disabled={savingCurrentHighlights}
-          >
-            {savingCurrentHighlights ? (
-              <>
-                <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                <span className="sr-only"> Saving...</span>
-              </>
-            ) : (
-              'Save Current Highlights'
-            )}
-          </button>
-        </span>
+                processCompleted ? (
+                  <>
+                    <span className="mr-2">&#10003;</span> {/* Check mark symbol */}
+                    Process Completed
+                  </>
+                ) : processFailed ? (
+                  <>
+                    <span className="mr-2">&#10060;</span> {/* Cross mark symbol */}
+                    Process Failed
+                  </>
+                ) : (
+                  'Process PDF'
+                )
+              )}
+            </button>
+          </div>
+          <div className={"wrapper"}>
+            <button
+              className='btn btn-outline-secondary'
+              onClick={savePDF}
+              disabled={saving}
+            >
+              {saving ? (
+                <>
+                  <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  <span className="sr-only"> Saving...</span>
+                </>
+              ) : (
+                'Export to PDF'
+              )}
+            </button>
+          </div>
+          <div className={"wrapper"}>
+            <div className={"tooltip"}>Saves PDF and current highlights</div>
+            <button
+              className='btn btn-outline-secondary'
+              onClick={saveCurrentHighlights}
+              disabled={savingCurrentHighlights}
+            >
+              {savingCurrentHighlights ? (
+                <>
+                  <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  <span className="sr-only"> Saving...</span>
+                </>
+              ) : (
+                'Save PDF'
+              )}
+            </button>
+          </div>
+        </div>
       </h5>
       <div style={{ display: 'flex', width: '100%' }}>
         <div className="viewer">
@@ -298,7 +306,7 @@ const Main = () => {
           </div>
         </div>}
       </div>
-    </div>
+    </div >
   </>
   )
 }
