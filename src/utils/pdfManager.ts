@@ -29,9 +29,6 @@ export const getFileUsingPresignedUrl = async ({ user, filename, server }) => {
 
         return await fetch(response.data.url, {
           method: 'GET',
-          headers: {
-            'Content-Type': "application/pdf",
-          }
         }).catch((error) => {
           console.error('Error on loading file from presigned url');
           throw Error(error?.message)
