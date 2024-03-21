@@ -20,7 +20,7 @@ const NavigationBar = () => {
         <div className={'navigation-bar-container'}>
             <div className={'navigation-bar'}>
                 <img src={Logo} className={"logo"} onClick={() => handleNavigation()} />
-                <button className={"upload-pdf-button"} onClick={() => handleNavigation()} >Upload PDF</button>
+                <button className={"upload-pdf-button"} onClick={() => handleNavigation()}>Upload Specification</button>
             </div>
             <div>
                 <Outlet />
