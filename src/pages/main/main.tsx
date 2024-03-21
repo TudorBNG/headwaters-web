@@ -14,6 +14,7 @@ import { getFileUsingPresignedUrl, uploadFileToPresignedUrl } from '../../utils/
 import { useLocation } from 'react-router';
 
 import './main.scss'
+import Modal from '../../components/modal/modal';
 
 export interface INote {
   id: number;
@@ -38,6 +39,8 @@ const Main = () => {
 
   const [selectedNote, setSelectedNote] = useState<INote>();
   const [selectedNoteContent, setSelectedNoteContent] = useState('');
+
+  const [showModal, setShowModal] = useState(false);
 
   const { state } = useLocation();
 
@@ -208,9 +211,14 @@ const Main = () => {
     setSelectedNoteContent(null);
   }
 
-  const deleteNote = (id: number) => {
-    setInitialNotes([...initialNotes].filter((note) => { return note.id !== id }));
+  const triggerDeleteNote = () => {
+    setShowModal(true);
+  }
+
+  const deleteNote = () => {
+    setInitialNotes([...initialNotes].filter((note) => { return note.id !== selectedNote.id }));
     setSelectedNote(null)
+    setShowModal(false);
   }
 
   useEffect(() => {
@@ -318,13 +326,14 @@ const Main = () => {
             </div>
             <div className={"notes-popup-buttons-container"}>
               <button className={"notes-popup-button save-button"} onClick={() => saveNote()}>Save</button>
-              <button className={"notes-popup-button delete-button"} onClick={() => deleteNote(selectedNote.id)}>Remove</button>
+              <button className={"notes-popup-button delete-button"} onClick={() => triggerDeleteNote()}>Remove</button>
               <button className={"notes-popup-button cancel-button"} onClick={() => setSelectedNote(null)}>Cancel</button>
             </div>
           </div>
         </div>}
       </div>
     </div >
+    <Modal visible={showModal} setVisible={setShowModal} onDelete={deleteNote} />
   </>
   )
 }

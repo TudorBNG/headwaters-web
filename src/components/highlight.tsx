@@ -24,6 +24,7 @@ import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 import { INote } from "../pages/main/main";
 
 import { useCallback } from "react";
+import Modal from "./modal/modal";
 
 interface HighlightExampleProps {
     fileUrl: string;
@@ -49,6 +50,8 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
     const [currentDoc, setCurrentDoc] = useState<PdfJs.PdfDocument | null>(null);
     const [highlightLabel, setHighlightLabel] = useState(labels[0] || '');
     const [showCommentInput, setShowCommentInput] = useState<boolean>(false);
+
+    const [showModal, setShowModal] = useState(false);
 
     let noteId = initialNotes.length;
 
@@ -338,12 +341,18 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
         }
     }
 
-    const deleteNote = (id: number) => {
-        console.log('delete = ', id);
-        if (id !== -1) {
-            setSelectedId(-1);
-            setInitialNotes([...initialNotes].filter((note) => { return note.id !== id }));
+    const triggerDeleteNote = (id: number) => {
+        setSelectedId(id);
+        setShowModal(true);
+    }
+
+    const onDelete = () => {
+        if (selectedId !== -1) {
+            setInitialNotes([...initialNotes].filter((note) => { return note.id !== selectedId }));
             setIsMenuOpen(false);
+            setSelectedId(-1);
+            setShowModal(false);
+            setSelectedNote(null);
         }
     }
 
@@ -354,7 +363,7 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
                 style={{ top: y, left: x }}
             >
                 <ul>
-                    <li onClick={() => deleteNote(selectedId)}>Delete</li>
+                    <li onClick={() => triggerDeleteNote(selectedId)}>Delete</li>
                 </ul>
             </div>
         );
@@ -397,7 +406,7 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
                             </div>
                         </div>
 
-                        <div className="x-trash" onClick={() => { deleteNote(note.id) }}>
+                        <div className="x-trash" onClick={() => { triggerDeleteNote(note.id) }}>
                             <i className="bi bi-trash"></i>
                         </div>
                     </div>
@@ -420,10 +429,8 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
             fileUrl={fileUrl}
             plugins={[highlightPluginInstance, defaultLayoutPluginInstance]}
             onDocumentLoad={handleDocumentLoad}
-        // renderPage={renderPage}
         />
-
-
+        <Modal visible={showModal} setVisible={setShowModal} onDelete={onDelete} />
     </>
     );
 };
