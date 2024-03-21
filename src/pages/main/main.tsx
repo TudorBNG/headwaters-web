@@ -297,7 +297,7 @@ const Main = () => {
                   <span className="sr-only"> Saving...</span>
                 </>
               ) : (
-                'Save PDF'
+                'Save Highlights'
               )}
             </button>
           </div>
