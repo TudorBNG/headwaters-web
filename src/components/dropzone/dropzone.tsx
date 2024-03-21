@@ -18,7 +18,7 @@ const DragDrop = ({ droppedFile, setDroppedFile, handleOpenDroppedFile, loading 
             <div className={"dropzone-body"}>
                 <div {...getRootProps()} className={"dropzone"}>
                     <input {...getInputProps()} />
-                    <p style={{ backgroundColor: '#E6E6E6', padding: '10px', borderRadius: '20px' }}>Drag and drop files here or click to browse.</p>
+                    <p className={"dropzone-text"}>Drag and drop files here or click to browse.</p>
                 </div>
                 <aside>
                     {!!droppedFile && <h5>Uploaded file:

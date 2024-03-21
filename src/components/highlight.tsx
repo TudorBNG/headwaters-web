@@ -202,7 +202,7 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
                 style={{
                     background: "#fff",
                     border: "1px solid rgba(0, 0, 0, .3)",
-                    borderRadius: "2px",
+                    borderRadius: "4px",
                     padding: "8px",
                     position: "absolute",
                     left: `${props.selectionRegion.left}%`,

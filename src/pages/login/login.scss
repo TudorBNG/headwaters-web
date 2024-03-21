@@ -19,7 +19,7 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        border-radius: 25px;
+        border-radius: 4px;
         background-color: #E6E6E6;
 
         &-inputs {
@@ -32,14 +32,14 @@
 
         &-username {
             border: 0px;
-            border-radius: 20px;
+            border-radius: 4px;
             padding: 10px 30px;
             font-weight: 600;
         }
 
         &-password {
             border: 0px;
-            border-radius: 20px;
+            border-radius: 4px;
             padding: 10px 30px;
             font-weight: 600;
         }
@@ -51,7 +51,7 @@
         &-button {
             height: 40px;
             width: 300px;
-            border-radius: 20px;
+            border-radius: 4px;
             margin-top: 20px;
             display: flex;
             justify-content: center;
