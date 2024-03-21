@@ -206,8 +206,13 @@ const Main = () => {
     setSelectedNote(null)
   }
 
+  const triggerPdfProcessing = async ({ filename }) => {
+    await getPdfFile({ filename });
+    await processPDF();
+  }
+
   useEffect(() => {
-    getPdfFile({ filename: state?.filename })
+    triggerPdfProcessing({ filename: state?.filename })
   }, [state?.filename])
 
 
