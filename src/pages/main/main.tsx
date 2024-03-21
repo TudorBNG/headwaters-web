@@ -245,7 +245,7 @@ const Main = () => {
               )}
             </button>
           </div>
-          <div className={"wrapper"}>
+          {/* <div className={"wrapper"}>
             <button
               className='btn btn-outline-secondary'
               onClick={savePDF}
@@ -260,7 +260,7 @@ const Main = () => {
                 'Export to PDF'
               )}
             </button>
-          </div>
+          </div> */}
           <div className={"wrapper"}>
             <div className={"tooltip"}>Saves PDF and current highlights</div>
             <button
