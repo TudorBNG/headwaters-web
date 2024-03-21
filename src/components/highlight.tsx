@@ -291,7 +291,10 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
                                     },
                                     props.getCssProperties(area, props.rotation)
                                 )}
-                                onClick={() => jumpToNote(note)}
+                                onClick={() => {
+                                    jumpToNote(note)
+                                    setSelectedNote(note)
+                                }}
                                 onDoubleClick={() => setSelectedNote(note)}
                             />
                         ))}
@@ -325,13 +328,13 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
         setSelectedId(id);
     };
 
-    const handleNoteClick = (event: any, area: any) => {
+    const handleNoteClick = (event: any, area: any, note: INote) => {
         event.preventDefault();
-
         if (isMenuOpen) {
             setIsMenuOpen(false);
         } else {
             jumpToHighlightArea(area);
+            setSelectedNote(note);
         }
     }
 
@@ -376,7 +379,7 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
                             noteEles.set(note.id, ref as HTMLElement);
                         }}
                     >
-                        <div className="note-content" onClick={(e) => { handleNoteClick(e, note.highlightAreas[0]) }}>
+                        <div className="note-content" onClick={(e) => { handleNoteClick(e, note.highlightAreas[0], note) }}>
                             <div className={"note-content-body"}>
                                 <blockquote
                                     style={{
