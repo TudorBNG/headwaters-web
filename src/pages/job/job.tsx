@@ -20,6 +20,8 @@ const Job = () => {
     const [droppedFile, setDroppedFile] = useState<File>();
     const [fileList, setFileList] = useState([]);
 
+    const [loading, setLoading] = useState(false);
+
     const user = useMemo(() => {
         return JSON.parse(localStorage.getItem('keystone-auth'))?.user;
     }, [localStorage])
@@ -58,9 +60,13 @@ const Job = () => {
 
     const handleOpenDroppedFile = async () => {
         if (droppedFile) {
+            setLoading(true);
             await uploadFileToPresignedUrl({ user, file: droppedFile, server })
                 .then(() => {
                     navigate('/keystone', { state: { filename: droppedFile?.name || '' } })
+                    setLoading(false);
+                }).catch(() => {
+                    setLoading(false);
                 })
         }
     }
@@ -80,7 +86,7 @@ const Job = () => {
             <div className={"body-container"}>
                 {currentTab === 0 ?
                     <div className={"action-container"}>
-                        <DragDrop droppedFile={droppedFile} setDroppedFile={setDroppedFile} handleOpenDroppedFile={handleOpenDroppedFile} />
+                        <DragDrop droppedFile={droppedFile} setDroppedFile={setDroppedFile} handleOpenDroppedFile={handleOpenDroppedFile} loading={loading} />
                     </div>
                     :
                     <div className={"action-container"}>

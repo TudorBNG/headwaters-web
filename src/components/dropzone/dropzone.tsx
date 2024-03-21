@@ -3,7 +3,7 @@ import { useDropzone } from 'react-dropzone';
 
 import './dropzone.scss'
 
-const DragDrop = ({ droppedFile, setDroppedFile, handleOpenDroppedFile }) => {
+const DragDrop = ({ droppedFile, setDroppedFile, handleOpenDroppedFile, loading }) => {
 
     const { getRootProps, getInputProps } = useDropzone({
         maxFiles: 1,
@@ -30,7 +30,17 @@ const DragDrop = ({ droppedFile, setDroppedFile, handleOpenDroppedFile }) => {
                 </aside>
             </div>
             <div className={"dropzone-footer"}>
-                <button className={"process-file-button"} disabled={!droppedFile} onClick={handleOpenDroppedFile}>Open file</button>
+                <button className={"process-file-button"} disabled={!droppedFile || loading} onClick={handleOpenDroppedFile}>
+                    {
+                        loading ?
+                            <>
+                                <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                <span className="sr-only"> Loading...</span>
+                            </>
+                            :
+                            'Open file'
+                    }
+                </button>
             </div>
         </div>
     );
