@@ -240,7 +240,7 @@ const Main = () => {
                     Process Failed
                   </>
                 ) : (
-                  'Process PDF'
+                  'Process With AI'
                 )
               )}
             </button>
