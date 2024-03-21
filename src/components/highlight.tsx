@@ -413,6 +413,7 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
     return (<>
 
         <Viewer
+            defaultScale={1}
             fileUrl={fileUrl}
             plugins={[highlightPluginInstance, defaultLayoutPluginInstance]}
             onDocumentLoad={handleDocumentLoad}
