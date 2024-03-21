@@ -12,7 +12,7 @@
         background-color: white;
         flex-direction: column;
         border-radius: 20px;
-        border: 1px lightgray solid;
+        border: 1px #E6E6E6 solid;
 
         .tr-selected {
             background-color: lightgray;
@@ -48,16 +48,14 @@
                 justify-content: center;
                 align-items: center;
                 text-align: center;
-                border-bottom: 1px solid black;
-                border: 1px lightgray solid;
+                border: 1px #E6E6E6 solid;
                 color: #686868;
                 font-size: 15px;
             }
 
             td {
                 display: flex;
-                border-left: 1px lightgray solid;
-                border-top: 1px lightgray solid;
+                border: 1px #E6E6E6 solid;
                 justify-content: center;
                 align-items: center;
                 clear: both;

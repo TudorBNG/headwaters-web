@@ -5,7 +5,7 @@ form {
 }
 
 .viewer {
-  background-color: #e4e4e4;
+  background-color: inherit;
   display: flex;
   flex: 1;
   justify-content: center;
@@ -64,7 +64,7 @@ span {
   overflow: auto;
   width: 100%;
   position: relative;
-  background-color: #e7e6e6;
+  background-color: #E6E6E6;
 }
 
 .note-element {
@@ -86,7 +86,7 @@ span {
       width: 100%;
       height: 100%;
       padding: 8px;
-      background-color: #e7e6e6;
+      background-color: #E6E6E6;
 
       &:hover {
         background-color: rgb(231, 231, 231);
@@ -158,4 +158,12 @@ span {
 
 body {
   background-color: #FAFAFA;
+}
+
+.rpv-default-layout__toolbar {
+  background-color: #E6E6E6 !important;
+}
+
+.rpv-default-layout__sidebar-headers {
+  background-color: #E6E6E6 !important;
 }
