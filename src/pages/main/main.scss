@@ -21,6 +21,24 @@
         font-weight: 600;
         flex-direction: column;
         padding: 10px;
+
+        .notes-popup-preview {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        .notes-popup-textarea {
+            margin-top: 20px;
+            background-color: inherit;
+            border-radius: 15px;
+            padding: 20px;
+            font-size: 15px;
+            min-height: 250px;
+        }
     }
 
     .notes-popup-buttons-container {
@@ -34,7 +52,7 @@
     .notes-popup-button {
         display: flex;
         width: 70%;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         justify-content: center;
         align-items: center;
         border: 1px solid gray;
@@ -42,8 +60,13 @@
         height: 30px;
     }
 
+    .save-button {
+        background-color: #19305A;
+        color: #ffffff;
+    }
+
     .delete-button {
-        background-color: #ff1919;
+        background-color: #e21833;
     }
 
     .cancel-button {
