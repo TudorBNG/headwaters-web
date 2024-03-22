@@ -14,6 +14,7 @@ import { getFileUsingPresignedUrl, uploadFileToPresignedUrl } from '../../utils/
 import { useLocation } from 'react-router';
 
 import './main.scss'
+import Modal from '../../components/modal/modal';
 
 export interface INote {
   id: number;
@@ -37,6 +38,9 @@ const Main = () => {
   const [processFailed, setProcessFailed] = useState(false);
 
   const [selectedNote, setSelectedNote] = useState<INote>();
+  const [selectedNoteContent, setSelectedNoteContent] = useState('');
+
+  const [showModal, setShowModal] = useState(false);
 
   const { state } = useLocation();
 
@@ -201,14 +205,33 @@ const Main = () => {
     }
   }
 
-  const deleteNote = (id: number) => {
-    setInitialNotes([...initialNotes].filter((note) => { return note.id !== id }));
+  const saveNote = () => {
+    setInitialNotes([...initialNotes.map((note) => note.id === selectedNote.id ? ({ ...selectedNote, content: selectedNoteContent }) : note)]);
+    setSelectedNote(null);
+    setSelectedNoteContent(null);
+  }
+
+  const triggerDeleteNote = () => {
+    setShowModal(true);
+  }
+
+  const deleteNote = () => {
+    setInitialNotes([...initialNotes].filter((note) => { return note.id !== selectedNote.id }));
     setSelectedNote(null)
+    setShowModal(false);
   }
 
   useEffect(() => {
-    getPdfFile({ filename: state?.filename })
-  }, [state?.filename])
+    if (!pdfFile) {
+      getPdfFile({ filename: state.filename })
+    } else {
+      processPDF();
+    }
+  }, [state?.filename, pdfFile])
+
+  useEffect(() => {
+    setSelectedNoteContent(selectedNote?.content)
+  }, [selectedNote])
 
 
   return (<>
@@ -240,12 +263,12 @@ const Main = () => {
                     Process Failed
                   </>
                 ) : (
-                  'Process PDF'
+                  'Process With AI'
                 )
               )}
             </button>
           </div>
-          <div className={"wrapper"}>
+          {/* <div className={"wrapper"}>
             <button
               className='btn btn-outline-secondary'
               onClick={savePDF}
@@ -260,7 +283,7 @@ const Main = () => {
                 'Export to PDF'
               )}
             </button>
-          </div>
+          </div> */}
           <div className={"wrapper"}>
             <div className={"tooltip"}>Saves PDF and current highlights</div>
             <button
@@ -274,7 +297,7 @@ const Main = () => {
                   <span className="sr-only"> Saving...</span>
                 </>
               ) : (
-                'Save PDF'
+                'Save Highlights'
               )}
             </button>
           </div>
@@ -296,17 +319,21 @@ const Main = () => {
         {selectedNote && <div>
           <div className={"highlights-notes-popup"}>
             <div className={"notes-popup-body"}>
+              <p className={"notes-popup-preview"}>{selectedNote?.quote}</p>
+
               <span>Notes:</span>
-              <p>{selectedNote?.content}</p>
+              <textarea className={"notes-popup-textarea"} placeholder={"Add a note..."} value={selectedNoteContent} onChange={(event) => setSelectedNoteContent(event.target.value)} />
             </div>
             <div className={"notes-popup-buttons-container"}>
-              <button className={"notes-popup-button delete-button"} onClick={() => deleteNote(selectedNote.id)}>Remove</button>
+              <button className={"notes-popup-button save-button"} onClick={() => saveNote()}>Save</button>
+              <button className={"notes-popup-button delete-button"} onClick={() => triggerDeleteNote()}>Remove</button>
               <button className={"notes-popup-button cancel-button"} onClick={() => setSelectedNote(null)}>Cancel</button>
             </div>
           </div>
         </div>}
       </div>
     </div >
+    <Modal visible={showModal} setVisible={setShowModal} onDelete={deleteNote} />
   </>
   )
 }

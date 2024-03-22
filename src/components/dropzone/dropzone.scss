@@ -18,10 +18,16 @@
             background-color: #f7f7f7;
             border: 3px rgb(148, 148, 148);
             border-style: dashed;
-            border-radius: 20px;
+            border-radius: 4px;
             font-weight: 600;
             margin-bottom: 30px;
             cursor: pointer;
+
+            &-text {
+                background-color: #E6E6E6;
+                padding: 10px;
+                border-radius: 4px
+            }
         }
     }
 
@@ -34,7 +40,7 @@
         .process-file-button {
             width: 150px;
             height: 40px;
-            border-radius: 15px;
+            border-radius: 4px;
             font-weight: 600;
         }
     }

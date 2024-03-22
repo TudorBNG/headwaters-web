@@ -68,5 +68,5 @@ export const ConvertNoteObject = (data: any) => {
     }
   })
 
-  return { notes, labels: [...new Set(labels)] };
+  return { notes, labels: [...new Set(["Additional Cost", "Deliverable", ...labels])] };
 }

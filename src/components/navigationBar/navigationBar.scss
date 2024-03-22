@@ -6,7 +6,6 @@
     display: flex;
     flex: 1;
     height: 70px;
-    background-color: #c2c2c2;
     margin-bottom: 80px;
     align-items: center;
     padding: 0px 20px;
@@ -14,16 +13,17 @@
 
     .logo {
         height: 60px;
-        border-radius: 20px;
+        border-radius: 4px;
         border: 1px solid;
         cursor: pointer;
     }
 
     .upload-pdf-button {
-        width: 150px;
-        height: 40px;
-        border-radius: 15px;
+        padding: 7px 25px;
+        border-radius: 4px;
         font-weight: 600;
+        background-color: #19305A;
+        color: #FFFFFF;
     }
 
 }
