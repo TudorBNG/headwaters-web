@@ -12,6 +12,15 @@
     flex-direction: column;
     align-items: center;
 
+    .right-panel-labels-dropdown {
+        display: flex;
+        width: 70%;
+        padding: 5px;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        border-radius: 4px;
+    }
+
     .notes-popup-body {
         display: flex;
         justify-content: center;
