@@ -125,32 +125,7 @@ span {
   padding-right: 5px;
 }
 
-.highlight-modal {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 250px;
 
-  &-title {
-    width: 100%;
-  }
-
-  &-dropdown {
-    display: flex;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    width: 100%;
-  }
-
-  &-checkbox {
-    margin-right: 10px;
-  }
-
-  &-textarea {
-    width: 100%;
-    border: 1px solid rgba(0, 0, 0, .3);
-  }
-}
 
 .highlight-container {
   display: flex;
