@@ -180,6 +180,29 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
         </div>
     );
 
+    const saveHighlight = (note: INote) => {
+        let newIndex = 0;
+
+        for (let index = 0; index < initialNotes.length; index++) {
+            if (initialNotes[index].highlightAreas[0].pageIndex === note.highlightAreas[0].pageIndex && initialNotes[index].highlightAreas[0].top < note.highlightAreas[0].top) {
+                newIndex = index + 1;
+            } else if (initialNotes[index].highlightAreas[0].pageIndex > note.highlightAreas[0].pageIndex) {
+                break;
+            } else if (initialNotes[index].highlightAreas[0].pageIndex < note.highlightAreas[0].pageIndex) {
+                newIndex = index + 1;
+            }
+        }
+
+        if (newIndex === initialNotes.length) {
+            setInitialNotes(initialNotes.concat([note]));
+        } else {
+            const tempNoteArray = [...initialNotes]
+            tempNoteArray.splice(newIndex, 0, note)
+            setInitialNotes(tempNoteArray);
+        }
+
+    }
+
     const renderHighlightContent = (props: RenderHighlightContentProps) => {
 
         const addNote = () => {
@@ -192,7 +215,7 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
             };
 
             setHighlightLabel(labels[0]);
-            setInitialNotes(initialNotes.concat([note]));
+            saveHighlight(note);
             setShowCommentInput(false);
             props.cancel();
         };
