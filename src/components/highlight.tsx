@@ -25,6 +25,7 @@ import { INote } from "../pages/main/main";
 
 import { useCallback } from "react";
 import Modal from "./modal/modal";
+import HighlightModal from "./modal/highlightModal";
 
 interface HighlightExampleProps {
     fileUrl: string;
@@ -52,6 +53,9 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
     const [showCommentInput, setShowCommentInput] = useState<boolean>(false);
 
     const [showModal, setShowModal] = useState(false);
+
+    const [showHighlightModal, setShowHighlightModal] = useState(false);
+    const [highlightProps, setHighlightProps] = useState(null);
 
     let noteId = initialNotes.length;
 
@@ -203,80 +207,35 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
 
     }
 
-    const renderHighlightContent = (props: RenderHighlightContentProps) => {
-
-        const addNote = () => {
-            const note: INote = {
-                id: ++noteId,
-                content: message,
-                highlightAreas: props.highlightAreas,
-                quote: props.selectedText,
-                label: highlightLabel,
-            };
-
-            setHighlightLabel(labels[0]);
-            saveHighlight(note);
-            setShowCommentInput(false);
-            props.cancel();
+    const triggerSave = () => {
+        const note: INote = {
+            id: ++noteId,
+            content: message,
+            highlightAreas: highlightProps.highlightAreas,
+            quote: highlightProps.selectedText,
+            label: highlightLabel,
         };
 
-        return (
-            <div
-                style={{
-                    background: "#fff",
-                    border: "1px solid rgba(0, 0, 0, .3)",
-                    borderRadius: "4px",
-                    padding: "8px",
-                    position: "absolute",
-                    left: `${props.selectionRegion.left}%`,
-                    top: `${props.selectionRegion.top + props.selectionRegion.height}%`,
-                    zIndex: 121
-                }}
-            >
-                <div className={"highlight-modal"}>
-                    <span className={"highlight-modal-title"}>Choose a label: </span>
-                    <select
-                        name="label"
-                        value={highlightLabel}
-                        onChange={(event) => setHighlightLabel(event.target.value)}
-                        className={'filter-dropdown highlight-modal-dropdown'}
-                    >
-                        {labels.map((label, index) => (
-                            <option value={label} key={index}>{label}</option>
-                        )
-                        )}
-                    </select>
-                    <span className={"highlight-modal-title"}>
-                        <input type={"checkbox"} className={"highlight-modal-checkbox"} checked={showCommentInput} onChange={() => setShowCommentInput(!showCommentInput)} />
-                        Add a comment
-                    </span>
-                    {showCommentInput && (
-                        <>
-                            <span className={"highlight-modal-title"}>Write a comment: </span>
-                            <textarea
-                                rows={3}
-                                className={"highlight-modal-textarea"}
-                                onChange={(e) => setMessage(e.target.value)}
-                            ></textarea>
-                        </>
-                    )
-                    }
-                </div>
-                <div
-                    style={{
-                        display: "flex",
-                        marginTop: "8px",
-                        justifyContent: 'space-between'
-                    }}
-                >
 
-                    <PrimaryButton onClick={addNote}>Add</PrimaryButton>
+        setHighlightLabel(labels[0]);
+        saveHighlight(note);
+        setShowCommentInput(false);
+        setShowHighlightModal(false);
+    }
 
-                    <Button onClick={props.cancel}>Cancel</Button>
-                </div>
-            </div>
-        );
-    };
+    const setProps = async (props) => {
+        setHighlightProps(props);
+        setShowHighlightModal(true);
+    }
+
+    const renderHighlightContent = useCallback((props: RenderHighlightContentProps) => {
+        props.cancel();
+
+        setProps(props);
+
+        return null;
+
+    }, []);
 
     const renderPage = (props: RenderPageProps) => {
         return (
@@ -452,6 +411,18 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
             fileUrl={fileUrl}
             plugins={[highlightPluginInstance, defaultLayoutPluginInstance]}
             onDocumentLoad={handleDocumentLoad}
+        />
+        <HighlightModal
+            visible={showHighlightModal}
+            setVisible={setShowHighlightModal}
+            onAction={triggerSave}
+            labels={labels}
+            highlightLabel={highlightLabel}
+            setHighlightLabel={setHighlightLabel}
+            setMessage={setMessage}
+            showCommentInput={showCommentInput}
+            setShowCommentInput={setShowCommentInput}
+            highlightProps={highlightProps}
         />
         <Modal visible={showModal} setVisible={setShowModal} onDelete={onDelete} />
     </>

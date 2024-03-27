@@ -54,4 +54,83 @@
             }
         }
     }
+
+    .highlight-modal {
+        position: relative;
+        background-color: #e6e6e6;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        min-height: 350px;
+        width: 500px;
+        padding: 0px 30px;
+        box-shadow: 2px 2px 3px rgb(160, 160, 160);
+        border: 1px solid #ececec;
+
+        .highlight-content {
+            overflow: scroll;
+            height: 150px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            border: 2px solid #e6e6e6;
+            border-radius: 4px;
+        }
+
+        &-body {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 20px;
+
+            .highlight-modal-title {
+                width: 100%;
+                font-weight: 600;
+            }
+
+            .highlight-modal-dropdown {
+                display: flex;
+                margin-bottom: 10px;
+                border-radius: 4px;
+                width: 100%;
+            }
+
+            .highlight-modal-checkbox {
+                margin-right: 10px;
+            }
+
+            .highlight-modal-textarea {
+                width: 100%;
+                border: 1px solid rgba(0, 0, 0, .3);
+                border-radius: 4px;
+            }
+        }
+
+        .highlight-modal-footer {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            margin: 15px 0px;
+
+            &-button {
+                border-radius: 4px;
+                padding: 3px 10px;
+                width: 100px;
+
+                &-save {
+                    color: white;
+                    font-weight: 200;
+                    background-color: #19305A;
+
+                }
+
+                &-cancel {
+                    color: white;
+                    font-weight: 200;
+                    background-color: #696969;
+                }
+            }
+        }
+    }
 }
