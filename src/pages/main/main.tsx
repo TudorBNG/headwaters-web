@@ -249,18 +249,18 @@ const Main = () => {
               {processing ? (
                 <>
                   <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                  <span className="sr-only"> Processing...</span>
+                  <span className="sr-only"> AI Processing...</span>
                 </>
               ) : (
                 processCompleted ? (
                   <>
                     <span className="mr-2">&#10003;</span> {/* Check mark symbol */}
-                    Process Completed
+                    AI Process Completed
                   </>
                 ) : processFailed ? (
                   <>
                     <span className="mr-2">&#10060;</span> {/* Cross mark symbol */}
-                    Process Failed
+                    AI Process Failed
                   </>
                 ) : (
                   'Process With AI'
