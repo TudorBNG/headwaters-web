@@ -207,8 +207,6 @@ const Main = () => {
 
   const saveNote = () => {
     setInitialNotes([...initialNotes.map((note) => note.id === selectedNote.id ? ({ ...selectedNote, content: selectedNoteContent }) : note)]);
-    setSelectedNote(null);
-    setSelectedNoteContent(null);
   }
 
   const triggerDeleteNote = () => {
