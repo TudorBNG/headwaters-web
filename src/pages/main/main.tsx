@@ -15,6 +15,7 @@ import { useLocation } from 'react-router';
 
 import './main.scss'
 import Modal from '../../components/modal/modal';
+import RightPanel from '../../components/rightPanel/rightPanel';
 
 export interface INote {
   id: number;
@@ -38,7 +39,6 @@ const Main = () => {
   const [processFailed, setProcessFailed] = useState(false);
 
   const [selectedNote, setSelectedNote] = useState<INote>();
-  const [selectedNoteContent, setSelectedNoteContent] = useState('');
 
   const [showModal, setShowModal] = useState(false);
 
@@ -206,9 +206,7 @@ const Main = () => {
   }
 
   const saveNote = () => {
-    setInitialNotes([...initialNotes.map((note) => note.id === selectedNote.id ? ({ ...selectedNote, content: selectedNoteContent }) : note)]);
-    setSelectedNote(null);
-    setSelectedNoteContent(null);
+    setInitialNotes([...initialNotes.map((note) => note.id === selectedNote.id ? ({ ...selectedNote }) : note)]);
   }
 
   const triggerDeleteNote = () => {
@@ -229,11 +227,6 @@ const Main = () => {
     }
   }, [state?.filename, pdfFile])
 
-  useEffect(() => {
-    setSelectedNoteContent(selectedNote?.content)
-  }, [selectedNote])
-
-
   return (<>
     <div className="container">
       <h5 className='py-3'>
@@ -249,18 +242,18 @@ const Main = () => {
               {processing ? (
                 <>
                   <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                  <span className="sr-only"> Processing...</span>
+                  <span className="sr-only"> AI Processing...</span>
                 </>
               ) : (
                 processCompleted ? (
                   <>
                     <span className="mr-2">&#10003;</span> {/* Check mark symbol */}
-                    Process Completed
+                    AI Process Completed
                   </>
                 ) : processFailed ? (
                   <>
                     <span className="mr-2">&#10060;</span> {/* Cross mark symbol */}
-                    Process Failed
+                    AI Process Failed
                   </>
                 ) : (
                   'Process With AI'
@@ -316,21 +309,14 @@ const Main = () => {
           {/* render this if we have pdfFile state null   */}
           {!pdfFile && <>No file is selected yet</>}
         </div>
-        {selectedNote && <div>
-          <div className={"highlights-notes-popup"}>
-            <div className={"notes-popup-body"}>
-              <p className={"notes-popup-preview"}>{selectedNote?.quote}</p>
-
-              <span>Notes:</span>
-              <textarea className={"notes-popup-textarea"} placeholder={"Add a note..."} value={selectedNoteContent} onChange={(event) => setSelectedNoteContent(event.target.value)} />
-            </div>
-            <div className={"notes-popup-buttons-container"}>
-              <button className={"notes-popup-button save-button"} onClick={() => saveNote()}>Save</button>
-              <button className={"notes-popup-button delete-button"} onClick={() => triggerDeleteNote()}>Remove</button>
-              <button className={"notes-popup-button cancel-button"} onClick={() => setSelectedNote(null)}>Cancel</button>
-            </div>
-          </div>
-        </div>}
+        {selectedNote &&
+          <RightPanel
+            labels={labels}
+            saveNote={saveNote}
+            selectedNote={selectedNote}
+            setSelectedNote={setSelectedNote}
+            triggerDeleteNote={triggerDeleteNote}
+          />}
       </div>
     </div >
     <Modal visible={showModal} setVisible={setShowModal} onDelete={deleteNote} />
