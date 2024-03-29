@@ -3,6 +3,7 @@ import "./login.scss";
 import users from './../../utils/users.json'
 import { useNavigate } from 'react-router';
 import moment from 'moment';
+import Logo from './../../assets/images/png/logo.png'
 
 const Login = () => {
 
@@ -43,7 +44,7 @@ const Login = () => {
 
     return (
         <div className={'login'}>
-            <span className={'login-header'}>Keystone</span>
+            <img src={Logo} className={"login-logo"} />
             <div className={'login-form'}>
                 <div className={'login-form-inputs'}>
                     <input className={`login-form-username ${incorrectLoginAttempt && 'login-form-incorrect'}`} type={"text"} placeholder={"username"} value={username} onChange={(event) => setUsername(event.target.value)} />
