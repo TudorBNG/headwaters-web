@@ -19,9 +19,9 @@
         align-items: center;
         border-radius: 4px;
         height: 150px;
-        width: 400px;
+        width: 405px;
         padding: 0px 30px;
-        box-shadow: 2px 2px 3px rgb(160, 160, 160);
+        border: 1px solid #111111;
 
         &-content {
             display: flex;
@@ -66,8 +66,7 @@
         min-height: 350px;
         width: 500px;
         padding: 0px 30px;
-        box-shadow: 2px 2px 3px rgb(160, 160, 160);
-        border: 1px solid #ececec;
+        border: 1px solid #111111;
 
         .highlight-content {
             overflow: scroll;
