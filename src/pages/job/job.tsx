@@ -76,6 +76,10 @@ const Job = () => {
         getUserLibrary();
     }, [])
 
+    useEffect(() => {
+        setCurrentTab(state.tab)
+    }, [state])
+
     return (
         <div className={"job-page-container"}>
             <JobListOptions currentTab={currentTab} setCurrentTab={setCurrentTab} />
