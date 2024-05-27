@@ -1,32 +1,42 @@
-.job-container {
+.job-page-container {
     display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0px 80px;
-    border: 1px solid #111111;
-    border-radius: 4px;
-    background-color: #E6E6E6;
+    width: 100%;
+    flex-direction: row;
+    height: 100%;
 
-    .tabs {
-        display: flex;
-        width: 100%;
-        border-bottom: 1px solid rgb(177, 177, 177);
-        padding: 0px 40px;
-    }
-
-    .body-container {
+    .job-container {
         display: flex;
         flex: 1;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 100%;
-        padding: 30px 30px 0px 30px;
-    }
 
-    .action-container {
-        display: flex;
-        flex: 1;
+        .tabs {
+            display: flex;
+            width: 100%;
+            border-bottom: 1px solid rgb(177, 177, 177);
+            padding: 0px 40px;
+        }
+
+        .body-container {
+            position: relative;
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+
+            .logo {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 300px;
+            }
+        }
+
+        .action-container {
+            display: flex;
+            flex: 1;
+        }
     }
 }

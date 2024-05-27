@@ -3,7 +3,8 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import DragDrop from "../../components/dropzone/dropzone";
 import FileList from "../../components/fileList/fileList";
-import Tabs from "../../components/tabs/tabs";
+import JobListOptions from "../../components/jobListOptions/jobListOptions";
+import CornerLogo from './../../assets/images/png/keystonelogo.png';
 import { uploadFileToPresignedUrl } from "../../utils/pdfManager";
 
 import './job.scss'
@@ -76,28 +77,23 @@ const Job = () => {
     }, [])
 
     return (
-        <div className={"job-container"}>
+        <div className={"job-page-container"}>
+            <JobListOptions currentTab={currentTab} setCurrentTab={setCurrentTab} />
+            <div className={"job-container"}>
 
-
-            <div className={"tabs"}>
-                <Tabs currentTab={currentTab} setCurrentTab={setCurrentTab} />
-            </div>
-
-            <div className={"body-container"}>
-                {currentTab === 0 ?
-                    <div className={"action-container"}>
-                        <DragDrop droppedFile={droppedFile} setDroppedFile={setDroppedFile} handleOpenDroppedFile={handleOpenDroppedFile} loading={loading} />
-                    </div>
-                    :
-                    <div className={"action-container"}>
+                <div className={"body-container"}>
+                    {currentTab === 0 ?
                         <FileList
                             files={fileList}
                             handleFileSelect={handleFileSelect}
                             selectedFileIndex={selectedFileIndex}
                             handleOpenFile={handleOpenFile}
                         />
-                    </div>
-                }
+                        :
+                        <DragDrop droppedFile={droppedFile} setDroppedFile={setDroppedFile} handleOpenDroppedFile={handleOpenDroppedFile} loading={loading} />
+                    }
+                    <img src={CornerLogo} className={"logo"} />
+                </div>
             </div>
         </div>
     )
