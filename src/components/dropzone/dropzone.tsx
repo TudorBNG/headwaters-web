@@ -1,5 +1,6 @@
 import React from "react";
 import { useDropzone } from 'react-dropzone';
+import DropzoneIcon from './../../assets/images/png/dropzoneicon.png';
 
 import './dropzone.scss'
 
@@ -13,12 +14,13 @@ const DragDrop = ({ droppedFile, setDroppedFile, handleOpenDroppedFile, loading 
     });
 
     return (
-
         <div className={"dropzone-container"} >
             <div className={"dropzone-body"}>
                 <div {...getRootProps()} className={"dropzone"}>
                     <input {...getInputProps()} />
-                    <p className={"dropzone-text"}>Drag and drop files here or click to browse.</p>
+                    <img src={DropzoneIcon} className={"dropzone-icon"} />
+                    <span className={"dropzone-text"}>Drag and drop documents</span>
+                    <span className={"dropzone-subtext"}>or search on your computer</span>
                 </div>
                 <aside>
                     {!!droppedFile && <h5>Uploaded file:

@@ -4,44 +4,73 @@
     padding: 5px;
     flex-direction: column;
     height: 450px;
+    margin: 0px 100px;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 170px 0px;
 
     .dropzone-body {
         display: flex;
-        flex: 8;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 311px;
+        width: 700px;
 
         .dropzone {
             display: flex;
             flex: 1;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             background-color: #f7f7f7;
-            border: 3px rgb(148, 148, 148);
+            border: 5px #19305A;
             border-style: dashed;
             border-radius: 4px;
             font-weight: 600;
             margin-bottom: 30px;
             cursor: pointer;
+            height: 100%;
+            width: 100%;
+
+            &-icon {
+                height: 60px;
+            }
 
             &-text {
-                background-color: #E6E6E6;
-                padding: 10px;
-                border-radius: 4px
+                color: #4f4f4f;
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 29.05px;
+            }
+
+            &-subtext {
+                color: #4f4f4f;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 29.05px;
             }
         }
     }
 
     .dropzone-footer {
         display: flex;
-        flex: 3;
         justify-content: flex-end;
         align-items: center;
+        width: 100%;
 
         .process-file-button {
             width: 150px;
             height: 40px;
             border-radius: 4px;
             font-weight: 600;
+            background-color: #19305A;
+            color: #ffffff;
+
+            &:disabled {
+                background-color: #bebebe;
+            }
         }
     }
 }
