@@ -1,0 +1,24 @@
+.job-list-options-container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border-right: #868686 4px solid;
+    padding-top: 50px;
+
+    button {
+        border: none;
+        background-color: inherit;
+        text-align: left;
+        padding-left: 20px;
+        font-family: Inter;
+        font-size: 23px;
+        font-weight: 700;
+        line-height: 33.89px;
+        height: 41px;
+    }
+
+    .selected-tab {
+        background-color: #19305A !important;
+        color: #ffffff;
+    }
+}
