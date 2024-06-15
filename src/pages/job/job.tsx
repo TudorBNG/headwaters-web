@@ -37,7 +37,7 @@ const Job = () => {
                 const parsedFiles = responseFiles.data?.map((file: string, index) => {
                     const splitIndex = file.lastIndexOf('/');
                     const location = file.substring(0, splitIndex) || '~';
-                    const name = file.substring(splitIndex);
+                    const name = file.substring(splitIndex + 1);
 
                     return { id: index, name, location, status: 'Uploaded' }
                 })
@@ -56,7 +56,7 @@ const Job = () => {
     }
 
     const handleOpenFile = () => {
-        navigate('/keystone', { state: { filename: selectedFile } })
+        navigate('/keystone', { state: { filename: selectedFile, status: 'processed' } })
     }
 
     const handleOpenDroppedFile = async () => {
@@ -64,7 +64,7 @@ const Job = () => {
             setLoading(true);
             await uploadFileToPresignedUrl({ user, file: droppedFile, server })
                 .then(() => {
-                    navigate('/keystone', { state: { filename: droppedFile?.name || '' } })
+                    navigate('/keystone', { state: { filename: droppedFile?.name || '', status: 'new' } })
                     setLoading(false);
                 }).catch(() => {
                     setLoading(false);
