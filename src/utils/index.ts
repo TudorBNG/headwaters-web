@@ -1,4 +1,4 @@
-import { INote } from "../pages/main/main";
+import { KeyProps } from "../pages/main/main";
 
 export const ConvertNoteObject = (data: any) => {
   const height = 11.7;
@@ -21,7 +21,7 @@ export const ConvertNoteObject = (data: any) => {
   const jsonData = JSON.parse(data);
 
   const myObj: IObject = {};
-  const notes: INote[] = [];
+  const notes: KeyProps[] = [];
 
   Object.keys(jsonData).map((key1: any) => {
     Object.keys(jsonData[key1]).map((key2: string) => {
@@ -63,7 +63,11 @@ export const ConvertNoteObject = (data: any) => {
         content: '',
         quote: myObj[key]['text'],
         highlightAreas: [highlightAreas],
-        label: myObj[key]['label']
+        label: myObj[key]['label'],
+        covered: false,
+        section: myObj[key]['section'],
+        comments: [],
+        aiComments: ['Previous Job: UMD CP Tower #4 \n - Add $4,500 sell (if not covered).\n - The owner had us carry this cost in this job three years ago - NAS 24-04-28.', 'With this being a prime contract, you should double check liquidated damage notices'],
       })
     }
   })
