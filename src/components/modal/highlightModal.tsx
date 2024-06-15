@@ -33,7 +33,7 @@ const HighlightModal = ({
 
                         <div className={"highlight-modal-body"}>
                             <span className={"highlight-modal-title"}>Highlight: </span>
-                            <span className={"highlight-content"}>{highlightProps.selectedText}</span>
+                            <span className={"highlight-content"}>{highlightProps?.selectedText}</span>
                             <span className={"highlight-modal-title"}>Choose a label: </span>
                             <select
                                 name="label"
