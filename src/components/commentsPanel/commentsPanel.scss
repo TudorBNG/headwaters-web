@@ -1,0 +1,208 @@
+.comments-panel-container {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 100%;
+    border-left: #868686 4px solid;
+    padding: 15px 15px 0px 20px;
+
+    .comments-panel-header {
+        display: flex;
+        justify-content: flex-end;
+
+        .comments-panel-close-button {
+            height: 16px;
+            cursor: pointer;
+        }
+    }
+
+    // ai
+    .ai-comments-container {
+        display: flex;
+        flex-direction: column;
+        height: 40%;
+        margin-bottom: 15px;
+
+        .ai-comments-header {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+
+            .ai-comments-title {
+                font-size: 22px;
+                font-weight: 400;
+                line-height: 29.05px;
+            }
+        }
+    }
+
+    .ai-comments {
+        margin-top: 30px;
+        overflow-y: auto;
+    }
+
+    // key
+    .key-element-selected {
+        background-color: #19305A !important;
+
+        color: #ffffff !important;
+
+        .key-index {
+            border: 1px #ffffff solid !important;
+        }
+    }
+
+    .key-element {
+        position: relative;
+        width: 100%;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 4px;
+        margin-bottom: 2px;
+        cursor: pointer;
+        background-color: #EEEEEE;
+
+        .key-content {
+            border-radius: 4px;
+            overflow: visible;
+            width: 100%;
+
+            .key-content-body {
+                display: flex;
+                width: 100%;
+                height: 100%;
+                padding: 8px;
+
+                .key-index {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 13px;
+                    height: 20px;
+                    width: 20px;
+                    padding: 1px;
+                    border-radius: 15px;
+                    border: 1px black solid;
+                }
+
+                .key-quote {
+                    display: flex;
+                    flex: 1;
+                    font-size: .75rem;
+                    line-height: 1.5;
+                    margin: 0 0 8px 0;
+                    padding-left: 8px;
+                    text-align: justify;
+                    white-space: pre-wrap;
+                }
+            }
+        }
+
+        .x-trash {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 3px;
+
+            .white {
+                g {
+                    fill: #fff
+                }
+
+            }
+        }
+    }
+
+    .covered-status-container {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 20px;
+        border-bottom: #868686 3px solid;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px -3px;
+        max-height: 10%;
+
+        .covered-status-buttons {
+            border-radius: 4px;
+            border: none;
+            overflow: hidden;
+
+            button {
+                border: none;
+                font-weight: 700;
+                padding: 4px 9px;
+                background-color: #E8E8E8;
+            }
+
+            .covered {
+                background-color: #19305A;
+                color: #ffffff;
+            }
+
+            .not-covered {
+                background-color: #E7544E;
+                color: #ffffff;
+            }
+        }
+    }
+
+    .comments-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+        max-height: inherit;
+        height: 48%;
+
+        .comments-header {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+
+            .comments-title {
+                font-size: 22px;
+                font-weight: 400;
+                line-height: 29.05px;
+            }
+        }
+
+        .comments-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            padding-bottom: 15px;
+            overflow-y: auto;
+
+            .comments {
+                display: flex;
+                flex-direction: column;
+                overflow-y: auto;
+                height: 100%;
+            }
+
+            .input-container {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .comments-input {
+                background-color: #EEEEEE;
+                border-radius: 10px;
+                border: none;
+                height: 30px;
+                padding: 15px;
+                font-size: 15px;
+                width: 100%;
+            }
+
+            .comments-input-icon {
+                position: absolute;
+                right: 8px;
+                height: 18px;
+                cursor: pointer;
+            }
+        }
+    }
+}
