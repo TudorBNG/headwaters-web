@@ -7,7 +7,8 @@ import {
     PrimaryButton,
     Tooltip,
     Viewer,
-    RenderPageProps
+    RenderPageProps,
+    Worker
 } from "@react-pdf-viewer/core";
 import { defaultLayoutPlugin, ToolbarProps, ToolbarSlot } from "@react-pdf-viewer/default-layout";
 import {
@@ -21,30 +22,40 @@ import {
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 
-import { INote } from "../pages/main/main";
+import { KeyProps } from "../pages/main/main";
 
 import { useCallback } from "react";
 import Modal from "./modal/modal";
 import HighlightModal from "./modal/highlightModal";
 
-interface HighlightExampleProps {
-    fileUrl: string;
-    initialNotes: INote[];
-    setInitialNotes: Function;
-    notes: INote[];
-    setNotes: Function;
-    labels: string[];
-    setSelectedNote: Function;
-}
+import './highlight/highlight.scss'
+import SidePanel from "./sidePanel/sidePanel";
+import Tabs from "./tabs/tabs";
+import CommentsPanel from "./commentsPanel/commentsPanel";
+import AITab from "./aiTab/aiTab";
+import { Division, Section } from "../utils/interfaces";
 
 
-
-const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, setInitialNotes, notes, setNotes, labels = [], setSelectedNote }) => {
+const Highlights = ({
+    fileUrl,
+    initialKeys,
+    setInitialKeys,
+    keys,
+    setKeys,
+    labels = [],
+    selectedKey,
+    setSelectedKey,
+    selectedAIKey,
+    setSelectedAIKey,
+    filename,
+    saveKey
+}) => {
     const [message, setMessage] = useState("");
     const [selectedId, setSelectedId] = useState(-1);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [menuPosition, setMenuPosition] = useState({ x: 0, y: 0 });
-    const [currentFilter, setCurrentFilter] = useState<string>('All');
+    const [selectedLabel, setSelectedLabel] = useState<string>('');
+    const [currentTab, setCurrentTab] = useState<number>(0);
 
     const noteEles: Map<number, HTMLElement> = new Map();
     const notesContainerRef = useRef<HTMLDivElement | null>(null);
@@ -57,98 +68,97 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
     const [showHighlightModal, setShowHighlightModal] = useState(false);
     const [highlightProps, setHighlightProps] = useState(null);
 
-    let noteId = initialNotes.length;
+    const [openDivision, setOpenDivision] = useState<Division>(null);
+    const [openSection, setOpenSection] = useState<Section>(null);
+
+    let noteId = initialKeys.length;
 
     const filterNotes = useCallback((filter: string) => {
         switch (filter) {
             case 'All':
-                setNotes([...initialNotes]);
+                setKeys([...initialKeys]);
                 break;
             default:
-                setNotes([...initialNotes].filter((note) => note.label === filter));
+                setKeys([...initialKeys].filter((note) => note.label === filter));
                 break;
         }
 
-        setCurrentFilter(filter);
-    }, [initialNotes, setNotes])
+        setSelectedLabel(filter);
+    }, [initialKeys, setKeys])
 
-    const renderToolbar = (Toolbar: (props: ToolbarProps) => ReactElement) => (
-        <Toolbar>
-            {(props: ToolbarSlot) => {
-                const {
-                    CurrentPageInput,
-                    GoToNextPage,
-                    GoToPreviousPage,
-                    NumberOfPages,
-                    ShowSearchPopover,
-                    Zoom,
-                    ZoomIn,
-                    ZoomOut,
-                } = props;
-                return (
-                    <>
-                        <div style={{ padding: '0px 2px' }}>
-                            <ShowSearchPopover />
-                        </div>
-                        <div style={{ padding: '0px 2px' }}>
-                            <ZoomOut />
-                        </div>
-                        <div style={{ padding: '0px 2px' }}>
-                            <Zoom />
-                        </div>
-                        <div style={{ padding: '0px 2px' }}>
-                            <ZoomIn />
-                        </div>
+    // const renderToolbar = (Toolbar: (props: ToolbarProps) => ReactElement) => (
+    //     <Toolbar>
+    //         {(props: ToolbarSlot) => {
+    //             const {
+    //                 CurrentPageInput,
+    //                 GoToNextPage,
+    //                 GoToPreviousPage,
+    //                 NumberOfPages,
+    //                 ShowSearchPopover,
+    //                 Zoom,
+    //                 ZoomIn,
+    //                 ZoomOut,
+    //             } = props;
+    //             return (
+    //                 <>
+    //                     <div style={{ padding: '0px 2px' }}>
+    //                         <ShowSearchPopover />
+    //                     </div>
+    //                     <div style={{ padding: '0px 2px' }}>
+    //                         <ZoomOut />
+    //                     </div>
+    //                     <div style={{ padding: '0px 2px' }}>
+    //                         <Zoom />
+    //                     </div>
+    //                     <div style={{ padding: '0px 2px' }}>
+    //                         <ZoomIn />
+    //                     </div>
 
-                        {labels.length && (
-                            <div>
-                                <select
-                                    name="filter"
-                                    value={currentFilter}
-                                    onChange={(event) => filterNotes(event.target.value)}
-                                    className='filter-dropdown'
-                                >
-                                    <option value={'All'} key={labels.length}>{'All'}</option>
-                                    {labels.map((label, index) => (
-                                        <option value={label} key={index}>{label}</option>
-                                    )
-                                    )}
-                                </select>
-                            </div>
-                        )
-                        }
+    //                     {labels.length && (
+    //                         <div>
+    //                             <select
+    //                                 name="filter"
+    //                                 value={currentFilter}
+    //                                 onChange={(event) => filterNotes(event.target.value)}
+    //                                 className='filter-dropdown'
+    //                             >
+    //                                 <option value={'All'} key={labels.length}>{'All'}</option>
+    //                                 {labels.map((label, index) => (
+    //                                     <option value={label} key={index}>{label}</option>
+    //                                 )
+    //                                 )}
+    //                             </select>
+    //                         </div>
+    //                     )
+    //                     }
 
-                        <div style={{ padding: '0px 2px', marginLeft: 'auto' }}>
-                            <GoToPreviousPage />
-                        </div>
-                        <div style={{ padding: '0px 2px', width: '4rem' }}>
-                            <CurrentPageInput />
-                        </div>
-                        <div style={{ padding: '0px 2px' }}>
-                            / <NumberOfPages />
-                        </div>
-                        <div style={{ padding: '0px 2px' }}>
-                            <GoToNextPage />
-                        </div>
-                    </>
-                );
-            }}
-        </Toolbar>
-    );
+    //                     <div style={{ padding: '0px 2px', marginLeft: 'auto' }}>
+    //                         <GoToPreviousPage />
+    //                     </div>
+    //                     <div style={{ padding: '0px 2px', width: '4rem' }}>
+    //                         <CurrentPageInput />
+    //                     </div>
+    //                     <div style={{ padding: '0px 2px' }}>
+    //                         / <NumberOfPages />
+    //                     </div>
+    //                     <div style={{ padding: '0px 2px' }}>
+    //                         <GoToNextPage />
+    //                     </div>
+    //                 </>
+    //             );
+    //         }}
+    //     </Toolbar>
+    // );
 
 
-    const defaultLayoutPluginInstance = defaultLayoutPlugin({
-        sidebarTabs: (defaultTabs) =>
-            [defaultTabs[0], defaultTabs[1]].concat({
-                content: sidebarNotes,
-                icon: <MessageIcon />,
-                title: "Notes"
-            }),
-        setInitialTab: () => Promise.resolve(2),
-        renderToolbar,
-    });
-    const { activateTab } = defaultLayoutPluginInstance;
-    const { toggleTab } = defaultLayoutPluginInstance;
+    // const defaultLayoutPluginInstance = defaultLayoutPlugin({
+    //     sidebarTabs: (defaultTabs) =>
+    //         [defaultTabs[0], defaultTabs[1]],
+    //     setInitialTab: () => Promise.resolve(2),
+    //     renderToolbar,
+    // });
+    // const { activateTab } = defaultLayoutPluginInstance;
+    // const { toggleTab } = defaultLayoutPluginInstance;
     // toggleTab(2)
 
     const handleDocumentLoad = (e: DocumentLoadEvent) => {
@@ -156,7 +166,7 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
         if (currentDoc && currentDoc !== e.doc) {
             // User opens new document
         }
-        activateTab(2);
+        // activateTab(2);
     };
 
     const renderHighlightTarget = (props: RenderHighlightTargetProps) => (
@@ -184,36 +194,37 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
         </div>
     );
 
-    const saveHighlight = (note: INote) => {
+    const saveHighlight = (note: KeyProps) => {
         let newIndex = 0;
 
-        for (let index = 0; index < initialNotes.length; index++) {
-            if (initialNotes[index].highlightAreas[0].pageIndex === note.highlightAreas[0].pageIndex && initialNotes[index].highlightAreas[0].top < note.highlightAreas[0].top) {
+        for (let index = 0; index < initialKeys.length; index++) {
+            if (initialKeys[index].highlightAreas[0].pageIndex === note.highlightAreas[0].pageIndex && initialKeys[index].highlightAreas[0].top < note.highlightAreas[0].top) {
                 newIndex = index + 1;
-            } else if (initialNotes[index].highlightAreas[0].pageIndex > note.highlightAreas[0].pageIndex) {
+            } else if (initialKeys[index].highlightAreas[0].pageIndex > note.highlightAreas[0].pageIndex) {
                 break;
-            } else if (initialNotes[index].highlightAreas[0].pageIndex < note.highlightAreas[0].pageIndex) {
+            } else if (initialKeys[index].highlightAreas[0].pageIndex < note.highlightAreas[0].pageIndex) {
                 newIndex = index + 1;
             }
         }
 
-        if (newIndex === initialNotes.length) {
-            setInitialNotes(initialNotes.concat([note]));
+        if (newIndex === initialKeys.length) {
+            setInitialKeys(initialKeys.concat([note]));
         } else {
-            const tempNoteArray = [...initialNotes]
+            const tempNoteArray = [...initialKeys]
             tempNoteArray.splice(newIndex, 0, note)
-            setInitialNotes(tempNoteArray);
+            setInitialKeys(tempNoteArray);
         }
 
     }
 
     const triggerSave = () => {
-        const note: INote = {
+        const note: KeyProps = {
             id: ++noteId,
             content: message,
             highlightAreas: highlightProps.highlightAreas,
             quote: highlightProps.selectedText,
             label: highlightLabel,
+            section: ''
         };
 
 
@@ -250,8 +261,8 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
     };
 
     useEffect(() => {
-        filterNotes(currentFilter)
-    }, [initialNotes])
+        filterNotes(selectedLabel)
+    }, [initialKeys, selectedLabel])
 
     useEffect(() => {
         setHighlightLabel(labels[0])
@@ -259,18 +270,18 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
 
     const renderHighlights = (props: RenderHighlightsProps) => (
         <div>
-            {notes.map((note) => (
+            {keys.map((note) => (
                 <React.Fragment key={note.id}>
                     {note.highlightAreas
                         .filter((area) => area.pageIndex === props.pageIndex)
-                        .map((area, idx) => (
+                        .map((area, index) => (
                             <div
                                 className="highlight-container"
-                                key={idx}
+                                key={index}
                                 style={Object.assign(
                                     {},
                                     {
-                                        backgroundColor: "rgba(255, 255, 0, 0.396)",
+                                        backgroundColor: "rgba(218, 228, 107, 0.4)",
                                         zIndex: 100,
                                         // cursor: 'pointer'
                                     },
@@ -278,9 +289,9 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
                                 )}
                                 onClick={() => {
                                     jumpToNote(note)
-                                    setSelectedNote(note)
+                                    setSelectedKey({ ...note, index })
                                 }}
-                                onDoubleClick={() => setSelectedNote(note)}
+                                onDoubleClick={() => setSelectedKey({ ...note, index })}
                             />
                         ))}
                 </React.Fragment>
@@ -296,8 +307,8 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
 
     const { jumpToHighlightArea } = highlightPluginInstance;
 
-    const jumpToNote = (note: INote) => {
-        activateTab(3);
+    const jumpToNote = (note: KeyProps) => {
+        // activateTab(3);
 
         if (noteEles.has(note.id)) {
             noteEles.get(note.id).scrollIntoView()
@@ -313,90 +324,34 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
         setSelectedId(id);
     };
 
-    const handleNoteClick = (event: any, area: any, note: INote) => {
+    const handleKeyClick = (event: any, area: any, note: KeyProps) => {
         event.preventDefault();
         if (isMenuOpen) {
             setIsMenuOpen(false);
         } else {
             jumpToHighlightArea(area);
-            setSelectedNote(note);
+            setSelectedKey(note);
         }
     }
 
-    const triggerDeleteNote = (id: number) => {
+    const triggerDeleteKey = (id: number) => {
         setSelectedId(id);
         setShowModal(true);
+        setIsMenuOpen(false);
     }
 
     const onDelete = () => {
         if (selectedId !== -1) {
-            setInitialNotes([...initialNotes].filter((note) => { return note.id !== selectedId }));
+            setInitialKeys([...initialKeys].filter((note) => { return note.id !== selectedId }));
             setIsMenuOpen(false);
             setSelectedId(-1);
             setShowModal(false);
-            setSelectedNote(null);
+            setSelectedKey(null);
+            if (selectedId === selectedAIKey?.id) {
+                setSelectedAIKey(null);
+            }
         }
     }
-
-    const RightClickMenu = ({ x, y, isOpen }) => {
-        return (
-            <div
-                className={`right-click-menu ${isOpen && 'open'}`}
-                style={{ top: y, left: x }}
-            >
-                <ul>
-                    <li onClick={() => triggerDeleteNote(selectedId)}>Delete</li>
-                </ul>
-            </div>
-        );
-    };
-
-    const sidebarNotes = (
-        <div
-            ref={notesContainerRef}
-            className={"notes-container"}
-        >
-            {notes.length === 0 && (
-                <div style={{ textAlign: "center" }}>There is no note</div>
-            )}
-            {notes.map((note: INote) => {
-                return (
-                    <div
-                        key={note.id}
-                        className="note-element"
-                        onContextMenu={(e) => handleContextMenu(e, note.id)}
-
-                        ref={(ref): void => {
-                            noteEles.set(note.id, ref as HTMLElement);
-                        }}
-                    >
-                        <div className="note-content" onClick={(e) => { handleNoteClick(e, note.highlightAreas[0], note) }}>
-                            <div className={"note-content-body"}>
-                                <blockquote
-                                    style={{
-                                        borderLeft: "2px solid rgba(0, 0, 0, 0.2)",
-                                        fontSize: ".75rem",
-                                        lineHeight: 1.5,
-                                        margin: "0 0 8px 0",
-                                        paddingLeft: "8px",
-                                        textAlign: "justify"
-                                    }}
-                                >
-                                    {note.quote}
-                                </blockquote>
-                                {note?.content}
-                            </div>
-                        </div>
-
-                        <div className="x-trash" onClick={() => { triggerDeleteNote(note.id) }}>
-                            <i className="bi bi-trash"></i>
-                        </div>
-                    </div>
-                );
-            })}
-            <RightClickMenu x={menuPosition.x} y={menuPosition.y} isOpen={isMenuOpen} />
-        </div>
-    );
 
     useEffect(() => {
         return () => {
@@ -404,14 +359,66 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
         };
     }, []);
 
-    return (<>
-
-        <Viewer
-            defaultScale={1}
-            fileUrl={fileUrl}
-            plugins={[highlightPluginInstance, defaultLayoutPluginInstance]}
-            onDocumentLoad={handleDocumentLoad}
+    return (<div className={"highlight-page-container"} >
+        <SidePanel
+            jobName={filename}
+            keys={keys}
+            initialKeys={initialKeys}
+            setKeys={setKeys}
+            keysRef={noteEles}
+            handleContextMenu={handleContextMenu}
+            handleKeyClick={handleKeyClick}
+            triggerKeyDelete={triggerDeleteKey}
+            menuPosition={menuPosition}
+            selectedKey={selectedKey}
+            setSelectedAIKey={setSelectedAIKey}
+            selectedId={selectedId}
+            isMenuOpen={isMenuOpen}
+            currentTab={currentTab}
+            selectedLabel={selectedLabel}
+            setSelectedLabel={setSelectedLabel}
+            openDivision={openDivision}
+            setOpenDivision={setOpenDivision}
+            openSection={openSection}
+            setOpenSection={setOpenSection}
         />
+        <div className={"main-view"}>
+            <Tabs currentTab={currentTab} setCurrentTab={setCurrentTab} />
+            {
+                currentTab === 0 && <div className={"viewer-container"}>
+                    <Worker workerUrl="/pdf.worker.min.js">
+                        <Viewer
+                            defaultScale={1}
+                            enableSmoothScroll={true}
+                            fileUrl={fileUrl}
+                            plugins={[highlightPluginInstance]}
+                            onDocumentLoad={handleDocumentLoad}
+                        />
+                    </Worker>
+                </div>}
+            {
+                currentTab === 1 &&
+                <AITab
+                    openDivision={openDivision}
+                    openSection={openSection}
+                    keys={keys}
+                    selectedAIKey={selectedAIKey}
+                    setSelectedAIKey={setSelectedAIKey}
+                    saveKey={saveKey}
+                />
+            }
+        </div>
+
+        {selectedAIKey && currentTab === 0 &&
+            <CommentsPanel
+                labels={labels}
+                saveKey={saveKey}
+                selectedAIKey={selectedAIKey}
+                setSelectedAIKey={setSelectedAIKey}
+                triggerDeleteKey={triggerDeleteKey}
+                setCurrentTab={setCurrentTab}
+            />}
+
         <HighlightModal
             visible={showHighlightModal}
             setVisible={setShowHighlightModal}
@@ -425,7 +432,7 @@ const Highlights: React.FC<HighlightExampleProps> = ({ fileUrl, initialNotes, se
             highlightProps={highlightProps}
         />
         <Modal visible={showModal} setVisible={setShowModal} onDelete={onDelete} />
-    </>
+    </div>
     );
 };
 
