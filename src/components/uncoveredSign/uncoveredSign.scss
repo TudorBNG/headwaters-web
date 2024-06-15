@@ -1,0 +1,18 @@
+.uncovered-container {
+    background-image: url('./../../assets/images/png/uncoveredicon.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 25px;
+    width: 25px;
+    margin-right: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .uncovered-sign-content {
+        margin-top: 5px;
+        font-size: 10px;
+        font-weight: 700;
+        color: white;
+    }
+}
