@@ -22,14 +22,14 @@ const DragDrop = ({ droppedFile, setDroppedFile, handleOpenDroppedFile, loading 
                     <span className={"dropzone-text"}>Drag and drop documents</span>
                     <span className={"dropzone-subtext"}>or search on your computer</span>
                 </div>
-                <aside>
+                <div className={"uploaded-file"}>
                     {!!droppedFile && <h5>Uploaded file:
                         <li key={droppedFile.name}>
                             {droppedFile.name}
                         </li>
                     </h5>
                     }
-                </aside>
+                </div>
             </div>
             <div className={"dropzone-footer"}>
                 <button className={"process-file-button"} disabled={!droppedFile || loading} onClick={handleOpenDroppedFile}>
