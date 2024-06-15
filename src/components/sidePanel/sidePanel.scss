@@ -1,0 +1,117 @@
+.side-panel-container {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 100%;
+    border-right: #868686 4px solid;
+    padding: 50px 20px 0px 20px;
+
+    .side-panel-top {
+        padding-bottom: 20px;
+        border-bottom: #868686 3px solid;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px -3px;
+
+        &-header {
+            display: flex;
+            flex: 1;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+
+            .side-panel-title {
+                font-weight: 700;
+                font-size: 22px;
+                line-height: 29.05px;
+            }
+
+            .side-panel-edit-button {
+                cursor: pointer;
+            }
+        }
+
+        .job-name {
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 26.63px;
+        }
+    }
+
+    .side-panel-middle {
+        padding-bottom: 20px;
+        border-bottom: #868686 3px solid;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px -3px;
+        height: 70%;
+    }
+
+    .side-panel-middle-resized {
+        height: 30% !important;
+    }
+
+    .side-panel-bottom {
+        display: flex;
+        overflow-y: auto;
+        padding-bottom: 20px;
+        height: 100%;
+
+        .comments-container {
+            overflow: auto;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            position: relative;
+            height: 100%;
+            padding-top: 20px;
+
+            .comments-header {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 25px;
+
+                .comments-title {
+                    font-size: 22px;
+                    font-weight: 400;
+                    line-height: 29.05px;
+                }
+            }
+
+            .comments-body {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+                padding-bottom: 15px;
+                overflow-y: auto;
+
+                .comments {
+                    display: flex;
+                    flex-direction: column;
+                    overflow-y: auto;
+                    height: 100%;
+                }
+
+                .input-container {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .comments-input {
+                    background-color: #EEEEEE;
+                    border-radius: 10px;
+                    border: none;
+                    height: 30px;
+                    padding: 15px;
+                    font-size: 15px;
+                    width: 100%;
+                }
+
+                .comments-input-icon {
+                    position: absolute;
+                    right: 8px;
+                    height: 18px;
+                }
+            }
+        }
+    }
+}
