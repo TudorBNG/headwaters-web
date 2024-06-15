@@ -11,25 +11,30 @@ import Highlights from "../../components/highlight";
 import { ConvertNoteObject } from '../../utils';
 
 import { getFileUsingPresignedUrl, uploadFileToPresignedUrl } from '../../utils/pdfManager';
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
 import './main.scss'
 import Modal from '../../components/modal/modal';
-import RightPanel from '../../components/rightPanel/rightPanel';
+import { Oval } from 'react-loader-spinner';
 
-export interface INote {
+export interface KeyProps {
   id: number;
   content: string;
   quote: string;
   highlightAreas: HighlightArea[];
   label?: string;
+  index?: number;
+  covered?: boolean;
+  section: string;
+  comments?: string[];
+  aiComments?: string[];
 }
 
 const Main = () => {
   const [pdfFile, setPdfFile] = useState(null);
   const [file, setFile] = useState(null);
-  const [notes, setNotes] = useState<INote[]>([]);
-  const [initialNotes, setInitialNotes] = useState<INote[]>([]);
+  const [keys, setKeys] = useState<KeyProps[]>([]);
+  const [initialKeys, setInitialKeys] = useState<KeyProps[]>([]);
   const [labels, setLabels] = useState<string[]>([]);
   const [processing, setProcessing] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -38,11 +43,16 @@ const Main = () => {
   const [processCompleted, setProcessCompleted] = useState(false);
   const [processFailed, setProcessFailed] = useState(false);
 
-  const [selectedNote, setSelectedNote] = useState<INote>();
+  const [selectedKey, setSelectedKey] = useState<KeyProps>();
+  const [selectedAIKey, setSelectedAIKey] = useState<KeyProps>();
+
+  const [triggerProcessing, setTriggerProcessing] = useState<boolean>(false);
 
   const [showModal, setShowModal] = useState(false);
 
   const { state } = useLocation();
+
+  const navigate = useNavigate();
 
   const user = JSON.parse(localStorage.getItem('keystone-auth'))?.user;
 
@@ -71,6 +81,7 @@ const Main = () => {
         try {
           if (highlights?.message && highlights?.message === 'File not found in S3') {
             setFileIsLoading(false);
+            setTriggerProcessing(true);
             return;
           }
           const parsedHighlights = JSON.parse(highlights);
@@ -78,8 +89,7 @@ const Main = () => {
           const extractedLabels = [...new Set<string>(parsedHighlights.map((highlight: { label: string }) => highlight?.label))]
           extractedLabels.push(extractedLabels.splice(extractedLabels.indexOf('None'), 1)[0])
 
-          setInitialNotes(parsedHighlights);
-          setNotes(parsedHighlights);
+          setInitialKeys(parsedHighlights);
           setLabels(extractedLabels);
           setFileIsLoading(false);
         } catch (error) {
@@ -95,6 +105,7 @@ const Main = () => {
 
   const processPDF = async () => {
     setProcessing(true);
+
     if (pdfFile) {
       await uploadFileToPresignedUrl({ user, file, server }).then(() => {
         axios.post(`${server}/api/highlight?user=${user}&filename=${file?.name}`, {
@@ -107,12 +118,13 @@ const Main = () => {
             const { notes: convertedNotes, labels: notesLabels } = ConvertNoteObject(response.data);
             notesLabels.push(notesLabels.splice(notesLabels.indexOf('None'), 1)[0])
 
-            setInitialNotes(convertedNotes);
-            setNotes(convertedNotes);
+            setInitialKeys(convertedNotes);
+
             setLabels(notesLabels);
             setProcessing(false);
             setProcessCompleted(true);
             setProcessFailed(false);
+            navigate('.', { state: { filename: state.filename, status: 'processed' } })
           })
           .catch(error => {
             console.log('Error on processing highlights ', error);
@@ -133,7 +145,7 @@ const Main = () => {
     setSaving(true);
     if (pdfFile) {
       const formData = new FormData();
-      formData.append('highlight', JSON.stringify(notes));
+      formData.append('highlight', JSON.stringify(keys));
 
       await uploadFileToPresignedUrl({ user, file, server })
         .then(() => axios.post(`${server}/api/save_pdf?user=${user}&filename=${file?.name}`, formData, {
@@ -180,7 +192,7 @@ const Main = () => {
 
       // Save Highlights to S3
       const highlightsFormData = new FormData();
-      highlightsFormData.append('highlight', JSON.stringify(initialNotes));
+      highlightsFormData.append('highlight', JSON.stringify(initialKeys));
 
       await axios.post(`${server}/api/save_highlights?user=${user}&pdf_filename=${file?.name}`, highlightsFormData, {
         headers: {
@@ -205,17 +217,22 @@ const Main = () => {
     }
   }
 
-  const saveNote = () => {
-    setInitialNotes([...initialNotes.map((note) => note.id === selectedNote.id ? ({ ...selectedNote }) : note)]);
+  const saveKey = (key: KeyProps) => {
+    setInitialKeys([...initialKeys.map((note) => note.id === key.id ? ({ ...key }) : note)]);
   }
+
+  // #TODO
+  useEffect(() => {
+    saveCurrentHighlights();
+  }, [initialKeys])
 
   const triggerDeleteNote = () => {
     setShowModal(true);
   }
 
   const deleteNote = () => {
-    setInitialNotes([...initialNotes].filter((note) => { return note.id !== selectedNote.id }));
-    setSelectedNote(null)
+    setInitialKeys([...initialKeys].filter((note) => { return note.id !== selectedKey.id }));
+    setSelectedKey(null)
     setShowModal(false);
   }
 
@@ -223,13 +240,36 @@ const Main = () => {
     if (!pdfFile) {
       getPdfFile({ filename: state.filename })
     } else {
-      processPDF();
+      if (state.status === 'new') {
+        processPDF();
+      }
     }
   }, [state?.filename, pdfFile])
 
+  useEffect(() => {
+
+    if (triggerProcessing) {
+      setTriggerProcessing(false);
+      processPDF();
+    }
+  }, [triggerProcessing])
+
   return (<>
-    <div className="container">
-      <h5 className='py-3'>
+    <div className="main-screen-container">
+      {fileIsLoading ?
+        <div className={"spinner-container"}>
+          <Oval
+            height="130"
+            width="130"
+            color="#555555"
+            secondaryColor="#bcbcbc"
+            ariaLabel="tail-spin-loading"
+            strokeWidth={3}
+          />
+        </div> :
+        <>
+          {/**disable export to pdf if buttons are added back */}
+          {/* <h5 className='py-3'>
         View PDF
         <div className='main-buttons-container'>
           <div className={"wrapper"}>
@@ -247,12 +287,12 @@ const Main = () => {
               ) : (
                 processCompleted ? (
                   <>
-                    <span className="mr-2">&#10003;</span> {/* Check mark symbol */}
+                    <span className="mr-2">&#10003;</span>
                     AI Process Completed
                   </>
                 ) : processFailed ? (
                   <>
-                    <span className="mr-2">&#10060;</span> {/* Cross mark symbol */}
+                    <span className="mr-2">&#10060;</span>
                     AI Process Failed
                   </>
                 ) : (
@@ -261,7 +301,7 @@ const Main = () => {
               )}
             </button>
           </div>
-          {/* <div className={"wrapper"}>
+          <div className={"wrapper"}>
             <button
               className='btn btn-outline-secondary'
               onClick={savePDF}
@@ -276,7 +316,7 @@ const Main = () => {
                 'Export to PDF'
               )}
             </button>
-          </div> */}
+          </div>
           <div className={"wrapper"}>
             <div className={"tooltip"}>Saves PDF and current highlights</div>
             <button
@@ -295,29 +335,42 @@ const Main = () => {
             </button>
           </div>
         </div>
-      </h5>
-      <div style={{ display: 'flex', width: '100%' }}>
-        <div className="viewer">
-          {/* render this if we have a pdf file */}
-          {pdfFile && (
-            <Worker workerUrl="/pdf.worker.min.js">
-              <Highlights fileUrl={pdfFile} notes={notes} setNotes={setNotes} initialNotes={initialNotes} setInitialNotes={setInitialNotes} labels={labels} setSelectedNote={setSelectedNote}></Highlights>
-            </Worker>
-          )}
+      </h5> */}
+          <div style={{ display: 'flex', width: '100%', height: '100%' }}>
+            {/* <div className="viewer"> */}
+            {/* render this if we have a pdf file */}
+            {pdfFile && (
+
+              <Highlights
+                fileUrl={pdfFile}
+                keys={keys}
+                setKeys={setKeys}
+                initialKeys={initialKeys}
+                setInitialKeys={setInitialKeys}
+                labels={labels}
+                selectedKey={selectedKey}
+                setSelectedKey={setSelectedKey}
+                selectedAIKey={selectedAIKey}
+                setSelectedAIKey={setSelectedAIKey}
+                filename={state?.filename}
+                saveKey={saveKey}
+              />
+
+            )}
 
 
-          {/* render this if we have pdfFile state null   */}
-          {!pdfFile && <>No file is selected yet</>}
-        </div>
-        {selectedNote &&
+            {/* render this if we have pdfFile state null   */}
+            {!pdfFile && <>No file is selected yet</>}
+            {/* </div> */}
+            {/* {selectedNote &&
           <RightPanel
             labels={labels}
             saveNote={saveNote}
             selectedNote={selectedNote}
             setSelectedNote={setSelectedNote}
             triggerDeleteNote={triggerDeleteNote}
-          />}
-      </div>
+          />} */}
+          </div></>}
     </div >
     <Modal visible={showModal} setVisible={setShowModal} onDelete={deleteNote} />
   </>
