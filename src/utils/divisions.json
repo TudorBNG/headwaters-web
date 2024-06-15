@@ -1,0 +1,5975 @@
+[
+    {
+        "index": "000000",
+        "title": "DIVISION 00 - PROCUREMENT AND CONTRACTING",
+        "sections": [
+            {
+                "index": "001000",
+                "title": "00 10 00 Solicitation"
+            },
+            {
+                "index": "001100",
+                "title": "00 11 00 Advertisements and Invitations"
+            },
+            {
+                "index": "002000",
+                "title": "00 20 00 Instructions for Procurement"
+            },
+            {
+                "index": "002100",
+                "title": "00 21 00 Instructions"
+            },
+            {
+                "index": "002200",
+                "title": "00 22 00 Supplementary Instructions"
+            },
+            {
+                "index": "002300",
+                "title": "00 23 00 Procurement Definitions"
+            },
+            {
+                "index": "002400",
+                "title": "00 24 00 Procurement Scopes"
+            },
+            {
+                "index": "002500",
+                "title": "00 25 00 Procurement Meetings"
+            },
+            {
+                "index": "002600",
+                "title": "00 26 00 Procurement Substitution Procedures"
+            },
+            {
+                "index": "003000",
+                "title": "00 30 00 Available Information"
+            },
+            {
+                "index": "003100",
+                "title": "00 31 00 Available Project Information"
+            },
+            {
+                "index": "004000",
+                "title": "00 40 00 Procurement Forms and Supplements"
+            },
+            {
+                "index": "004100",
+                "title": "00 41 00 Bid Forms"
+            },
+            {
+                "index": "004200",
+                "title": "00 42 00 Proposal Forms"
+            },
+            {
+                "index": "004300",
+                "title": "00 43 00 Procurement Form Supplements"
+            },
+            {
+                "index": "004500",
+                "title": "00 45 00 Representations and Certifications"
+            },
+            {
+                "index": "005000",
+                "title": "00 50 00 Contracting Forms and Supplements"
+            },
+            {
+                "index": "005100",
+                "title": "00 51 00 Notice of Award"
+            },
+            {
+                "index": "005200",
+                "title": "00 52 00 Agreement Forms"
+            },
+            {
+                "index": "005400",
+                "title": "00 54 00 Agreement Form Supplements"
+            },
+            {
+                "index": "005500",
+                "title": "00 55 00 Notice to Proceed"
+            },
+            {
+                "index": "006000",
+                "title": "00 60 00 Project Forms"
+            },
+            {
+                "index": "006100",
+                "title": "00 61 00 Bond Forms"
+            },
+            {
+                "index": "006200",
+                "title": "00 62 00 Certificates and Other Forms"
+            },
+            {
+                "index": "006300",
+                "title": "00 63 00 Clarification and Modification Forms"
+            },
+            {
+                "index": "006500",
+                "title": "00 65 00 Closeout Forms"
+            },
+            {
+                "index": "007000",
+                "title": "00 70 00 Conditions of the Contract"
+            },
+            {
+                "index": "007100",
+                "title": "00 71 00 Contracting Definitions"
+            },
+            {
+                "index": "007200",
+                "title": "00 72 00 General Conditions"
+            },
+            {
+                "index": "007300",
+                "title": "00 73 00 Supplementary Conditions"
+            },
+            {
+                "index": "008000",
+                "title": "00 80 00 Unassigned"
+            },
+            {
+                "index": "009000",
+                "title": "00 90 00 Revisions, Clarifications, and Modifications"
+            },
+            {
+                "index": "009100",
+                "title": "00 91 00 Precontract Revisions"
+            },
+            {
+                "index": "009300",
+                "title": "00 93 00 Record Clarifications and Proposals"
+            },
+            {
+                "index": "009400",
+                "title": "00 94 00 Record Modifications"
+            }
+        ]
+    },
+    {
+        "index": "010000",
+        "title": "DIVISION 01 - GENERAL REQUIREMENTS",
+        "sections": [
+            {
+                "index": "011000",
+                "title": "01 10 00 Summary"
+            },
+            {
+                "index": "011100",
+                "title": "01 11 00 Summary of Work"
+            },
+            {
+                "index": "011200",
+                "title": "01 12 00 Multiple Contract Summary"
+            },
+            {
+                "index": "011400",
+                "title": "01 14 00 Work Restrictions"
+            },
+            {
+                "index": "011800",
+                "title": "01 18 00 Project Utility Sources"
+            },
+            {
+                "index": "012000",
+                "title": "01 20 00 Price and Payment Procedures"
+            },
+            {
+                "index": "012100",
+                "title": "01 21 00 Allowances"
+            },
+            {
+                "index": "012200",
+                "title": "01 22 00 Unit Prices"
+            },
+            {
+                "index": "012300",
+                "title": "01 23 00 Alternates"
+            },
+            {
+                "index": "012400",
+                "title": "01 24 00 Value Analysis"
+            },
+            {
+                "index": "012500",
+                "title": "01 25 00 Substitution Procedures"
+            },
+            {
+                "index": "012600",
+                "title": "01 26 00 Contract Modification Procedures"
+            },
+            {
+                "index": "012900",
+                "title": "01 29 00 Payment Procedures"
+            },
+            {
+                "index": "013000",
+                "title": "01 30 00 Administrative Requirements"
+            },
+            {
+                "index": "013100",
+                "title": "01 31 00 Project Management and Coordination"
+            },
+            {
+                "index": "013200",
+                "title": "01 32 00 Construction Progress Documentation"
+            },
+            {
+                "index": "013300",
+                "title": "01 33 00 Submittal Procedures"
+            },
+            {
+                "index": "013500",
+                "title": "01 35 00 Special Procedures"
+            },
+            {
+                "index": "014000",
+                "title": "01 40 00 Quality Requirements"
+            },
+            {
+                "index": "014100",
+                "title": "01 41 00 Regulatory Requirements"
+            },
+            {
+                "index": "014200",
+                "title": "01 42 00 References"
+            },
+            {
+                "index": "014300",
+                "title": "01 43 00 Quality Assurance"
+            },
+            {
+                "index": "014500",
+                "title": "01 45 00 Quality Control"
+            },
+            {
+                "index": "015000",
+                "title": "01 50 00 Temporary Facilities and Controls"
+            },
+            {
+                "index": "015100",
+                "title": "01 51 00 Temporary Utilities"
+            },
+            {
+                "index": "015200",
+                "title": "01 52 00 Construction Facilities"
+            },
+            {
+                "index": "015300",
+                "title": "01 53 00 Temporary Construction"
+            },
+            {
+                "index": "015400",
+                "title": "01 54 00 Construction Aids"
+            },
+            {
+                "index": "015500",
+                "title": "01 55 00 Vehicular Access and Parking"
+            },
+            {
+                "index": "015600",
+                "title": "01 56 00 Temporary Barriers and Enclosures"
+            },
+            {
+                "index": "015700",
+                "title": "01 57 00 Temporary Controls"
+            },
+            {
+                "index": "015800",
+                "title": "01 58 00 Project Identification"
+            },
+            {
+                "index": "016000",
+                "title": "01 60 00 Product Requirements"
+            },
+            {
+                "index": "016100",
+                "title": "01 61 00 Common Product Requirements"
+            },
+            {
+                "index": "016200",
+                "title": "01 62 00 Product Options"
+            },
+            {
+                "index": "016400",
+                "title": "01 64 00 Owner-Furnished Products"
+            },
+            {
+                "index": "016500",
+                "title": "01 65 00 Product Delivery Requirements"
+            },
+            {
+                "index": "016600",
+                "title": "01 66 00 Product Storage and Handling Requirements"
+            },
+            {
+                "index": "017000",
+                "title": "01 70 00 Execution and Closeout Requirements"
+            },
+            {
+                "index": "017100",
+                "title": "01 71 00 Examination and Preparation"
+            },
+            {
+                "index": "017300",
+                "title": "01 73 00 Execution"
+            },
+            {
+                "index": "017400",
+                "title": "01 74 00 Cleaning and Waste Management"
+            },
+            {
+                "index": "017500",
+                "title": "01 75 00 Starting and Adjusting"
+            },
+            {
+                "index": "017600",
+                "title": "01 76 00 Protecting Installed Construction"
+            },
+            {
+                "index": "017700",
+                "title": "01 77 00 Closeout Procedures"
+            },
+            {
+                "index": "017800",
+                "title": "01 78 00 Closeout Submittals"
+            },
+            {
+                "index": "017900",
+                "title": "01 79 00 Demonstration and Training"
+            },
+            {
+                "index": "018000",
+                "title": "01 80 00 Performance Requirements"
+            },
+            {
+                "index": "018100",
+                "title": "01 81 00 Facility Performance Requirements"
+            },
+            {
+                "index": "018200",
+                "title": "01 82 00 Facility Substructure Performance Requirements"
+            },
+            {
+                "index": "018300",
+                "title": "01 83 00 Facility Shell Performance Requirements"
+            },
+            {
+                "index": "018400",
+                "title": "01 84 00 Interiors Performance Requirements"
+            },
+            {
+                "index": "018500",
+                "title": "01 85 00 Conveying Equipment Performance Requirements"
+            },
+            {
+                "index": "018600",
+                "title": "01 86 00 Facility Services Performance Requirements"
+            },
+            {
+                "index": "018700",
+                "title": "01 87 00 Equipment and Furnishings Performance Requirements"
+            },
+            {
+                "index": "018800",
+                "title": "01 88 00 Other Facility Construction Performance Requirements"
+            },
+            {
+                "index": "018900",
+                "title": "01 89 00 Site Construction Performance Requirements"
+            },
+            {
+                "index": "019000",
+                "title": "01 90 00 Life Cycle Activities"
+            },
+            {
+                "index": "019100",
+                "title": "01 91 00 Commissioning"
+            },
+            {
+                "index": "019200",
+                "title": "01 92 00 Facility Operation"
+            },
+            {
+                "index": "019300",
+                "title": "01 93 00 Facility Maintenance"
+            },
+            {
+                "index": "019400",
+                "title": "01 94 00 Facility Decommissioning"
+            }
+        ]
+    },
+    {
+        "index": "020000",
+        "title": "DIVISION 02 - EXISTING CONDITIONS",
+        "sections": [
+            {
+                "index": "020100",
+                "title": "02 01 00 Maintenance of Existing Conditions"
+            },
+            {
+                "index": "020300",
+                "title": "02 03 00 Conservation Treatment for Existing Period Conditions"
+            },
+            {
+                "index": "020500",
+                "title": "02 05 00 Common Work Results for Existing Conditions"
+            },
+            {
+                "index": "020600",
+                "title": "02 06 00 Schedules for Existing Conditions"
+            },
+            {
+                "index": "020800",
+                "title": "02 08 00 Commissioning of Existing Conditions"
+            },
+            {
+                "index": "021000",
+                "title": "02 10 00 Unassigned"
+            },
+            {
+                "index": "022000",
+                "title": "02 20 00 Assessment"
+            },
+            {
+                "index": "022100",
+                "title": "02 21 00 Surveys"
+            },
+            {
+                "index": "022200",
+                "title": "02 22 00 Existing Conditions Assessment"
+            },
+            {
+                "index": "022400",
+                "title": "02 24 00 Environmental Assessment"
+            },
+            {
+                "index": "022500",
+                "title": "02 25 00 Existing Material Assessment"
+            },
+            {
+                "index": "022600",
+                "title": "02 26 00 Hazardous Material Assessment"
+            },
+            {
+                "index": "023000",
+                "title": "02 30 00 Subsurface Investigation"
+            },
+            {
+                "index": "023100",
+                "title": "02 31 00 Geophysical Investigations"
+            },
+            {
+                "index": "023200",
+                "title": "02 32 00 Geotechnical Investigations"
+            },
+            {
+                "index": "024000",
+                "title": "02 40 00 Demolition and Structure Moving"
+            },
+            {
+                "index": "024100",
+                "title": "02 41 00 Demolition"
+            },
+            {
+                "index": "024200",
+                "title": "02 42 00 Removal and Diversion of Construction Materials"
+            },
+            {
+                "index": "024300",
+                "title": "02 43 00 Structure Moving"
+            },
+            {
+                "index": "025000",
+                "title": "02 50 00 Site Remediation"
+            },
+            {
+                "index": "025100",
+                "title": "02 51 00 Physical Decontamination"
+            },
+            {
+                "index": "025200",
+                "title": "02 52 00 Chemical Decontamination"
+            },
+            {
+                "index": "025300",
+                "title": "02 53 00 Thermal Decontamination"
+            },
+            {
+                "index": "025400",
+                "title": "02 54 00 Biological Decontamination"
+            },
+            {
+                "index": "025500",
+                "title": "02 55 00 Remediation Soil Stabilization"
+            },
+            {
+                "index": "025600",
+                "title": "02 56 00 Site Containment"
+            },
+            {
+                "index": "025700",
+                "title": "02 57 00 Sinkhole Remediation"
+            },
+            {
+                "index": "025800",
+                "title": "02 58 00 Snow Control"
+            },
+            {
+                "index": "026000",
+                "title": "02 60 00 Contaminated Site Material Removal"
+            },
+            {
+                "index": "026100",
+                "title": "02 61 00 Removal and Disposal of Contaminated Soils"
+            },
+            {
+                "index": "026200",
+                "title": "02 62 00 Hazardous Waste Recovery Processes"
+            },
+            {
+                "index": "026500",
+                "title": "02 65 00 Underground Storage Tank Removal"
+            },
+            {
+                "index": "027000",
+                "title": "02 70 00 Water Remediation"
+            },
+            {
+                "index": "027100",
+                "title": "02 71 00 Groundwater Treatment"
+            },
+            {
+                "index": "027200",
+                "title": "02 72 00 Water Decontamination"
+            },
+            {
+                "index": "028000",
+                "title": "02 80 00 Facility Remediation"
+            },
+            {
+                "index": "028100",
+                "title": "02 81 00 Transportation and Disposal of Hazardous Materials"
+            },
+            {
+                "index": "028200",
+                "title": "02 82 00 Asbestos Remediation"
+            },
+            {
+                "index": "028300",
+                "title": "02 83 00 Lead Remediation"
+            },
+            {
+                "index": "028400",
+                "title": "02 84 00 Polychlorinate Biphenyl Remediation"
+            },
+            {
+                "index": "028600",
+                "title": "02 86 00 Hazardous Waste Drum Handling"
+            },
+            {
+                "index": "028700",
+                "title": "02 87 00 Biohazard Remediation"
+            },
+            {
+                "index": "029000",
+                "title": "02 90 00 Unassigned"
+            }
+        ]
+    },
+    {
+        "index": "030000",
+        "title": "DIVISION 03 - CONCRETE",
+        "sections": [
+            {
+                "index": "030100",
+                "title": "03 01 00 Maintenance of Concrete"
+            },
+            {
+                "index": "030300",
+                "title": "03 03 00 Conservation Treatment for Period Concrete"
+            },
+            {
+                "index": "030500",
+                "title": "03 05 00 Common Work Results for Concrete"
+            },
+            {
+                "index": "030600",
+                "title": "03 06 00 Schedules for Concrete"
+            },
+            {
+                "index": "030800",
+                "title": "03 08 00 Commissioning of Concrete"
+            },
+            {
+                "index": "031000",
+                "title": "03 10 00 Concrete Forming and Accessories"
+            },
+            {
+                "index": "031100",
+                "title": "03 11 00 Concrete Forming"
+            },
+            {
+                "index": "031500",
+                "title": "03 15 00 Concrete Accessories"
+            },
+            {
+                "index": "032000",
+                "title": "03 20 00 Concrete Reinforcing"
+            },
+            {
+                "index": "032100",
+                "title": "03 21 00 Reinforcement Bars"
+            },
+            {
+                "index": "032200",
+                "title": "03 22 00 Fabric and Grid Reinforcing"
+            },
+            {
+                "index": "032300",
+                "title": "03 23 00 Stressed Tendon Reinforcing"
+            },
+            {
+                "index": "032400",
+                "title": "03 24 00 Fibrous Reinforcing"
+            },
+            {
+                "index": "032500",
+                "title": "03 25 00 Composite Reinforcing"
+            },
+            {
+                "index": "033000",
+                "title": "03 30 00 Cast-in-Place Concrete"
+            },
+            {
+                "index": "033100",
+                "title": "03 31 00 Structural Concrete"
+            },
+            {
+                "index": "033300",
+                "title": "03 33 00 Architectural Concrete"
+            },
+            {
+                "index": "033400",
+                "title": "03 34 00 Low-Density Concrete"
+            },
+            {
+                "index": "033500",
+                "title": "03 35 00 Concrete Finishing"
+            },
+            {
+                "index": "033700",
+                "title": "03 37 00 Specialty Placed Concrete"
+            },
+            {
+                "index": "033800",
+                "title": "03 38 00 Post-Tensioned Concrete"
+            },
+            {
+                "index": "033900",
+                "title": "03 39 00 Concrete Curing"
+            },
+            {
+                "index": "034000",
+                "title": "03 40 00 Precast Concrete"
+            },
+            {
+                "index": "034100",
+                "title": "03 41 00 Precast Structural Concrete"
+            },
+            {
+                "index": "034500",
+                "title": "03 45 00 Precast Architectural Concrete"
+            },
+            {
+                "index": "034700",
+                "title": "03 47 00 Site-Cast Concrete"
+            },
+            {
+                "index": "034800",
+                "title": "03 48 00 Precast Concrete Specialties"
+            },
+            {
+                "index": "034900",
+                "title": "03 49 00 Glass-Fiber-Reinforced Concrete"
+            },
+            {
+                "index": "035000",
+                "title": "03 50 00 Cast Decks and Underlayment"
+            },
+            {
+                "index": "035100",
+                "title": "03 51 00 Cast Roof Decks"
+            },
+            {
+                "index": "035200",
+                "title": "03 52 00 Lightweight Concrete Roof Insulation"
+            },
+            {
+                "index": "035300",
+                "title": "03 53 00 Concrete Topping"
+            },
+            {
+                "index": "035400",
+                "title": "03 54 00 Cast Underlayment"
+            },
+            {
+                "index": "036000",
+                "title": "03 60 00 Grouting"
+            },
+            {
+                "index": "036100",
+                "title": "03 61 00 Cementitious Grouting"
+            },
+            {
+                "index": "036200",
+                "title": "03 62 00 Non-Shrink Grouting"
+            },
+            {
+                "index": "036300",
+                "title": "03 63 00 Epoxy Grouting"
+            },
+            {
+                "index": "036400",
+                "title": "03 64 00 Injection Grouting"
+            },
+            {
+                "index": "037000",
+                "title": "03 70 00 Mass Concrete"
+            },
+            {
+                "index": "037100",
+                "title": "03 71 00 Mass Concrete for Raft Foundations"
+            },
+            {
+                "index": "037200",
+                "title": "03 72 00 Mass Concrete for Dams"
+            },
+            {
+                "index": "038000",
+                "title": "03 80 00 Concrete Cutting and Boring"
+            },
+            {
+                "index": "038100",
+                "title": "03 81 00 Concrete Cutting"
+            },
+            {
+                "index": "038200",
+                "title": "03 82 00 Concrete Boring"
+            },
+            {
+                "index": "039000",
+                "title": "03 90 00 Unassigned"
+            }
+        ]
+    },
+    {
+        "index": "040000",
+        "title": "DIVISION 04 - MASONRY",
+        "sections": [
+            {
+                "index": "040100",
+                "title": "04 01 00 Maintenance of Masonry"
+            },
+            {
+                "index": "040300",
+                "title": "04 03 00 Conservation Treatment for Period Masonry"
+            },
+            {
+                "index": "040500",
+                "title": "04 05 00 Common Work Results for Masonry"
+            },
+            {
+                "index": "040600",
+                "title": "04 06 00 Schedules for Masonry"
+            },
+            {
+                "index": "040800",
+                "title": "04 08 00 Commissioning of Masonry"
+            },
+            {
+                "index": "041000",
+                "title": "04 10 00 Unassigned"
+            },
+            {
+                "index": "042000",
+                "title": "04 20 00 Unit Masonry"
+            },
+            {
+                "index": "042100",
+                "title": "04 21 00 Clay Unit Masonry"
+            },
+            {
+                "index": "042200",
+                "title": "04 22 00 Concrete Unit Masonry"
+            },
+            {
+                "index": "042300",
+                "title": "04 23 00 Glass Unit Masonry"
+            },
+            {
+                "index": "042400",
+                "title": "04 24 00 Adobe Unit Masonry"
+            },
+            {
+                "index": "042500",
+                "title": "04 25 00 Unit Masonry Panels"
+            },
+            {
+                "index": "042600",
+                "title": "04 26 00 Single-Wythe Unit Masonry"
+            },
+            {
+                "index": "042700",
+                "title": "04 27 00 Multiple-Wythe Unit Masonry"
+            },
+            {
+                "index": "042800",
+                "title": "04 28 00 Concrete Form Masonry Units"
+            },
+            {
+                "index": "042900",
+                "title": "04 29 00 Engineered Unit Masonry"
+            },
+            {
+                "index": "043000",
+                "title": "04 30 00 Unassigned"
+            },
+            {
+                "index": "044000",
+                "title": "04 40 00 Stone Assemblies"
+            },
+            {
+                "index": "044100",
+                "title": "04 41 00 Dry-Placed Stone"
+            },
+            {
+                "index": "044200",
+                "title": "04 42 00 Exterior Stone Cladding"
+            },
+            {
+                "index": "044300",
+                "title": "04 43 00 Stone Masonry"
+            },
+            {
+                "index": "045000",
+                "title": "04 50 00 Refractory Masonry"
+            },
+            {
+                "index": "045100",
+                "title": "04 51 00 Flue Liner Masonry"
+            },
+            {
+                "index": "045200",
+                "title": "04 52 00 Combustion Chamber Masonry"
+            },
+            {
+                "index": "045300",
+                "title": "04 53 00 Castable Refractory Masonry"
+            },
+            {
+                "index": "045400",
+                "title": "04 54 00 Refractory Brick Masonry"
+            },
+            {
+                "index": "045700",
+                "title": "04 57 00 Masonry Fireplaces"
+            },
+            {
+                "index": "046000",
+                "title": "04 60 00 Corrosion-Resistant Masonry"
+            },
+            {
+                "index": "046100",
+                "title": "04 61 00 Chemical-Resistant Brick Masonry"
+            },
+            {
+                "index": "046200",
+                "title": "04 62 00 Vitrified Clay Liner Plate"
+            },
+            {
+                "index": "047000",
+                "title": "04 70 00 Manufactured Masonry"
+            },
+            {
+                "index": "047100",
+                "title": "04 71 00 Manufactured Brick Masonry"
+            },
+            {
+                "index": "047200",
+                "title": "04 72 00 Cast Stone Masonry"
+            },
+            {
+                "index": "047300",
+                "title": "04 73 00 Manufactured Stone Masonry"
+            },
+            {
+                "index": "048000",
+                "title": "04 80 00 to 04 90 00 Unassigned"
+            }
+        ]
+    },
+    {
+        "index": "050000",
+        "title": "DIVISION 05 - METALS",
+        "sections": [
+            {
+                "index": "050100",
+                "title": "05 01 00 Maintenance of Metals"
+            },
+            {
+                "index": "050300",
+                "title": "05 03 00 Conservation Treatment for Period Metals"
+            },
+            {
+                "index": "050500",
+                "title": "05 05 00 Common Work Results for Metals"
+            },
+            {
+                "index": "050600",
+                "title": "05 06 00 Schedules for Metals"
+            },
+            {
+                "index": "050800",
+                "title": "05 08 00 Commissioning of Metals"
+            },
+            {
+                "index": "051000",
+                "title": "05 10 00 Structural Metal Framing"
+            },
+            {
+                "index": "051200",
+                "title": "05 12 00 Structural Steel Framing"
+            },
+            {
+                "index": "051300",
+                "title": "05 13 00 Structural Stainless Steel Framing"
+            },
+            {
+                "index": "051400",
+                "title": "05 14 00 Structural Aluminum Framing"
+            },
+            {
+                "index": "051500",
+                "title": "05 15 00 Wire Rope Assemblies"
+            },
+            {
+                "index": "051600",
+                "title": "05 16 00 Structural Cabling"
+            },
+            {
+                "index": "051700",
+                "title": "05 17 00 Structural Rod Assemblies"
+            },
+            {
+                "index": "051900",
+                "title": "05 19 00 Tension Rod and Cable Truss Assemblies"
+            },
+            {
+                "index": "052000",
+                "title": "05 20 00 Metal Joists"
+            },
+            {
+                "index": "052100",
+                "title": "05 21 00 Steel Joist Framing"
+            },
+            {
+                "index": "052500",
+                "title": "05 25 00 Aluminum Joist Framing"
+            },
+            {
+                "index": "053000",
+                "title": "05 30 00 Metal Decking"
+            },
+            {
+                "index": "053100",
+                "title": "05 31 00 Steel Decking"
+            },
+            {
+                "index": "053300",
+                "title": "05 33 00 Aluminum Decking"
+            },
+            {
+                "index": "053400",
+                "title": "05 34 00 Acoustical Metal Decking"
+            },
+            {
+                "index": "053500",
+                "title": "05 35 00 Raceway Decking Assemblies"
+            },
+            {
+                "index": "053600",
+                "title": "05 36 00 Composite Metal Decking"
+            },
+            {
+                "index": "054000",
+                "title": "05 40 00 Cold-Formed Metal Framing"
+            },
+            {
+                "index": "054100",
+                "title": "05 41 00 Structural Metal Stud Framing"
+            },
+            {
+                "index": "054200",
+                "title": "05 42 00 Cold-Formed Metal Joist Framing"
+            },
+            {
+                "index": "054300",
+                "title": "05 43 00 Slotted Channel Framing"
+            },
+            {
+                "index": "054400",
+                "title": "05 44 00 Cold-Formed Metal Trusses"
+            },
+            {
+                "index": "054500",
+                "title": "05 45 00 Metal Support Assemblies"
+            },
+            {
+                "index": "055000",
+                "title": "05 50 00 Metal Fabrications"
+            },
+            {
+                "index": "055100",
+                "title": "05 51 00 Metal Stairs"
+            },
+            {
+                "index": "055200",
+                "title": "05 52 00 Metal Railings"
+            },
+            {
+                "index": "055300",
+                "title": "05 53 00 Metal Gratings"
+            },
+            {
+                "index": "055400",
+                "title": "05 54 00 Metal Floor Plates"
+            },
+            {
+                "index": "055500",
+                "title": "05 55 00 Metal Stair Treads and Nosings"
+            },
+            {
+                "index": "055600",
+                "title": "05 56 00 Metal Castings"
+            },
+            {
+                "index": "055800",
+                "title": "05 58 00 Formed Metal Fabrications"
+            },
+            {
+                "index": "055900",
+                "title": "05 59 00 Metal Specialties"
+            },
+            {
+                "index": "056000",
+                "title": "05 60 00 Unassigned"
+            },
+            {
+                "index": "057000",
+                "title": "05 70 00 Decorative Metal"
+            },
+            {
+                "index": "057100",
+                "title": "05 71 00 Decorative Metal Stairs"
+            },
+            {
+                "index": "057300",
+                "title": "05 73 00 Decorative Metal Railings"
+            },
+            {
+                "index": "057400",
+                "title": "05 74 00 Decorative Metal Castings"
+            },
+            {
+                "index": "057500",
+                "title": "05 75 00 Decorative Formed Metal"
+            },
+            {
+                "index": "057600",
+                "title": "05 76 00 Decorative Forged Metal"
+            },
+            {
+                "index": "057700",
+                "title": "05 77 00 Decorative Extruded Metal"
+            },
+            {
+                "index": "058000",
+                "title": "05 80 00 to 05 90 00 Unassigned"
+            }
+        ]
+    },
+    {
+        "index": "060000",
+        "title": "DIVISION 06 - WOOD, PLASTICS, AND COMPOSITES",
+        "sections": [
+            {
+                "index": "060100",
+                "title": "06 01 00 Maintenance of Wood, Plastics, and Composites"
+            },
+            {
+                "index": "060300",
+                "title": "06 03 00 Conservation Treatment for Period Wood"
+            },
+            {
+                "index": "060500",
+                "title": "06 05 00 Common Work Results for Wood, Plastics, and Composites"
+            },
+            {
+                "index": "060600",
+                "title": "06 06 00 Schedules for Wood, Plastics, and Composites"
+            },
+            {
+                "index": "060800",
+                "title": "06 08 00 Commissioning of Wood, Plastics, and Composites"
+            },
+            {
+                "index": "061000",
+                "title": "06 10 00 Rough Carpentry"
+            },
+            {
+                "index": "061100",
+                "title": "06 11 00 Wood Framing"
+            },
+            {
+                "index": "061200",
+                "title": "06 12 00 Structural Panels"
+            },
+            {
+                "index": "061300",
+                "title": "06 13 00 Heavy Timber Construction"
+            },
+            {
+                "index": "061400",
+                "title": "06 14 00 Treated Wood Foundations"
+            },
+            {
+                "index": "061500",
+                "title": "06 15 00 Wood Decking"
+            },
+            {
+                "index": "061600",
+                "title": "06 16 00 Sheathing"
+            },
+            {
+                "index": "061700",
+                "title": "06 17 00 Shop-Fabricated Structural Wood"
+            },
+            {
+                "index": "061800",
+                "title": "06 18 00 Glued-Laminated Construction"
+            },
+            {
+                "index": "062000",
+                "title": "06 20 00 Finish Carpentry"
+            },
+            {
+                "index": "062200",
+                "title": "06 22 00 Millwork"
+            },
+            {
+                "index": "062500",
+                "title": "06 25 00 Prefinished Paneling"
+            },
+            {
+                "index": "062600",
+                "title": "06 26 00 Board Paneling"
+            },
+            {
+                "index": "063000",
+                "title": "06 30 00 Unassigned"
+            },
+            {
+                "index": "064000",
+                "title": "06 40 00 Architectural Woodwork"
+            },
+            {
+                "index": "064100",
+                "title": "06 41 00 Architectural Wood Casework"
+            },
+            {
+                "index": "064200",
+                "title": "06 42 00 Wood Paneling"
+            },
+            {
+                "index": "064300",
+                "title": "06 43 00 Wood Stairs and Railings"
+            },
+            {
+                "index": "064400",
+                "title": "06 44 00 Ornamental Woodwork"
+            },
+            {
+                "index": "064600",
+                "title": "06 46 00 Wood Trim"
+            },
+            {
+                "index": "064800",
+                "title": "06 48 00 Wood Frames"
+            },
+            {
+                "index": "064900",
+                "title": "06 49 00 Wood Screens and Shutters"
+            },
+            {
+                "index": "065000",
+                "title": "06 50 00 Structural Plastics"
+            },
+            {
+                "index": "065100",
+                "title": "06 51 00 Structural Plastic Shapes and Plates"
+            },
+            {
+                "index": "065200",
+                "title": "06 52 00 Plastic Structural Assemblies"
+            },
+            {
+                "index": "065300",
+                "title": "06 53 00 Plastic Decking"
+            },
+            {
+                "index": "066000",
+                "title": "06 60 00 Plastic Fabrications"
+            },
+            {
+                "index": "066100",
+                "title": "06 61 00 Cast Polymer Fabrications"
+            },
+            {
+                "index": "066200",
+                "title": "06 62 00 Plastic Foam Fabrications"
+            },
+            {
+                "index": "066300",
+                "title": "06 63 00 Plastic Railings"
+            },
+            {
+                "index": "066400",
+                "title": "06 64 00 Plastic Paneling"
+            },
+            {
+                "index": "066500",
+                "title": "06 65 00 Plastic Trim"
+            },
+            {
+                "index": "066600",
+                "title": "06 66 00 Custom Ornamental Simulated Woodwork"
+            },
+            {
+                "index": "067000",
+                "title": "06 70 00 Structural Composites"
+            },
+            {
+                "index": "067100",
+                "title": "06 71 00 Structural Composite Shapes and Plates"
+            },
+            {
+                "index": "067200",
+                "title": "06 72 00 Composite Structural Assemblies"
+            },
+            {
+                "index": "067300",
+                "title": "06 73 00 Composite Decking"
+            },
+            {
+                "index": "067400",
+                "title": "06 74 00 Composite Gratings"
+            },
+            {
+                "index": "068000",
+                "title": "06 80 00 Composite Fabrications"
+            },
+            {
+                "index": "068100",
+                "title": "06 81 00 Composite Railings"
+            },
+            {
+                "index": "068200",
+                "title": "06 82 00 Composite Trim"
+            },
+            {
+                "index": "068300",
+                "title": "06 83 00 Composite Paneling"
+            },
+            {
+                "index": "069000",
+                "title": "06 90 00 Unassigned"
+            }
+        ]
+    },
+    {
+        "index": "070000",
+        "title": "DIVISION 07 - THERMAL AND MOISTURE PROTECTION",
+        "sections": [
+            {
+                "index": "070100",
+                "title": "07 01 00 Operation and Maintenance of Thermal and Moisture Protection"
+            },
+            {
+                "index": "070300",
+                "title": "07 03 00 Conservation Treatment for Period Roofing"
+            },
+            {
+                "index": "070500",
+                "title": "07 05 00 Common Work Results for Thermal and Moisture Protection"
+            },
+            {
+                "index": "070600",
+                "title": "07 06 00 Schedules for Thermal and Moisture Protection"
+            },
+            {
+                "index": "070800",
+                "title": "07 08 00 Commissioning of Thermal and Moisture Protection"
+            },
+            {
+                "index": "071000",
+                "title": "07 10 00 Dampproofing and Waterproofing"
+            },
+            {
+                "index": "071100",
+                "title": "07 11 00 Dampproofing"
+            },
+            {
+                "index": "071200",
+                "title": "07 12 00 Built-Up Bituminous Waterproofing"
+            },
+            {
+                "index": "071300",
+                "title": "07 13 00 Sheet Waterproofing"
+            },
+            {
+                "index": "071400",
+                "title": "07 14 00 Fluid-Applied Waterproofing"
+            },
+            {
+                "index": "071500",
+                "title": "07 15 00 Sheet Metal Waterproofing"
+            },
+            {
+                "index": "071600",
+                "title": "07 16 00 Cementitious and Reactive Waterproofing"
+            },
+            {
+                "index": "071700",
+                "title": "07 17 00 Bentonite Waterproofing"
+            },
+            {
+                "index": "071800",
+                "title": "07 18 00 Traffic Coatings"
+            },
+            {
+                "index": "071900",
+                "title": "07 19 00 Water Repellents"
+            },
+            {
+                "index": "072000",
+                "title": "07 20 00 Thermal Protection"
+            },
+            {
+                "index": "072100",
+                "title": "07 21 00 Thermal Insulation"
+            },
+            {
+                "index": "072200",
+                "title": "07 22 00 Roof and Deck Insulation"
+            },
+            {
+                "index": "072400",
+                "title": "07 24 00 Exterior Insulation and Finish Systems"
+            },
+            {
+                "index": "072500",
+                "title": "07 25 00 Weather Barriers"
+            },
+            {
+                "index": "072600",
+                "title": "07 26 00 Vapor Retarders"
+            },
+            {
+                "index": "072700",
+                "title": "07 27 00 Air Barriers"
+            },
+            {
+                "index": "073000",
+                "title": "07 30 00 Steep Slope Roofing"
+            },
+            {
+                "index": "073100",
+                "title": "07 31 00 Shingles and Shakes"
+            },
+            {
+                "index": "073200",
+                "title": "07 32 00 Roof Tiles"
+            },
+            {
+                "index": "073300",
+                "title": "07 33 00 Natural Roof Coverings"
+            },
+            {
+                "index": "074000",
+                "title": "07 40 00 Roofing and Siding Panels"
+            },
+            {
+                "index": "074100",
+                "title": "07 41 00 Roof Panels"
+            },
+            {
+                "index": "074200",
+                "title": "07 42 00 Wall Panels"
+            },
+            {
+                "index": "074400",
+                "title": "07 44 00 Faced Panels"
+            },
+            {
+                "index": "074600",
+                "title": "07 46 00 Siding"
+            },
+            {
+                "index": "075000",
+                "title": "07 50 00 Membrane Roofing"
+            },
+            {
+                "index": "075100",
+                "title": "07 51 00 Built-Up Bituminous Roofing"
+            },
+            {
+                "index": "075200",
+                "title": "07 52 00 Modified Bituminous Membrane Roofing"
+            },
+            {
+                "index": "075300",
+                "title": "07 53 00 Elastomeric Membrane Roofing"
+            },
+            {
+                "index": "075400",
+                "title": "07 54 00 Thermoplastic Membrane Roofing"
+            },
+            {
+                "index": "075500",
+                "title": "07 55 00 Protected Membrane Roofing"
+            },
+            {
+                "index": "075600",
+                "title": "07 56 00 Fluid-Applied Roofing"
+            },
+            {
+                "index": "075700",
+                "title": "07 57 00 Coated Foamed Roofing"
+            },
+            {
+                "index": "075800",
+                "title": "07 58 00 Roll Roofing"
+            },
+            {
+                "index": "076000",
+                "title": "07 60 00 Flashing and Sheet Metal"
+            },
+            {
+                "index": "076100",
+                "title": "07 61 00 Sheet Metal Roofing"
+            },
+            {
+                "index": "076200",
+                "title": "07 62 00 Sheet Metal Flashing and Trim"
+            },
+            {
+                "index": "076300",
+                "title": "07 63 00 Sheet Metal Roofing Specialties"
+            },
+            {
+                "index": "076400",
+                "title": "07 64 00 Sheet Metal Wall Cladding"
+            },
+            {
+                "index": "076500",
+                "title": "07 65 00 Flexible Flashing"
+            },
+            {
+                "index": "077000",
+                "title": "07 70 00 Roof and Wall Specialties and Accessories"
+            },
+            {
+                "index": "077100",
+                "title": "07 71 00 Roof Specialties"
+            },
+            {
+                "index": "077200",
+                "title": "07 72 00 Roof Accessories"
+            },
+            {
+                "index": "077600",
+                "title": "07 76 00 Roof Pavers"
+            },
+            {
+                "index": "077700",
+                "title": "07 77 00 Wall Specialties"
+            },
+            {
+                "index": "078000",
+                "title": "07 80 00 Fire and Smoke Protection"
+            },
+            {
+                "index": "078100",
+                "title": "07 81 00 Applied Fire Protection"
+            },
+            {
+                "index": "078200",
+                "title": "07 82 00 Board Fire Protection"
+            },
+            {
+                "index": "078400",
+                "title": "07 84 00 Firestopping"
+            },
+            {
+                "index": "078600",
+                "title": "07 86 00 Smoke Seals"
+            },
+            {
+                "index": "078700",
+                "title": "07 87 00 Smoke Containment Barriers"
+            },
+            {
+                "index": "079000",
+                "title": "07 90 00 Joint Protection"
+            },
+            {
+                "index": "079100",
+                "title": "07 91 00 Preformed Joint Seals"
+            },
+            {
+                "index": "079200",
+                "title": "07 92 00 Joint Sealants"
+            },
+            {
+                "index": "079500",
+                "title": "07 95 00 Expansion Control"
+            }
+        ]
+    },
+    {
+        "index": "080000",
+        "title": "DIVISION 08 - OPENINGS",
+        "sections": [
+            {
+                "index": "080100",
+                "title": "08 01 00 Operation and Maintenance of Openings"
+            },
+            {
+                "index": "080300",
+                "title": "08 03 00 Conservation Treatment for Period Openings"
+            },
+            {
+                "index": "080500",
+                "title": "08 05 00 Common Work Results for Openings"
+            },
+            {
+                "index": "080600",
+                "title": "08 06 00 Schedules for Openings"
+            },
+            {
+                "index": "080800",
+                "title": "08 08 00 Commissioning of Openings"
+            },
+            {
+                "index": "081000",
+                "title": "08 10 00 Doors and Frames"
+            },
+            {
+                "index": "081100",
+                "title": "08 11 00 Metal Doors and Frames"
+            },
+            {
+                "index": "081200",
+                "title": "08 12 00 Metal Frames"
+            },
+            {
+                "index": "081300",
+                "title": "08 13 00 Metal Doors"
+            },
+            {
+                "index": "081400",
+                "title": "08 14 00 Wood Doors"
+            },
+            {
+                "index": "081500",
+                "title": "08 15 00 Plastic Doors"
+            },
+            {
+                "index": "081600",
+                "title": "08 16 00 Composite Doors"
+            },
+            {
+                "index": "081700",
+                "title": "08 17 00 Integrated Door Opening Assemblies"
+            },
+            {
+                "index": "082000",
+                "title": "08 20 00 Unassigned"
+            },
+            {
+                "index": "083000",
+                "title": "08 30 00 Specialty Doors and Frames"
+            },
+            {
+                "index": "083100",
+                "title": "08 31 00 Access Doors and Panels"
+            },
+            {
+                "index": "083200",
+                "title": "08 32 00 Sliding Glass Doors"
+            },
+            {
+                "index": "083300",
+                "title": "08 33 00 Coiling Doors and Grilles"
+            },
+            {
+                "index": "083400",
+                "title": "08 34 00 Special Function Doors"
+            },
+            {
+                "index": "083500",
+                "title": "08 35 00 Folding Doors and Grilles"
+            },
+            {
+                "index": "083600",
+                "title": "08 36 00 Panel Doors"
+            },
+            {
+                "index": "083800",
+                "title": "08 38 00 Traffic Doors"
+            },
+            {
+                "index": "083900",
+                "title": "08 39 00 Pressure-Resistant Doors"
+            },
+            {
+                "index": "084000",
+                "title": "08 40 00 Entrances, Storefronts, and Curtain Walls"
+            },
+            {
+                "index": "084100",
+                "title": "08 41 00 Entrances and Storefronts"
+            },
+            {
+                "index": "084200",
+                "title": "08 42 00 Entrances"
+            },
+            {
+                "index": "084300",
+                "title": "08 43 00 Storefronts"
+            },
+            {
+                "index": "084400",
+                "title": "08 44 00 Curtain Wall and Glazed Assemblies"
+            },
+            {
+                "index": "084500",
+                "title": "08 45 00 Translucent Wall and Roof Assemblies"
+            },
+            {
+                "index": "084600",
+                "title": "08 46 00 Window Wall Assemblies"
+            },
+            {
+                "index": "085000",
+                "title": "08 50 00 Windows"
+            },
+            {
+                "index": "085100",
+                "title": "08 51 00 Metal Windows"
+            },
+            {
+                "index": "085200",
+                "title": "08 52 00 Wood Windows"
+            },
+            {
+                "index": "085300",
+                "title": "08 53 00 Plastic Windows"
+            },
+            {
+                "index": "085400",
+                "title": "08 54 00 Composite Windows"
+            },
+            {
+                "index": "085500",
+                "title": "08 55 00 Pressure-Resistant Windows"
+            },
+            {
+                "index": "085600",
+                "title": "08 56 00 Special Function Windows"
+            },
+            {
+                "index": "086000",
+                "title": "08 60 00 Roof Windows and Skylights"
+            },
+            {
+                "index": "086100",
+                "title": "08 61 00 Roof Windows"
+            },
+            {
+                "index": "086200",
+                "title": "08 62 00 Unit Skylights"
+            },
+            {
+                "index": "086300",
+                "title": "08 63 00 Metal-Framed Skylights"
+            },
+            {
+                "index": "086400",
+                "title": "08 64 00 Plastic-Framed Skylights"
+            },
+            {
+                "index": "086500",
+                "title": "08 65 00 Glazed Canopies"
+            },
+            {
+                "index": "086700",
+                "title": "08 67 00 Skylight Protection and Screens"
+            },
+            {
+                "index": "087000",
+                "title": "08 70 00 Hardware"
+            },
+            {
+                "index": "087100",
+                "title": "08 71 00 Door Hardware"
+            },
+            {
+                "index": "087400",
+                "title": "08 74 00 Non-Integrated Access Control Hardware"
+            },
+            {
+                "index": "087500",
+                "title": "08 75 00 Window Hardware"
+            },
+            {
+                "index": "087800",
+                "title": "08 78 00 Special Function Hardware"
+            },
+            {
+                "index": "087900",
+                "title": "08 79 00 Hardware Accessories"
+            },
+            {
+                "index": "088000",
+                "title": "08 80 00 Glazing"
+            },
+            {
+                "index": "088100",
+                "title": "08 81 00 Glass Glazing"
+            },
+            {
+                "index": "088300",
+                "title": "08 83 00 Mirrors"
+            },
+            {
+                "index": "088400",
+                "title": "08 84 00 Plastic Glazing"
+            },
+            {
+                "index": "088500",
+                "title": "08 85 00 Glazing Accessories"
+            },
+            {
+                "index": "088700",
+                "title": "08 87 00 Glazing Surface Films"
+            },
+            {
+                "index": "088800",
+                "title": "08 88 00 Special Function Glazing"
+            },
+            {
+                "index": "089000",
+                "title": "08 90 00 Louvers and Vents"
+            },
+            {
+                "index": "089100",
+                "title": "08 91 00 Louvers"
+            },
+            {
+                "index": "089200",
+                "title": "08 92 00 Louvered Equipment Enclosures"
+            },
+            {
+                "index": "089500",
+                "title": "08 95 00 Vents"
+            }
+        ]
+    },
+    {
+        "index": "090000",
+        "title": "DIVISION 09 - FINISHES",
+        "sections": [
+            {
+                "index": "090100",
+                "title": "09 01 00 Maintenance of Finishes"
+            },
+            {
+                "index": "090300",
+                "title": "09 03 00 Conservation Treatment of Period Finishes"
+            },
+            {
+                "index": "090500",
+                "title": "09 05 00 Common Work Results for Finishes"
+            },
+            {
+                "index": "090600",
+                "title": "09 06 00 Schedules for Finishes"
+            },
+            {
+                "index": "090800",
+                "title": "09 08 00 Commissioning of Finishes"
+            },
+            {
+                "index": "091000",
+                "title": "09 10 00 Unassigned"
+            },
+            {
+                "index": "092000",
+                "title": "09 20 00 Plaster and Gypsum Board"
+            },
+            {
+                "index": "092100",
+                "title": "09 21 00 Plaster and Gypsum Board Assemblies"
+            },
+            {
+                "index": "092200",
+                "title": "09 22 00 Supports for Plaster and Gypsum Board"
+            },
+            {
+                "index": "092300",
+                "title": "09 23 00 Gypsum Plastering"
+            },
+            {
+                "index": "092400",
+                "title": "09 24 00 Cement Plastering"
+            },
+            {
+                "index": "092500",
+                "title": "09 25 00 Other Plastering"
+            },
+            {
+                "index": "092600",
+                "title": "09 26 00 Veneer Plastering"
+            },
+            {
+                "index": "092700",
+                "title": "09 27 00 Plaster Fabrications"
+            },
+            {
+                "index": "092800",
+                "title": "09 28 00 Backing Boards and Underlayments"
+            },
+            {
+                "index": "092900",
+                "title": "09 29 00 Gypsum Board"
+            },
+            {
+                "index": "093000",
+                "title": "09 30 00 Tiling"
+            },
+            {
+                "index": "093100",
+                "title": "09 31 00 Thin-Set Tiling"
+            },
+            {
+                "index": "093200",
+                "title": "09 32 00 Mortar-Bed Tiling"
+            },
+            {
+                "index": "093300",
+                "title": "09 33 00 Conductive Tiling"
+            },
+            {
+                "index": "093400",
+                "title": "09 34 00 Waterproofing-Membrane Tiling"
+            },
+            {
+                "index": "093500",
+                "title": "09 35 00 Chemical-Resistant Tiling"
+            },
+            {
+                "index": "094000",
+                "title": "09 40 00 Unassigned"
+            },
+            {
+                "index": "095000",
+                "title": "09 50 00 Ceilings"
+            },
+            {
+                "index": "095100",
+                "title": "09 51 00 Acoustical Ceilings"
+            },
+            {
+                "index": "095300",
+                "title": "09 53 00 Acoustical Ceiling Suspension Assemblies"
+            },
+            {
+                "index": "095400",
+                "title": "09 54 00 Specialty Ceilings"
+            },
+            {
+                "index": "095600",
+                "title": "09 56 00 Textured Ceilings"
+            },
+            {
+                "index": "095700",
+                "title": "09 57 00 Special Function Ceilings"
+            },
+            {
+                "index": "095800",
+                "title": "09 58 00 Integrated Ceiling Assemblies"
+            },
+            {
+                "index": "096000",
+                "title": "09 60 00 Flooring"
+            },
+            {
+                "index": "096100",
+                "title": "09 61 00 Flooring Treatment"
+            },
+            {
+                "index": "096200",
+                "title": "09 62 00 Specialty Flooring"
+            },
+            {
+                "index": "096300",
+                "title": "09 63 00 Masonry Flooring"
+            },
+            {
+                "index": "096400",
+                "title": "09 64 00 Wood Flooring"
+            },
+            {
+                "index": "096500",
+                "title": "09 65 00 Resilient Flooring"
+            },
+            {
+                "index": "096600",
+                "title": "09 66 00 Terrazzo Flooring"
+            },
+            {
+                "index": "096700",
+                "title": "09 67 00 Fluid-Applied Flooring"
+            },
+            {
+                "index": "096800",
+                "title": "09 68 00 Carpeting"
+            },
+            {
+                "index": "096900",
+                "title": "09 69 00 Access Flooring"
+            },
+            {
+                "index": "097000",
+                "title": "09 70 00 Wall Finishes"
+            },
+            {
+                "index": "097200",
+                "title": "09 72 00 Wall Coverings"
+            },
+            {
+                "index": "097300",
+                "title": "09 73 00 Wall Carpeting"
+            },
+            {
+                "index": "097400",
+                "title": "09 74 00 Flexible Wood Sheets"
+            },
+            {
+                "index": "097500",
+                "title": "09 75 00 Stone Facing"
+            },
+            {
+                "index": "097600",
+                "title": "09 76 00 Plastic Blocks"
+            },
+            {
+                "index": "097700",
+                "title": "09 77 00 Special Wall Surfacing"
+            },
+            {
+                "index": "097800",
+                "title": "09 78 00 Interior Wall Paneling"
+            },
+            {
+                "index": "098000",
+                "title": "09 80 00 Acoustic Treatment"
+            },
+            {
+                "index": "098100",
+                "title": "09 81 00 Acoustic Insulation"
+            },
+            {
+                "index": "098300",
+                "title": "09 83 00 Acoustic Finishes"
+            },
+            {
+                "index": "098400",
+                "title": "09 84 00 Acoustic Room Components"
+            },
+            {
+                "index": "099000",
+                "title": "09 90 00 Painting and Coating"
+            },
+            {
+                "index": "099100",
+                "title": "09 91 00 Painting"
+            },
+            {
+                "index": "099300",
+                "title": "09 93 00 Staining and Transparent Finishing"
+            },
+            {
+                "index": "099400",
+                "title": "09 94 00 Decorative Finishing"
+            },
+            {
+                "index": "099600",
+                "title": "09 96 00 High-Performance Coatings"
+            },
+            {
+                "index": "099700",
+                "title": "09 97 00 Special Coatings"
+            }
+        ]
+    },
+    {
+        "index": "100000",
+        "title": "DIVISION 10 - SPECIALTIES",
+        "sections": [
+            {
+                "index": "100100",
+                "title": "10 01 00 Operation and Maintenance of Specialties"
+            },
+            {
+                "index": "100500",
+                "title": "10 05 00 Common Work Results for Specialties"
+            },
+            {
+                "index": "100600",
+                "title": "10 06 00 Schedules for Specialties"
+            },
+            {
+                "index": "100800",
+                "title": "10 08 00 Commissioning of Specialties"
+            },
+            {
+                "index": "101000",
+                "title": "10 10 00 Information Specialties"
+            },
+            {
+                "index": "101100",
+                "title": "10 11 00 Visual Display Units"
+            },
+            {
+                "index": "101200",
+                "title": "10 12 00 Display Cases"
+            },
+            {
+                "index": "101300",
+                "title": "10 13 00 Directories"
+            },
+            {
+                "index": "101400",
+                "title": "10 14 00 Signage"
+            },
+            {
+                "index": "101700",
+                "title": "10 17 00 Telephone Specialties"
+            },
+            {
+                "index": "101800",
+                "title": "10 18 00 Informational Kiosks"
+            },
+            {
+                "index": "102000",
+                "title": "10 20 00 Interior Specialties"
+            },
+            {
+                "index": "102100",
+                "title": "10 21 00 Compartments and Cubicles"
+            },
+            {
+                "index": "102200",
+                "title": "10 22 00 Partitions"
+            },
+            {
+                "index": "102500",
+                "title": "10 25 00 Service Walls"
+            },
+            {
+                "index": "102600",
+                "title": "10 26 00 Wall and Door Protection"
+            },
+            {
+                "index": "102800",
+                "title": "10 28 00 Toilet, Bath, and Laundry Accessories"
+            },
+            {
+                "index": "103000",
+                "title": "10 30 00 Fireplaces and Stoves"
+            },
+            {
+                "index": "103100",
+                "title": "10 31 00 Manufactured Fireplaces"
+            },
+            {
+                "index": "103200",
+                "title": "10 32 00 Fireplace Specialties"
+            },
+            {
+                "index": "103500",
+                "title": "10 35 00 Stoves"
+            },
+            {
+                "index": "104000",
+                "title": "10 40 00 Safety Specialties"
+            },
+            {
+                "index": "104100",
+                "title": "10 41 00 Emergency Access and Information Cabinets"
+            },
+            {
+                "index": "104300",
+                "title": "10 43 00 Emergency Aid Specialties"
+            },
+            {
+                "index": "104400",
+                "title": "10 44 00 Fire-Protection Specialties"
+            },
+            {
+                "index": "104500",
+                "title": "10 45 00 Photoluminescent Exit Specialties"
+            },
+            {
+                "index": "105000",
+                "title": "10 50 00 Storage Specialties"
+            },
+            {
+                "index": "105100",
+                "title": "10 51 00 Lockers"
+            },
+            {
+                "index": "105500",
+                "title": "10 55 00 Postal Specialties"
+            },
+            {
+                "index": "105600",
+                "title": "10 56 00 Storage Assemblies"
+            },
+            {
+                "index": "105700",
+                "title": "10 57 00 Wardrobe and Closet Specialties"
+            },
+            {
+                "index": "106000",
+                "title": "10 60 00 Unassigned"
+            },
+            {
+                "index": "107000",
+                "title": "10 70 00 Exterior Specialties"
+            },
+            {
+                "index": "107100",
+                "title": "10 71 00 Exterior Protection"
+            },
+            {
+                "index": "107300",
+                "title": "10 73 00 Protective Covers"
+            },
+            {
+                "index": "107400",
+                "title": "10 74 00 Manufactured Exterior Specialties"
+            },
+            {
+                "index": "107500",
+                "title": "10 75 00 Flagpoles"
+            },
+            {
+                "index": "108000",
+                "title": "10 80 00 Other Specialties"
+            },
+            {
+                "index": "108100",
+                "title": "10 81 00 Pest Control Devices"
+            },
+            {
+                "index": "108200",
+                "title": "10 82 00 Grilles and Screens"
+            },
+            {
+                "index": "108300",
+                "title": "10 83 00 Flags and Banners"
+            },
+            {
+                "index": "108400",
+                "title": "10 84 00 Gas Lighting"
+            },
+            {
+                "index": "108600",
+                "title": "10 86 00 Security Mirrors and Domes"
+            },
+            {
+                "index": "108800",
+                "title": "10 88 00 Scales"
+            },
+            {
+                "index": "109000",
+                "title": "10 90 00 Unassigned"
+            }
+        ]
+    },
+    {
+        "index": "110000",
+        "title": "DIVISION 11 - EQUIPMENT",
+        "sections": [
+            {
+                "index": "110100",
+                "title": "11 01 00 Operation and Maintenance of Equipment"
+            },
+            {
+                "index": "110500",
+                "title": "11 05 00 Common Work Results for Equipment"
+            },
+            {
+                "index": "110600",
+                "title": "11 06 00 Schedules for Equipment"
+            },
+            {
+                "index": "110800",
+                "title": "11 08 00 Commissioning of Equipment"
+            },
+            {
+                "index": "111000",
+                "title": "11 10 00 Vehicle and Pedestrian Equipment"
+            },
+            {
+                "index": "111100",
+                "title": "11 11 00 Vehicle Service Equipment"
+            },
+            {
+                "index": "111200",
+                "title": "11 12 00 Parking Control Equipment"
+            },
+            {
+                "index": "111300",
+                "title": "11 13 00 Loading Dock Equipment"
+            },
+            {
+                "index": "111400",
+                "title": "11 14 00 Pedestrian Control Equipment"
+            },
+            {
+                "index": "111500",
+                "title": "11 15 00 Security Control Equipment"
+            },
+            {
+                "index": "112000",
+                "title": "11 20 00 Commercial Equipment"
+            },
+            {
+                "index": "112100",
+                "title": "11 21 00 Retail and Service Equipment"
+            },
+            {
+                "index": "112200",
+                "title": "11 22 00 Banking Equipment"
+            },
+            {
+                "index": "112500",
+                "title": "11 25 00 Hospitality Equipment"
+            },
+            {
+                "index": "112800",
+                "title": "11 28 00 Office Equipment"
+            },
+            {
+                "index": "112900",
+                "title": "11 29 00 Postal, Packaging, and Shipping Equipment"
+            },
+            {
+                "index": "113000",
+                "title": "11 30 00 Residential Equipment"
+            },
+            {
+                "index": "113200",
+                "title": "11 32 00 Unit Kitchens"
+            },
+            {
+                "index": "114000",
+                "title": "11 40 00 Foodservice Equipment"
+            },
+            {
+                "index": "114100",
+                "title": "11 41 00 Foodservice Storage Equipment"
+            },
+            {
+                "index": "114200",
+                "title": "11 42 00 Food Preparation Equipment"
+            },
+            {
+                "index": "114300",
+                "title": "11 43 00 Food Delivery Carts and Conveyors"
+            },
+            {
+                "index": "114400",
+                "title": "11 44 00 Food Cooking Equipment"
+            },
+            {
+                "index": "114600",
+                "title": "11 46 00 Food Dispensing Equipment"
+            },
+            {
+                "index": "114800",
+                "title": "11 48 00 Foodservice Cleaning and Disposal Equipment"
+            },
+            {
+                "index": "115000",
+                "title": "11 50 00 Educational and Scientific Equipment"
+            },
+            {
+                "index": "115100",
+                "title": "11 51 00 Library Equipment"
+            },
+            {
+                "index": "115200",
+                "title": "11 52 00 Audio-Visual Equipment"
+            },
+            {
+                "index": "115300",
+                "title": "11 53 00 Laboratory Equipment"
+            },
+            {
+                "index": "115500",
+                "title": "11 55 00 Planetarium Equipment"
+            },
+            {
+                "index": "115600",
+                "title": "11 56 00 Observatory Equipment"
+            },
+            {
+                "index": "115700",
+                "title": "11 57 00 Vocational Shop Equipment"
+            },
+            {
+                "index": "115900",
+                "title": "11 59 00 Exhibit Equipment"
+            },
+            {
+                "index": "116000",
+                "title": "11 60 00 Entertainment and Recreation Equipment"
+            },
+            {
+                "index": "116100",
+                "title": "11 61 00 Broadcast, Theater, and Stage Equipment"
+            },
+            {
+                "index": "116200",
+                "title": "11 62 00 Musical Equipment"
+            },
+            {
+                "index": "116600",
+                "title": "11 66 00 Athletic Equipment"
+            },
+            {
+                "index": "116700",
+                "title": "11 67 00 Recreational Equipment"
+            },
+            {
+                "index": "116800",
+                "title": "11 68 00 Play Field Equipment and Structures"
+            },
+            {
+                "index": "117000",
+                "title": "11 70 00 Healthcare Equipment"
+            },
+            {
+                "index": "117100",
+                "title": "11 71 00 Medical Sterilizing Equipment"
+            },
+            {
+                "index": "117200",
+                "title": "11 72 00 Examination and Treatment Equipment"
+            },
+            {
+                "index": "117300",
+                "title": "11 73 00 Patient Care Equipment"
+            },
+            {
+                "index": "117400",
+                "title": "11 74 00 Dental Equipment"
+            },
+            {
+                "index": "117500",
+                "title": "11 75 00 Optical Equipment"
+            },
+            {
+                "index": "117600",
+                "title": "11 76 00 Operating Room Equipment"
+            },
+            {
+                "index": "117700",
+                "title": "11 77 00 Radiology Equipment"
+            },
+            {
+                "index": "117800",
+                "title": "11 78 00 Mortuary Equipment"
+            },
+            {
+                "index": "117900",
+                "title": "11 79 00 Therapy Equipment"
+            },
+            {
+                "index": "118000",
+                "title": "11 80 00 Facility Maintenance and Operation Equipment"
+            },
+            {
+                "index": "118100",
+                "title": "11 81 00 Facility Maintenance Equipment"
+            },
+            {
+                "index": "118200",
+                "title": "11 82 00 Facility Solid Waste Handling Equipment"
+            },
+            {
+                "index": "119000",
+                "title": "11 90 00 Other Equipment"
+            },
+            {
+                "index": "119100",
+                "title": "11 91 00 Religious Equipment"
+            },
+            {
+                "index": "119200",
+                "title": "11 92 00 Agricultural Equipment"
+            },
+            {
+                "index": "119300",
+                "title": "11 93 00 Horticultural Equipment"
+            },
+            {
+                "index": "119400",
+                "title": "11 94 00 Veterinary Equipment"
+            },
+            {
+                "index": "119500",
+                "title": "11 95 00 Arts and Crafts Equipment"
+            },
+            {
+                "index": "119700",
+                "title": "11 97 00 Security Equipment"
+            },
+            {
+                "index": "119800",
+                "title": "11 98 00 Detention Equipment"
+            }
+        ]
+    },
+    {
+        "index": "120000",
+        "title": "DIVISION 12 - FURNISHINGS",
+        "sections": [
+            {
+                "index": "120100",
+                "title": "12 01 00 Operation and Maintenance of Furnishings"
+            },
+            {
+                "index": "120500",
+                "title": "12 05 00 Common Work Results for Furnishings"
+            },
+            {
+                "index": "120600",
+                "title": "12 06 00 Schedules for Furnishings"
+            },
+            {
+                "index": "120800",
+                "title": "12 08 00 Commissioning of Furnishings"
+            },
+            {
+                "index": "121000",
+                "title": "12 10 00 Art"
+            },
+            {
+                "index": "121100",
+                "title": "12 11 00 Murals"
+            },
+            {
+                "index": "121200",
+                "title": "12 12 00 Wall Decorations"
+            },
+            {
+                "index": "121400",
+                "title": "12 14 00 Sculptures"
+            },
+            {
+                "index": "121700",
+                "title": "12 17 00 Art Glass"
+            },
+            {
+                "index": "121900",
+                "title": "12 19 00 Religious Art"
+            },
+            {
+                "index": "122000",
+                "title": "12 20 00 Window Treatments"
+            },
+            {
+                "index": "122100",
+                "title": "12 21 00 Window Blinds"
+            },
+            {
+                "index": "122200",
+                "title": "12 22 00 Curtains and Drapes"
+            },
+            {
+                "index": "122300",
+                "title": "12 23 00 Interior Shutters"
+            },
+            {
+                "index": "122400",
+                "title": "12 24 00 Window Shades"
+            },
+            {
+                "index": "122500",
+                "title": "12 25 00 Window Treatment Operating Hardware"
+            },
+            {
+                "index": "122600",
+                "title": "12 26 00 Interior Daylighting Devices"
+            },
+            {
+                "index": "123000",
+                "title": "12 30 00 Casework"
+            },
+            {
+                "index": "123100",
+                "title": "12 31 00 Manufactured Metal Casework"
+            },
+            {
+                "index": "123200",
+                "title": "12 32 00 Manufactured Wood Casework"
+            },
+            {
+                "index": "123400",
+                "title": "12 34 00 Manufactured Plastic Casework"
+            },
+            {
+                "index": "123500",
+                "title": "12 35 00 Specialty Casework"
+            },
+            {
+                "index": "123600",
+                "title": "12 36 00 Countertops"
+            },
+            {
+                "index": "124000",
+                "title": "12 40 00 Furnishings and Accessories"
+            },
+            {
+                "index": "124100",
+                "title": "12 41 00 Office Accessories"
+            },
+            {
+                "index": "124200",
+                "title": "12 42 00 Table Accessories"
+            },
+            {
+                "index": "124300",
+                "title": "12 43 00 Portable Lamps"
+            },
+            {
+                "index": "124400",
+                "title": "12 44 00 Bath Furnishings"
+            },
+            {
+                "index": "124500",
+                "title": "12 45 00 Bedroom Furnishings"
+            },
+            {
+                "index": "124600",
+                "title": "12 46 00 Furnishing Accessories"
+            },
+            {
+                "index": "124800",
+                "title": "12 48 00 Rugs and Mats"
+            },
+            {
+                "index": "125000",
+                "title": "12 50 00 Furniture"
+            },
+            {
+                "index": "125100",
+                "title": "12 51 00 Office Furniture"
+            },
+            {
+                "index": "125200",
+                "title": "12 52 00 Seating"
+            },
+            {
+                "index": "125300",
+                "title": "12 53 00 Retail Furniture"
+            },
+            {
+                "index": "125400",
+                "title": "12 54 00 Hospitality Furniture"
+            },
+            {
+                "index": "125500",
+                "title": "12 55 00 Detention Furniture"
+            },
+            {
+                "index": "125600",
+                "title": "12 56 00 Institutional Furniture"
+            },
+            {
+                "index": "125700",
+                "title": "12 57 00 Industrial Furniture"
+            },
+            {
+                "index": "125800",
+                "title": "12 58 00 Residential Furniture"
+            },
+            {
+                "index": "125900",
+                "title": "12 59 00 Systems Furniture"
+            },
+            {
+                "index": "126000",
+                "title": "12 60 00 Multiple Seating"
+            },
+            {
+                "index": "126100",
+                "title": "12 61 00 Fixed Audience Seating"
+            },
+            {
+                "index": "126200",
+                "title": "12 62 00 Portable Audience Seating"
+            },
+            {
+                "index": "126300",
+                "title": "12 63 00 Stadium and Arena Seating"
+            },
+            {
+                "index": "126400",
+                "title": "12 64 00 Booths and Tables"
+            },
+            {
+                "index": "126500",
+                "title": "12 65 00 Multiple-Use Fixed Seating"
+            },
+            {
+                "index": "126600",
+                "title": "12 66 00 Telescoping Stands"
+            },
+            {
+                "index": "126700",
+                "title": "12 67 00 Pews and Benches"
+            },
+            {
+                "index": "126800",
+                "title": "12 68 00 Seat and Table Assemblies"
+            },
+            {
+                "index": "127000",
+                "title": "12 70 00 to 12 80 00 Unassigned"
+            },
+            {
+                "index": "129000",
+                "title": "12 90 00 Other Furnishings"
+            },
+            {
+                "index": "129200",
+                "title": "12 92 00 Interior Planters and Artificial Plants"
+            },
+            {
+                "index": "129300",
+                "title": "12 93 00 Interior Public Space Furnishings"
+            }
+        ]
+    },
+    {
+        "index": "130000",
+        "title": "DIVISION 13 - SPECIAL CONSTRUCTION",
+        "sections": [
+            {
+                "index": "130100",
+                "title": "13 01 00 Operation and Maintenance of Special Construction"
+            },
+            {
+                "index": "130500",
+                "title": "13 05 00 Common Work Results for Special Construction"
+            },
+            {
+                "index": "130600",
+                "title": "13 06 00 Schedules for Special Construction"
+            },
+            {
+                "index": "130800",
+                "title": "13 08 00 Commissioning of Special Construction"
+            },
+            {
+                "index": "131000",
+                "title": "13 10 00 Special Facility Components"
+            },
+            {
+                "index": "131100",
+                "title": "13 11 00 Swimming Pools"
+            },
+            {
+                "index": "131200",
+                "title": "13 12 00 Fountains"
+            },
+            {
+                "index": "131300",
+                "title": "13 13 00 Aquariums"
+            },
+            {
+                "index": "131400",
+                "title": "13 14 00 Amusement Park Structures and Equipment"
+            },
+            {
+                "index": "131500",
+                "title": "13 15 00 Specialty Element Construction"
+            },
+            {
+                "index": "131700",
+                "title": "13 17 00 Tubs and Pools"
+            },
+            {
+                "index": "131800",
+                "title": "13 18 00 Ice Rinks"
+            },
+            {
+                "index": "131900",
+                "title": "13 19 00 Kennels and Animal Shelters"
+            },
+            {
+                "index": "132000",
+                "title": "13 20 00 Special Purpose Rooms"
+            },
+            {
+                "index": "132100",
+                "title": "13 21 00 Controlled Environment Rooms"
+            },
+            {
+                "index": "132200",
+                "title": "13 22 00 Office Shelters and Booths"
+            },
+            {
+                "index": "132300",
+                "title": "13 23 00 Planetariums"
+            },
+            {
+                "index": "132400",
+                "title": "13 24 00 Special Activity Rooms"
+            },
+            {
+                "index": "132600",
+                "title": "13 26 00 Fabricated Rooms"
+            },
+            {
+                "index": "132700",
+                "title": "13 27 00 Vaults"
+            },
+            {
+                "index": "132800",
+                "title": "13 28 00 Athletic and Recreational Special Construction"
+            },
+            {
+                "index": "133000",
+                "title": "13 30 00 Special Structures"
+            },
+            {
+                "index": "133100",
+                "title": "13 31 00 Fabric Structures"
+            },
+            {
+                "index": "133200",
+                "title": "13 32 00 Space Frames"
+            },
+            {
+                "index": "133300",
+                "title": "13 33 00 Geodesic Structures"
+            },
+            {
+                "index": "133400",
+                "title": "13 34 00 Fabricated Engineered Structures"
+            },
+            {
+                "index": "133500",
+                "title": "13 35 00 Rammed Earth Construction"
+            },
+            {
+                "index": "133600",
+                "title": "13 36 00 Towers"
+            },
+            {
+                "index": "134000",
+                "title": "13 40 00 Integrated Construction"
+            },
+            {
+                "index": "134200",
+                "title": "13 42 00 Building Modules and Components"
+            },
+            {
+                "index": "134400",
+                "title": "13 44 00 Modular Mezzanines"
+            },
+            {
+                "index": "134700",
+                "title": "13 47 00 Facility Protection"
+            },
+            {
+                "index": "134800",
+                "title": "13 48 00 Sound, Vibration, and Seismic Control"
+            },
+            {
+                "index": "134900",
+                "title": "13 49 00 Radiation Protection"
+            },
+            {
+                "index": "135000",
+                "title": "13 50 00 Special Instrumentation"
+            },
+            {
+                "index": "135100",
+                "title": "13 51 00 Stress Instrumentation"
+            },
+            {
+                "index": "135200",
+                "title": "13 52 00 Seismic Instrumentation"
+            },
+            {
+                "index": "135300",
+                "title": "13 53 00 Meteorological Instrumentation"
+            },
+            {
+                "index": "136000",
+                "title": "13 60 00 to 13 90 00 Unassigned"
+            }
+        ]
+    },
+    {
+        "index": "140000",
+        "title": "DIVISION 14 - CONVEYING EQUIPMENT",
+        "sections": [
+            {
+                "index": "140100",
+                "title": "14 01 00 Operation and Maintenance of Conveying Equipment"
+            },
+            {
+                "index": "140500",
+                "title": "14 05 00 Common Work Results for Conveying Equipment"
+            },
+            {
+                "index": "140600",
+                "title": "14 06 00 Schedules for Conveying Equipment"
+            },
+            {
+                "index": "140800",
+                "title": "14 08 00 Commissioning of Conveying Equipment"
+            },
+            {
+                "index": "141000",
+                "title": "14 10 00 Dumbwaiters"
+            },
+            {
+                "index": "141100",
+                "title": "14 11 00 Manual Dumbwaiters"
+            },
+            {
+                "index": "141200",
+                "title": "14 12 00 Electric Dumbwaiters"
+            },
+            {
+                "index": "141400",
+                "title": "14 14 00 Hydraulic Dumbwaiters"
+            },
+            {
+                "index": "142000",
+                "title": "14 20 00 Elevators"
+            },
+            {
+                "index": "142100",
+                "title": "14 21 00 Electric Traction Elevators"
+            },
+            {
+                "index": "142400",
+                "title": "14 24 00 Hydraulic Elevators"
+            },
+            {
+                "index": "142500",
+                "title": "14 25 00 Rack and Pinion Elevators"
+            },
+            {
+                "index": "142600",
+                "title": "14 26 00 Limited-Use/Limited-Application Elevators"
+            },
+            {
+                "index": "142700",
+                "title": "14 27 00 Custom Elevator Cabs and Doors"
+            },
+            {
+                "index": "142800",
+                "title": "14 28 00 Elevator Equipment and Controls"
+            },
+            {
+                "index": "143000",
+                "title": "14 30 00 Escalators and Moving Walks"
+            },
+            {
+                "index": "143100",
+                "title": "14 31 00 Escalators"
+            },
+            {
+                "index": "143200",
+                "title": "14 32 00 Moving Walks"
+            },
+            {
+                "index": "143300",
+                "title": "14 33 00 Moving Ramps"
+            },
+            {
+                "index": "144000",
+                "title": "14 40 00 Lifts"
+            },
+            {
+                "index": "144100",
+                "title": "14 41 00 People Lifts"
+            },
+            {
+                "index": "144200",
+                "title": "14 42 00 Wheelchair Lifts"
+            },
+            {
+                "index": "144300",
+                "title": "14 43 00 Platform Lifts"
+            },
+            {
+                "index": "144400",
+                "title": "14 44 00 Sidewalk Lifts"
+            },
+            {
+                "index": "144500",
+                "title": "14 45 00 Vehicle Lifts"
+            },
+            {
+                "index": "144600",
+                "title": "14 46 00 Material Lifts"
+            },
+            {
+                "index": "145000",
+                "title": "14 50 00 to 14 60 00 Unassigned"
+            },
+            {
+                "index": "147000",
+                "title": "14 70 00 Turntables"
+            },
+            {
+                "index": "147100",
+                "title": "14 71 00 Industrial Turntables"
+            },
+            {
+                "index": "147200",
+                "title": "14 72 00 Hospitality Turntables"
+            },
+            {
+                "index": "147300",
+                "title": "14 73 00 Exhibit Turntables"
+            },
+            {
+                "index": "147400",
+                "title": "14 74 00 Entertainment Turntables"
+            },
+            {
+                "index": "148000",
+                "title": "14 80 00 Scaffolding"
+            },
+            {
+                "index": "148100",
+                "title": "14 81 00 Suspended Scaffolding"
+            },
+            {
+                "index": "148200",
+                "title": "14 82 00 Rope Climbers"
+            },
+            {
+                "index": "148300",
+                "title": "14 83 00 Elevating Platforms"
+            },
+            {
+                "index": "148400",
+                "title": "14 84 00 Powered Scaffolding"
+            },
+            {
+                "index": "149000",
+                "title": "14 90 00 Other Conveying Equipment"
+            },
+            {
+                "index": "149100",
+                "title": "14 91 00 Facility Chutes"
+            },
+            {
+                "index": "149200",
+                "title": "14 92 00 Pneumatic Tube Systems"
+            },
+            {
+                "index": "149300",
+                "title": "14 93 00 Slide Pole Systems"
+            }
+        ]
+    },
+    {
+        "index": "210000",
+        "title": "DIVISION 21 - FIRE SUPPRESSION",
+        "sections": [
+            {
+                "index": "210100",
+                "title": "21 01 00 Operation and Maintenance of Fire Suppression"
+            },
+            {
+                "index": "210500",
+                "title": "21 05 00 Common Work Results for Fire Suppression"
+            },
+            {
+                "index": "210600",
+                "title": "21 06 00 Schedules for Fire Suppression"
+            },
+            {
+                "index": "210700",
+                "title": "21 07 00 Fire-Suppression Systems Insulation"
+            },
+            {
+                "index": "210800",
+                "title": "21 08 00 Commissioning of Fire Suppression"
+            },
+            {
+                "index": "210900",
+                "title": "21 09 00 Instrumentation and Control for Fire-Suppression Systems"
+            },
+            {
+                "index": "211000",
+                "title": "21 10 00 Water-Based Fire-Suppression Systems"
+            },
+            {
+                "index": "211100",
+                "title": "21 11 00 Facility Fire-Suppression Water-Service Piping"
+            },
+            {
+                "index": "211200",
+                "title": "21 12 00 Fire-Suppression Standpipes"
+            },
+            {
+                "index": "211300",
+                "title": "21 13 00 Fire-Suppression Sprinkler Systems"
+            },
+            {
+                "index": "211600",
+                "title": "21 16 00 Fire-Suppression Pressure Maintenance Pumps"
+            },
+            {
+                "index": "212000",
+                "title": "21 20 00 Fire-Extinguishing Systems"
+            },
+            {
+                "index": "212100",
+                "title": "21 21 00 Carbon-Dioxide Fire-Extinguishing Systems"
+            },
+            {
+                "index": "212200",
+                "title": "21 22 00 Clean-Agent Fire-Extinguishing Systems"
+            },
+            {
+                "index": "212300",
+                "title": "21 23 00 Wet-Chemical Fire-Extinguishing Systems"
+            },
+            {
+                "index": "212400",
+                "title": "21 24 00 Dry-Chemical Fire-Extinguishing Systems"
+            },
+            {
+                "index": "213000",
+                "title": "21 30 00 Fire Pumps"
+            },
+            {
+                "index": "213100",
+                "title": "21 31 00 Centrifugal Fire Pumps"
+            },
+            {
+                "index": "213200",
+                "title": "21 32 00 Vertical-Turbine Fire Pumps"
+            },
+            {
+                "index": "213300",
+                "title": "21 33 00 Positive-Displacement Fire Pumps"
+            },
+            {
+                "index": "213400",
+                "title": "21 34 00 Fire Pump Accessories"
+            },
+            {
+                "index": "214000",
+                "title": "21 40 00 Fire-Suppression Water Storage"
+            },
+            {
+                "index": "214100",
+                "title": "21 41 00 Storage Tanks for Fire-Suppression Water"
+            },
+            {
+                "index": "215000",
+                "title": "21 50 00 to 21 90 00 Unassigned"
+            }
+        ]
+    },
+    {
+        "index": "220000",
+        "title": "DIVISION 22 - PLUMBING",
+        "sections": [
+            {
+                "index": "220100",
+                "title": "22 01 00 Operation and Maintenance of Plumbing"
+            },
+            {
+                "index": "220500",
+                "title": "22 05 00 Common Work Results for Plumbing"
+            },
+            {
+                "index": "220600",
+                "title": "22 06 00 Schedules for Plumbing"
+            },
+            {
+                "index": "220700",
+                "title": "22 07 00 Plumbing Insulation"
+            },
+            {
+                "index": "220800",
+                "title": "22 08 00 Commissioning of Plumbing"
+            },
+            {
+                "index": "220900",
+                "title": "22 09 00 Instrumentation and Control for Plumbing"
+            },
+            {
+                "index": "221000",
+                "title": "22 10 00 Plumbing Piping"
+            },
+            {
+                "index": "221100",
+                "title": "22 11 00 Facility Water Distribution"
+            },
+            {
+                "index": "221200",
+                "title": "22 12 00 Facility Potable-Water Storage Tanks"
+            },
+            {
+                "index": "221300",
+                "title": "22 13 00 Facility Sanitary Sewerage"
+            },
+            {
+                "index": "221400",
+                "title": "22 14 00 Facility Storm Drainage"
+            },
+            {
+                "index": "221500",
+                "title": "22 15 00 General Service Compressed Air Systems"
+            },
+            {
+                "index": "222000",
+                "title": "22 20 00 Unassigned"
+            },
+            {
+                "index": "223000",
+                "title": "22 30 00 Plumbing Equipment"
+            },
+            {
+                "index": "223100",
+                "title": "22 31 00 Domestic Water Softeners"
+            },
+            {
+                "index": "223200",
+                "title": "22 32 00 Domestic Water Filtration Equipment"
+            },
+            {
+                "index": "223300",
+                "title": "22 33 00 Electric Domestic Water Heaters"
+            },
+            {
+                "index": "223400",
+                "title": "22 34 00 Fuel-Fired Domestic Water Heaters"
+            },
+            {
+                "index": "223500",
+                "title": "22 35 00 Domestic Water Heat Exchangers"
+            },
+            {
+                "index": "223600",
+                "title": "22 36 00 Domestic Water Preheaters"
+            },
+            {
+                "index": "224000",
+                "title": "22 40 00 Plumbing Fixtures"
+            },
+            {
+                "index": "224100",
+                "title": "22 41 00 Residential Plumbing Fixtures"
+            },
+            {
+                "index": "224200",
+                "title": "22 42 00 Commercial Plumbing Fixtures"
+            },
+            {
+                "index": "224300",
+                "title": "22 43 00 Healthcare Plumbing Fixtures"
+            },
+            {
+                "index": "224500",
+                "title": "22 45 00 Emergency Plumbing Fixtures"
+            },
+            {
+                "index": "224600",
+                "title": "22 46 00 Security Plumbing Fixtures"
+            },
+            {
+                "index": "224700",
+                "title": "22 47 00 Drinking Fountains and Water Coolers"
+            },
+            {
+                "index": "225000",
+                "title": "22 50 00 Pool and Fountain Plumbing Systems"
+            },
+            {
+                "index": "225100",
+                "title": "22 51 00 Swimming Pool Plumbing Systems"
+            },
+            {
+                "index": "225200",
+                "title": "22 52 00 Fountain Plumbing Systems"
+            },
+            {
+                "index": "226000",
+                "title": "22 60 00 Gas and Vacuum Systems for Laboratory and Healthcare Facilities"
+            },
+            {
+                "index": "226100",
+                "title": "22 61 00 Compressed Air Systems for Laboratory and Healthcare Facilities"
+            },
+            {
+                "index": "226200",
+                "title": "22 62 00 Vacuum Systems for Laboratory and Healthcare Facilities"
+            },
+            {
+                "index": "226300",
+                "title": "22 63 00 Gas Systems for Laboratory and Healthcare Facilities"
+            },
+            {
+                "index": "226600",
+                "title": "22 66 00 Chemical-Waste Systems for Laboratory and Healthcare Facilities"
+            },
+            {
+                "index": "226700",
+                "title": "22 67 00 Processed Water Systems for Laboratory and Healthcare Facilities"
+            },
+            {
+                "index": "227000",
+                "title": "22 70 00 to 22 90 00 Unassigned"
+            }
+        ]
+    },
+    {
+        "index": "230000",
+        "title": "DIVISION 23 - HEATING, VENTILATING, AND AIR CONDITIONING (HVAC)",
+        "sections": [
+            {
+                "index": "230100",
+                "title": "23 01 00 Operation and Maintenance of HVAC Systems"
+            },
+            {
+                "index": "230500",
+                "title": "23 05 00 Common Work Results for HVAC"
+            },
+            {
+                "index": "230600",
+                "title": "23 06 00 Schedules for HVAC"
+            },
+            {
+                "index": "230700",
+                "title": "23 07 00 HVAC Insulation"
+            },
+            {
+                "index": "230800",
+                "title": "23 08 00 Commissioning of HVAC"
+            },
+            {
+                "index": "230900",
+                "title": "23 09 00 Instrumentation and Control for HVAC"
+            },
+            {
+                "index": "231000",
+                "title": "23 10 00 Facility Fuel Systems"
+            },
+            {
+                "index": "231100",
+                "title": "23 11 00 Facility Fuel Piping"
+            },
+            {
+                "index": "231200",
+                "title": "23 12 00 Facility Fuel Pumps"
+            },
+            {
+                "index": "231300",
+                "title": "23 13 00 Facility Fuel-Storage Tanks"
+            },
+            {
+                "index": "232000",
+                "title": "23 20 00 HVAC Piping and Pumps"
+            },
+            {
+                "index": "232100",
+                "title": "23 21 00 Hydronic Piping and Pumps"
+            },
+            {
+                "index": "232200",
+                "title": "23 22 00 Steam and Condensate Piping and Pumps"
+            },
+            {
+                "index": "232300",
+                "title": "23 23 00 Refrigerant Piping"
+            },
+            {
+                "index": "232400",
+                "title": "23 24 00 Internal-Combustion Engine Piping"
+            },
+            {
+                "index": "232500",
+                "title": "23 25 00 HVAC Water Treatment"
+            },
+            {
+                "index": "233000",
+                "title": "23 30 00 HVAC Air Distribution"
+            },
+            {
+                "index": "233100",
+                "title": "23 31 00 HVAC Ducts and Casings"
+            },
+            {
+                "index": "233200",
+                "title": "23 32 00 Air Plenums and Chases"
+            },
+            {
+                "index": "233300",
+                "title": "23 33 00 Air Duct Accessories"
+            },
+            {
+                "index": "233400",
+                "title": "23 34 00 HVAC Fans"
+            },
+            {
+                "index": "233500",
+                "title": "23 35 00 Special Exhaust Systems"
+            },
+            {
+                "index": "233600",
+                "title": "23 36 00 Air Terminal Units"
+            },
+            {
+                "index": "233700",
+                "title": "23 37 00 Air Outlets and Inlets"
+            },
+            {
+                "index": "233800",
+                "title": "23 38 00 Ventilation Hoods"
+            },
+            {
+                "index": "234000",
+                "title": "23 40 00 HVAC Air Cleaning Devices"
+            },
+            {
+                "index": "234100",
+                "title": "23 41 00 Particulate Air Filtration"
+            },
+            {
+                "index": "234200",
+                "title": "23 42 00 Gas-Phase Air Filtration"
+            },
+            {
+                "index": "234300",
+                "title": "23 43 00 Electronic Air Cleaners"
+            },
+            {
+                "index": "235000",
+                "title": "23 50 00 Central Heating Equipment"
+            },
+            {
+                "index": "235100",
+                "title": "23 51 00 Breechings, Chimneys, and Stacks"
+            },
+            {
+                "index": "235200",
+                "title": "23 52 00 Heating Boilers"
+            },
+            {
+                "index": "235300",
+                "title": "23 53 00 Heating Boiler Feedwater Equipment"
+            },
+            {
+                "index": "235400",
+                "title": "23 54 00 Furnaces"
+            },
+            {
+                "index": "235500",
+                "title": "23 55 00 Fuel-Fired Heaters"
+            },
+            {
+                "index": "235600",
+                "title": "23 56 00 Solar Energy Heating Equipment"
+            },
+            {
+                "index": "235700",
+                "title": "23 57 00 Heat Exchangers for HVAC"
+            },
+            {
+                "index": "236000",
+                "title": "23 60 00 Central Cooling Equipment"
+            },
+            {
+                "index": "236100",
+                "title": "23 61 00 Refrigerant Compressors"
+            },
+            {
+                "index": "236200",
+                "title": "23 62 00 Packaged Compressor and Condenser Units"
+            },
+            {
+                "index": "236300",
+                "title": "23 63 00 Refrigerant Condensers"
+            },
+            {
+                "index": "236400",
+                "title": "23 64 00 Packaged Water Chillers"
+            },
+            {
+                "index": "236500",
+                "title": "23 65 00 Cooling Towers"
+            },
+            {
+                "index": "237000",
+                "title": "23 70 00 Central HVAC Equipment"
+            },
+            {
+                "index": "237100",
+                "title": "23 71 00 Thermal Storage"
+            },
+            {
+                "index": "237200",
+                "title": "23 72 00 Air-to-Air Energy Recovery Equipment"
+            },
+            {
+                "index": "237300",
+                "title": "23 73 00 Indoor Central-Station Air-Handling Units"
+            },
+            {
+                "index": "237400",
+                "title": "23 74 00 Packaged Outdoor HVAC Equipment"
+            },
+            {
+                "index": "237500",
+                "title": "23 75 00 Custom-Packaged Outdoor HVAC Equipment"
+            },
+            {
+                "index": "237600",
+                "title": "23 76 00 Evaporative Air-Cooling Equipment"
+            },
+            {
+                "index": "238000",
+                "title": "23 80 00 Decentralized HVAC Equipment"
+            },
+            {
+                "index": "238100",
+                "title": "23 81 00 Decentralized Unitary HVAC Equipment"
+            },
+            {
+                "index": "238200",
+                "title": "23 82 00 Convection Heating and Cooling Units"
+            },
+            {
+                "index": "238300",
+                "title": "23 83 00 Radiant Heating and Cooling Units"
+            },
+            {
+                "index": "238400",
+                "title": "23 84 00 Humidity Control Equipment"
+            },
+            {
+                "index": "239000",
+                "title": "23 90 00 Unassigned"
+            }
+        ]
+    },
+    {
+        "index": "240000",
+        "title": "Division 24 Reserved for Future Expansion",
+        "sections": []
+    },
+    {
+        "index": "250000",
+        "title": "DIVISION 25 - INTEGRATED AUTOMATION",
+        "sections": [
+            {
+                "index": "250100",
+                "title": "25 01 00 Operation and Maintenance of Integrated Automation"
+            },
+            {
+                "index": "250500",
+                "title": "25 05 00 Common Work Results for Integrated Automation"
+            },
+            {
+                "index": "250600",
+                "title": "25 06 00 Schedules for Integrated Automation"
+            },
+            {
+                "index": "250800",
+                "title": "25 08 00 Commissioning of Integrated Automation"
+            },
+            {
+                "index": "251000",
+                "title": "25 10 00 Integrated Automation Network Equipment"
+            },
+            {
+                "index": "251100",
+                "title": "25 11 00 Integrated Automation Network Devices"
+            },
+            {
+                "index": "251200",
+                "title": "25 12 00 Integrated Automation Network Gateways"
+            },
+            {
+                "index": "251300",
+                "title": "25 13 00 Integrated Automation Control and Monitoring Network"
+            },
+            {
+                "index": "251400",
+                "title": "25 14 00 Integrated Automation Local Control Units"
+            },
+            {
+                "index": "251500",
+                "title": "25 15 00 Integrated Automation Software"
+            },
+            {
+                "index": "252000",
+                "title": "25 20 00 Unassigned"
+            },
+            {
+                "index": "253000",
+                "title": "25 30 00 Integrated Automation Instrumentation and Terminal Devices"
+            },
+            {
+                "index": "253100",
+                "title": "25 31 00 Integrated Automation Instrumentation and Terminal Devices for Facility Equipment"
+            },
+            {
+                "index": "253200",
+                "title": "25 32 00 Integrated Automation Instrumentation and Terminal Devices for Conveying Equipment"
+            },
+            {
+                "index": "253300",
+                "title": "25 33 00 Integrated Automation Instrumentation and Terminal Devices for Fire-Suppression Systems"
+            },
+            {
+                "index": "253400",
+                "title": "25 34 00 Integrated Automation Instrumentation and Terminal Devices for Plumbing"
+            },
+            {
+                "index": "253500",
+                "title": "25 35 00 Integrated Automation Instrumentation and Terminal Devices for HVAC"
+            },
+            {
+                "index": "253600",
+                "title": "25 36 00 Integrated Automation Instrumentation and Terminal Devices for Electrical Systems"
+            },
+            {
+                "index": "253700",
+                "title": "25 37 00 Integrated Automation Instrumentation and Terminal Devices for Communications Systems"
+            },
+            {
+                "index": "253800",
+                "title": "25 38 00 Integrated Automation Instrumentation and Terminal Devices for Electronic Safety and Security Systems"
+            },
+            {
+                "index": "254000",
+                "title": "25 40 00 Unassigned"
+            },
+            {
+                "index": "255000",
+                "title": "25 50 00 Integrated Automation Facility Controls"
+            },
+            {
+                "index": "255100",
+                "title": "25 51 00 Integrated Automation Control of Facility Equipment"
+            },
+            {
+                "index": "255200",
+                "title": "25 52 00 Integrated Automation Control of Conveying Equipment"
+            },
+            {
+                "index": "255300",
+                "title": "25 53 00 Integrated Automation Control of Fire-Suppression Systems"
+            },
+            {
+                "index": "255400",
+                "title": "25 54 00 Integrated Automation Control of Plumbing"
+            },
+            {
+                "index": "255500",
+                "title": "25 55 00 Integrated Automation Control of HVAC"
+            },
+            {
+                "index": "255600",
+                "title": "25 56 00 Integrated Automation Control of Electrical Systems"
+            },
+            {
+                "index": "255700",
+                "title": "25 57 00 Integrated Automation Control of Communications Systems"
+            },
+            {
+                "index": "255800",
+                "title": "25 58 00 Integrated Automation Control of Electronic Safety and Security Systems"
+            },
+            {
+                "index": "256000",
+                "title": "25 60 00 to 25 80 00 Unassigned"
+            },
+            {
+                "index": "259000",
+                "title": "25 90 00 Integrated Automation Control Sequences"
+            },
+            {
+                "index": "259100",
+                "title": "25 91 00 Integrated Automation Control Sequences for Facility Equipment"
+            },
+            {
+                "index": "259200",
+                "title": "25 92 00 Integrated Automation Control Sequences for Conveying Equipment"
+            },
+            {
+                "index": "259300",
+                "title": "25 93 00 Integrated Automation Control Sequences for FireSuppression Systems"
+            },
+            {
+                "index": "259400",
+                "title": "25 94 00 Integrated Automation Control Sequences for Plumbing"
+            },
+            {
+                "index": "259500",
+                "title": "25 95 00 Integrated Automation Control Sequences for HVAC"
+            },
+            {
+                "index": "259600",
+                "title": "25 96 00 Integrated Automation Control Sequences for Electrical Systems"
+            },
+            {
+                "index": "259700",
+                "title": "25 97 00 Integrated Automation Control Sequences for Communications Systems"
+            },
+            {
+                "index": "259800",
+                "title": "25 98 00 Integrated Automation Control Sequences for Electronic Safety and Security Systems"
+            }
+        ]
+    },
+    {
+        "index": "260000",
+        "title": "DIVISION 26 - ELECTRICAL",
+        "sections": [
+            {
+                "index": "260100",
+                "title": "26 01 00 Operation and Maintenance of Electrical Systems"
+            },
+            {
+                "index": "260500",
+                "title": "26 05 00 Common Work Results for Electrical"
+            },
+            {
+                "index": "260600",
+                "title": "26 06 00 Schedules for Electrical"
+            },
+            {
+                "index": "260800",
+                "title": "26 08 00 Commissioning of Electrical Systems"
+            },
+            {
+                "index": "260900",
+                "title": "26 09 00 Instrumentation and Control for Electrical Systems"
+            },
+            {
+                "index": "261000",
+                "title": "26 10 00 Medium-Voltage Electrical Distribution"
+            },
+            {
+                "index": "261100",
+                "title": "26 11 00 Substations"
+            },
+            {
+                "index": "261200",
+                "title": "26 12 00 Medium-Voltage Transformers"
+            },
+            {
+                "index": "261300",
+                "title": "26 13 00 Medium-Voltage Switchgear"
+            },
+            {
+                "index": "261500",
+                "title": "26 15 00 Medium-Voltage Enclosed Bus Assemblies"
+            },
+            {
+                "index": "261600",
+                "title": "26 16 00 Medium-Voltage Metering"
+            },
+            {
+                "index": "261800",
+                "title": "26 18 00 Medium-Voltage Circuit Protection Devices"
+            },
+            {
+                "index": "262000",
+                "title": "26 20 00 Low-Voltage Electrical Distribution"
+            },
+            {
+                "index": "262100",
+                "title": "26 21 00 Low-Voltage Electrical Service Entrance"
+            },
+            {
+                "index": "262200",
+                "title": "26 22 00 Low-Voltage Transformers"
+            },
+            {
+                "index": "262300",
+                "title": "26 23 00 Low-Voltage Switchgear"
+            },
+            {
+                "index": "262400",
+                "title": "26 24 00 Switchboards and Panelboards"
+            },
+            {
+                "index": "262500",
+                "title": "26 25 00 Low-Voltage Enclosed Bus Assemblies"
+            },
+            {
+                "index": "262700",
+                "title": "26 27 00 Low-Voltage Distribution Equipment"
+            },
+            {
+                "index": "262800",
+                "title": "26 28 00 Low-Voltage Circuit Protective Devices"
+            },
+            {
+                "index": "262900",
+                "title": "26 29 00 Low-Voltage Controllers"
+            },
+            {
+                "index": "263000",
+                "title": "26 30 00 Facility Electrical Power Generating and Storing Equipment"
+            },
+            {
+                "index": "263100",
+                "title": "26 31 00 Photovoltaic Collectors"
+            },
+            {
+                "index": "263200",
+                "title": "26 32 00 Packaged Generator Assemblies"
+            },
+            {
+                "index": "263300",
+                "title": "26 33 00 Battery Equipment"
+            },
+            {
+                "index": "263500",
+                "title": "26 35 00 Power Filters and Conditioners"
+            },
+            {
+                "index": "263600",
+                "title": "26 36 00 Transfer Switches"
+            },
+            {
+                "index": "264000",
+                "title": "26 40 00 Electrical Protection"
+            },
+            {
+                "index": "264100",
+                "title": "26 41 00 Facility Lightning Protection"
+            },
+            {
+                "index": "264300",
+                "title": "26 43 00 Surge Protective Devices"
+            },
+            {
+                "index": "265000",
+                "title": "26 50 00 Lighting"
+            },
+            {
+                "index": "265100",
+                "title": "26 51 00 Interior Lighting"
+            },
+            {
+                "index": "265200",
+                "title": "26 52 00 Safety Lighting"
+            },
+            {
+                "index": "265400",
+                "title": "26 54 00 Classified Location Lighting"
+            },
+            {
+                "index": "265500",
+                "title": "26 55 00 Special Purpose Lighting"
+            },
+            {
+                "index": "265600",
+                "title": "26 56 00 Exterior Lighting"
+            },
+            {
+                "index": "266000",
+                "title": "26 60 00 to 26 90 00 Unassigned"
+            }
+        ]
+    },
+    {
+        "index": "270000",
+        "title": "DIVISION 27 - COMMUNICATIONS",
+        "sections": [
+            {
+                "index": "270100",
+                "title": "27 01 00 Operation and Maintenance of Communications Systems"
+            },
+            {
+                "index": "270500",
+                "title": "27 05 00 Common Work Results for Communications"
+            },
+            {
+                "index": "270600",
+                "title": "27 06 00 Schedules for Communications"
+            },
+            {
+                "index": "270800",
+                "title": "27 08 00 Commissioning of Communications"
+            },
+            {
+                "index": "271000",
+                "title": "27 10 00 Structured Cabling"
+            },
+            {
+                "index": "271100",
+                "title": "27 11 00 Communications Equipment Room Fittings"
+            },
+            {
+                "index": "271300",
+                "title": "27 13 00 Communications Backbone Cabling"
+            },
+            {
+                "index": "271500",
+                "title": "27 15 00 Communications Horizontal Cabling"
+            },
+            {
+                "index": "271600",
+                "title": "27 16 00 Communications Connecting Cords, Devices, and Adapters"
+            },
+            {
+                "index": "272000",
+                "title": "27 20 00 Data Communications"
+            },
+            {
+                "index": "272100",
+                "title": "27 21 00 Data Communications Network Equipment"
+            },
+            {
+                "index": "272200",
+                "title": "27 22 00 Data Communications Hardware"
+            },
+            {
+                "index": "272400",
+                "title": "27 24 00 Data Communications Peripheral Data Equipment"
+            },
+            {
+                "index": "272500",
+                "title": "27 25 00 Data Communications Software"
+            },
+            {
+                "index": "272600",
+                "title": "27 26 00 Data Communications Programming and Integration Services"
+            },
+            {
+                "index": "273000",
+                "title": "27 30 00 Voice Communications"
+            },
+            {
+                "index": "273100",
+                "title": "27 31 00 Voice Communications Switching and Routing Equipment"
+            },
+            {
+                "index": "273200",
+                "title": "27 32 00 Voice Communications Terminal Equipment"
+            },
+            {
+                "index": "273300",
+                "title": "27 33 00 Voice Communications Messaging"
+            },
+            {
+                "index": "273400",
+                "title": "27 34 00 Call Accounting"
+            },
+            {
+                "index": "273500",
+                "title": "27 35 00 Call Management"
+            },
+            {
+                "index": "274000",
+                "title": "27 40 00 Audio-Video Communications"
+            },
+            {
+                "index": "274100",
+                "title": "27 41 00 Audio-Video Systems"
+            },
+            {
+                "index": "274200",
+                "title": "27 42 00 Electronic Digital Systems"
+            },
+            {
+                "index": "275000",
+                "title": "27 50 00 Distributed Communications and Monitoring Systems"
+            },
+            {
+                "index": "275100",
+                "title": "27 51 00 Distributed Audio-Video Communications Systems"
+            },
+            {
+                "index": "275200",
+                "title": "27 52 00 Healthcare Communications and Monitoring Systems"
+            },
+            {
+                "index": "275300",
+                "title": "27 53 00 Distributed Systems"
+            },
+            {
+                "index": "276000",
+                "title": "27 60 00 to 27 90 00 Unassigned"
+            }
+        ]
+    },
+    {
+        "index": "280000",
+        "title": "DIVISION 28 - ELECTRONIC SAFETY AND SECURITY",
+        "sections": [
+            {
+                "index": "280100",
+                "title": "28 01 00 Operation and Maintenance of Electronic Safety and Security"
+            },
+            {
+                "index": "280500",
+                "title": "28 05 00 Common Work Results for Electronic Safety and Security"
+            },
+            {
+                "index": "280600",
+                "title": "28 06 00 Schedules for Electronic Safety and Security"
+            },
+            {
+                "index": "280800",
+                "title": "28 08 00 Commissioning of Electronic Safety and Security"
+            },
+            {
+                "index": "281000",
+                "title": "28 10 00 Access Control"
+            },
+            {
+                "index": "281100",
+                "title": "28 11 00 Access Control Global Applications"
+            },
+            {
+                "index": "281200",
+                "title": "28 12 00 General Requirements for Access Control Systems"
+            },
+            {
+                "index": "281300",
+                "title": "28 13 00 Access Control Software and Database Management"
+            },
+            {
+                "index": "281400",
+                "title": "28 14 00 Access Control System Hardware"
+            },
+            {
+                "index": "281500",
+                "title": "28 15 00 Integrated Access Control Hardware Devices"
+            },
+            {
+                "index": "281600",
+                "title": "28 16 00 Access Control Interfaces"
+            },
+            {
+                "index": "281700",
+                "title": "28 17 00 Access Control Identification Management Systems"
+            },
+            {
+                "index": "281800",
+                "title": "28 18 00 Security Access Detection Equipment"
+            },
+            {
+                "index": "281900",
+                "title": "28 19 00 Access Control Vehicle Identification Systems"
+            },
+            {
+                "index": "282000",
+                "title": "28 20 00 Video Surveillance"
+            },
+            {
+                "index": "282100",
+                "title": "28 21 00 Surveillance Cameras"
+            },
+            {
+                "index": "282300",
+                "title": "28 23 00 Video Management System"
+            },
+            {
+                "index": "282500",
+                "title": "28 25 00 Video Surveillance Positioning Equipment"
+            },
+            {
+                "index": "283000",
+                "title": "28 30 00 Security Detection, Alarm, and Monitoring"
+            },
+            {
+                "index": "283100",
+                "title": "28 31 00 Intrusion Detection"
+            },
+            {
+                "index": "283300",
+                "title": "28 33 00 Security Monitoring and Control"
+            },
+            {
+                "index": "283500",
+                "title": "28 35 00 Tracking Systems"
+            },
+            {
+                "index": "283700",
+                "title": "28 37 00 Audio Monitoring"
+            },
+            {
+                "index": "284000",
+                "title": "28 40 00 Life Safety"
+            },
+            {
+                "index": "284100",
+                "title": "28 41 00 Radiation Detection and Alarm"
+            },
+            {
+                "index": "284200",
+                "title": "28 42 00 Gas Detection and Alarm"
+            },
+            {
+                "index": "284300",
+                "title": "28 43 00 Fuel-Oil Detection and Alarm"
+            },
+            {
+                "index": "284400",
+                "title": "28 44 00 Refrigerant Detection and Alarm"
+            },
+            {
+                "index": "284500",
+                "title": "28 45 00 Water Detection and Alarm"
+            },
+            {
+                "index": "284600",
+                "title": "28 46 00 Fire Detection and Alarm"
+            },
+            {
+                "index": "284700",
+                "title": "28 47 00 Mass Notification"
+            },
+            {
+                "index": "284800",
+                "title": "28 48 00 Emergency Response Systems"
+            },
+            {
+                "index": "284900",
+                "title": "28 49 00 Electronic Personal Protection Systems"
+            },
+            {
+                "index": "285000",
+                "title": "28 50 00 Specialized Systems"
+            },
+            {
+                "index": "285100",
+                "title": "28 51 00 Information Management and Presentation"
+            },
+            {
+                "index": "285200",
+                "title": "28 52 00 Detention Security Systems"
+            },
+            {
+                "index": "286000",
+                "title": "28 60 00 to 28 90 00 Unassigned"
+            }
+        ]
+    },
+    {
+        "index": "290000",
+        "title": "Division 29 Reserved for Future Expansion",
+        "sections": []
+    },
+    {
+        "index": "300000",
+        "title": "Division 30 Reserved for Future Expansion",
+        "sections": []
+    },
+    {
+        "index": "310000",
+        "title": "DIVISION 31 - EARTHWORK",
+        "sections": [
+            {
+                "index": "310100",
+                "title": "31 01 00 Maintenance of Earthwork"
+            },
+            {
+                "index": "310500",
+                "title": "31 05 00 Common Work Results for Earthwork"
+            },
+            {
+                "index": "310600",
+                "title": "31 06 00 Schedules for Earthwork"
+            },
+            {
+                "index": "310800",
+                "title": "31 08 00 Commissioning of Earthwork"
+            },
+            {
+                "index": "310900",
+                "title": "31 09 00 Geotechnical Instrumentation and Monitoring of Earthwork"
+            },
+            {
+                "index": "311000",
+                "title": "31 10 00 Site Clearing"
+            },
+            {
+                "index": "311100",
+                "title": "31 11 00 Clearing and Grubbing"
+            },
+            {
+                "index": "311200",
+                "title": "31 12 00 Selective Clearing"
+            },
+            {
+                "index": "311300",
+                "title": "31 13 00 Selective Tree and Shrub Removal and Trimming"
+            },
+            {
+                "index": "311400",
+                "title": "31 14 00 Earth Stripping and Stockpiling"
+            },
+            {
+                "index": "312000",
+                "title": "31 20 00 Earth Moving"
+            },
+            {
+                "index": "312100",
+                "title": "31 21 00 Off-Gassing Mitigation"
+            },
+            {
+                "index": "312200",
+                "title": "31 22 00 Grading"
+            },
+            {
+                "index": "312300",
+                "title": "31 23 00 Excavation and Fill"
+            },
+            {
+                "index": "312400",
+                "title": "31 24 00 Embankments"
+            },
+            {
+                "index": "312500",
+                "title": "31 25 00 Erosion and Sedimentation Controls"
+            },
+            {
+                "index": "313000",
+                "title": "31 30 00 Earthwork Methods"
+            },
+            {
+                "index": "313100",
+                "title": "31 31 00 Soil Treatment"
+            },
+            {
+                "index": "313200",
+                "title": "31 32 00 Soil Stabilization"
+            },
+            {
+                "index": "313300",
+                "title": "31 33 00 Rock Stabilization"
+            },
+            {
+                "index": "313400",
+                "title": "31 34 00 Soil Reinforcement"
+            },
+            {
+                "index": "313500",
+                "title": "31 35 00 Slope Protection"
+            },
+            {
+                "index": "313600",
+                "title": "31 36 00 Gabions"
+            },
+            {
+                "index": "313700",
+                "title": "31 37 00 Riprap"
+            },
+            {
+                "index": "314000",
+                "title": "31 40 00 Shoring and Underpinning"
+            },
+            {
+                "index": "314100",
+                "title": "31 41 00 Shoring"
+            },
+            {
+                "index": "314300",
+                "title": "31 43 00 Concrete Raising"
+            },
+            {
+                "index": "314500",
+                "title": "31 45 00 Vibroflotation and Densification"
+            },
+            {
+                "index": "314600",
+                "title": "31 46 00 Needle Beams"
+            },
+            {
+                "index": "314800",
+                "title": "31 48 00 Underpinning"
+            },
+            {
+                "index": "315000",
+                "title": "31 50 00 Excavation Support and Protection"
+            },
+            {
+                "index": "315100",
+                "title": "31 51 00 Anchor Tiebacks"
+            },
+            {
+                "index": "315200",
+                "title": "31 52 00 Cofferdams"
+            },
+            {
+                "index": "315300",
+                "title": "31 53 00 Cribbing and Walers"
+            },
+            {
+                "index": "315400",
+                "title": "31 54 00 Ground Freezing"
+            },
+            {
+                "index": "315600",
+                "title": "31 56 00 Slurry Walls"
+            },
+            {
+                "index": "316000",
+                "title": "31 60 00 Special Foundations and Load-Bearing Elements"
+            },
+            {
+                "index": "316200",
+                "title": "31 62 00 Driven Piles"
+            },
+            {
+                "index": "316300",
+                "title": "31 63 00 Bored Piles"
+            },
+            {
+                "index": "316400",
+                "title": "31 64 00 Caissons"
+            },
+            {
+                "index": "316600",
+                "title": "31 66 00 Special Foundations"
+            },
+            {
+                "index": "316800",
+                "title": "31 68 00 Foundation Anchors"
+            },
+            {
+                "index": "317000",
+                "title": "31 70 00 Tunneling and Mining"
+            },
+            {
+                "index": "317100",
+                "title": "31 71 00 Tunnel Excavation"
+            },
+            {
+                "index": "317200",
+                "title": "31 72 00 Tunnel Support Systems"
+            },
+            {
+                "index": "317300",
+                "title": "31 73 00 Tunnel Grouting"
+            },
+            {
+                "index": "317400",
+                "title": "31 74 00 Tunnel Construction"
+            },
+            {
+                "index": "317500",
+                "title": "31 75 00 Shaft Construction"
+            },
+            {
+                "index": "317700",
+                "title": "31 77 00 Submersible Tube Tunnels"
+            },
+            {
+                "index": "318000",
+                "title": "31 80 00 to 31 90 00 Unassigned"
+            }
+        ]
+    },
+    {
+        "index": "320000",
+        "title": "DIVISION 32 - EXTERIOR IMPROVEMENTS",
+        "sections": [
+            {
+                "index": "320100",
+                "title": "32 01 00 Operation and Maintenance of Exterior Improvements"
+            },
+            {
+                "index": "320500",
+                "title": "32 05 00 Common Work Results for Exterior Improvements"
+            },
+            {
+                "index": "320600",
+                "title": "32 06 00 Schedules for Exterior Improvements"
+            },
+            {
+                "index": "320800",
+                "title": "32 08 00 Commissioning of Exterior Improvements"
+            },
+            {
+                "index": "321000",
+                "title": "32 10 00 Bases, Ballasts, and Paving"
+            },
+            {
+                "index": "321100",
+                "title": "32 11 00 Base Courses"
+            },
+            {
+                "index": "321200",
+                "title": "32 12 00 Flexible Paving"
+            },
+            {
+                "index": "321300",
+                "title": "32 13 00 Rigid Paving"
+            },
+            {
+                "index": "321400",
+                "title": "32 14 00 Unit Paving"
+            },
+            {
+                "index": "321500",
+                "title": "32 15 00 Aggregate Surfacing"
+            },
+            {
+                "index": "321600",
+                "title": "32 16 00 Curbs, Gutters, Sidewalks, and Driveways"
+            },
+            {
+                "index": "321700",
+                "title": "32 17 00 Paving Specialties"
+            },
+            {
+                "index": "321800",
+                "title": "32 18 00 Athletic and Recreational Surfacing"
+            },
+            {
+                "index": "322000",
+                "title": "32 20 00 Unassigned"
+            },
+            {
+                "index": "323000",
+                "title": "32 30 00 Site Improvements"
+            },
+            {
+                "index": "323100",
+                "title": "32 31 00 Fences and Gates"
+            },
+            {
+                "index": "323200",
+                "title": "32 32 00 Retaining Walls"
+            },
+            {
+                "index": "323300",
+                "title": "32 33 00 Site Furnishings"
+            },
+            {
+                "index": "323400",
+                "title": "32 34 00 Fabricated Bridges"
+            },
+            {
+                "index": "323500",
+                "title": "32 35 00 Screening Devices"
+            },
+            {
+                "index": "323900",
+                "title": "32 39 00 Manufactured Site Specialties"
+            },
+            {
+                "index": "324000",
+                "title": "32 40 00 to 32 60 00 Unassigned"
+            },
+            {
+                "index": "327000",
+                "title": "32 70 00 Wetlands"
+            },
+            {
+                "index": "327100",
+                "title": "32 71 00 Constructed Wetlands"
+            },
+            {
+                "index": "327200",
+                "title": "32 72 00 Wetlands Restoration"
+            },
+            {
+                "index": "328000",
+                "title": "32 80 00 Irrigation"
+            },
+            {
+                "index": "328100",
+                "title": "32 81 00 Irrigation Components"
+            },
+            {
+                "index": "328200",
+                "title": "32 82 00 Irrigation Pumps"
+            },
+            {
+                "index": "328400",
+                "title": "32 84 00 Planting Irrigation"
+            },
+            {
+                "index": "328600",
+                "title": "32 86 00 Agricultural Irrigation"
+            },
+            {
+                "index": "329000",
+                "title": "32 90 00 Planting"
+            },
+            {
+                "index": "329100",
+                "title": "32 91 00 Planting Preparation"
+            },
+            {
+                "index": "329200",
+                "title": "32 92 00 Turf and Grasses"
+            },
+            {
+                "index": "329300",
+                "title": "32 93 00 Plants"
+            },
+            {
+                "index": "329400",
+                "title": "32 94 00 Planting Accessories"
+            },
+            {
+                "index": "329500",
+                "title": "32 95 00 Exterior Planting Support Structures"
+            },
+            {
+                "index": "329600",
+                "title": "32 96 00 Transplanting"
+            }
+        ]
+    },
+    {
+        "index": "330000",
+        "title": "DIVISION 33 - UTILITIES",
+        "sections": [
+            {
+                "index": "330100",
+                "title": "33 01 00 Operation and Maintenance of Utilities"
+            },
+            {
+                "index": "330500",
+                "title": "33 05 00 Common Work Results for Utilities"
+            },
+            {
+                "index": "330600",
+                "title": "33 06 00 Schedules for Utilities"
+            },
+            {
+                "index": "330800",
+                "title": "33 08 00 Commissioning of Utilities"
+            },
+            {
+                "index": "330900",
+                "title": "33 09 00 Instrumentation and Control for Utilities"
+            },
+            {
+                "index": "331000",
+                "title": "33 10 00 Water Utilities"
+            },
+            {
+                "index": "331100",
+                "title": "33 11 00 Groundwater Sources"
+            },
+            {
+                "index": "331200",
+                "title": "33 12 00 Surface Water Sources"
+            },
+            {
+                "index": "331400",
+                "title": "33 14 00 Water Utility Transmission and Distribution"
+            },
+            {
+                "index": "331600",
+                "title": "33 16 00 Water Utility Storage Tanks"
+            },
+            {
+                "index": "331900",
+                "title": "33 19 00 Water Utility Metering Equipment"
+            },
+            {
+                "index": "332000",
+                "title": "33 20 00 Unassigned"
+            },
+            {
+                "index": "333000",
+                "title": "33 30 00 Sanitary Sewerage"
+            },
+            {
+                "index": "333100",
+                "title": "33 31 00 Sanitary Sewerage Piping"
+            },
+            {
+                "index": "333200",
+                "title": "33 32 00 Sanitary Sewerage Equipment"
+            },
+            {
+                "index": "333400",
+                "title": "33 34 00 Onsite Wastewater Disposal"
+            },
+            {
+                "index": "333600",
+                "title": "33 36 00 Wastewater Utility Storage Tanks"
+            },
+            {
+                "index": "333700",
+                "title": "33 37 00 Overflow Control"
+            },
+            {
+                "index": "334000",
+                "title": "33 40 00 Stormwater Utilities"
+            },
+            {
+                "index": "334100",
+                "title": "33 41 00 Subdrainage"
+            },
+            {
+                "index": "334200",
+                "title": "33 42 00 Stormwater Conveyance"
+            },
+            {
+                "index": "334400",
+                "title": "33 44 00 Stormwater Utility Equipment"
+            },
+            {
+                "index": "334600",
+                "title": "33 46 00 Stormwater Management"
+            },
+            {
+                "index": "335000",
+                "title": "33 50 00 Hydrocarbon Utilities"
+            },
+            {
+                "index": "335100",
+                "title": "33 51 00 Hydrocarbon Sources"
+            },
+            {
+                "index": "335200",
+                "title": "33 52 00 Hydrocarbon Transmission and Distribution"
+            },
+            {
+                "index": "335300",
+                "title": "33 53 00 Hydrocarbon Utility Pressure Regulation"
+            },
+            {
+                "index": "335400",
+                "title": "33 54 00 Hydrocarbon Utility Safety Equipment"
+            },
+            {
+                "index": "335600",
+                "title": "33 56 00 Hydrocarbon Storage"
+            },
+            {
+                "index": "335700",
+                "title": "33 57 00 Bulk Hydrocarbons Receiving/Dispensing Equipment"
+            },
+            {
+                "index": "335900",
+                "title": "33 59 00 Hydrocarbon Utility Metering"
+            },
+            {
+                "index": "336000",
+                "title": "33 60 00 Hydronic and Steam Energy Utilities"
+            },
+            {
+                "index": "336100",
+                "title": "33 61 00 Hydronic Energy Distribution"
+            },
+            {
+                "index": "336300",
+                "title": "33 63 00 Steam Energy Distribution"
+            },
+            {
+                "index": "337000",
+                "title": "33 70 00 Electrical Utilities"
+            },
+            {
+                "index": "337100",
+                "title": "33 71 00 Electrical Utility Transmission and Distribution"
+            },
+            {
+                "index": "337200",
+                "title": "33 72 00 Utility Substations"
+            },
+            {
+                "index": "337300",
+                "title": "33 73 00 Utility Transformers"
+            },
+            {
+                "index": "337400",
+                "title": "33 74 00 Extra-High-Voltage (EHV) Switchgear and Protection Devices"
+            },
+            {
+                "index": "337500",
+                "title": "33 75 00 High-Voltage Switchgear and Protection Devices"
+            },
+            {
+                "index": "337700",
+                "title": "33 77 00 Medium-Voltage Utility Switchgear and Protection Devices"
+            },
+            {
+                "index": "337800",
+                "title": "33 78 00 Substation Converter Stations"
+            },
+            {
+                "index": "337900",
+                "title": "33 79 00 Site Grounding"
+            },
+            {
+                "index": "338000",
+                "title": "33 80 00 Communications Utilities"
+            },
+            {
+                "index": "338100",
+                "title": "33 81 00 Communications Structures"
+            },
+            {
+                "index": "338200",
+                "title": "33 82 00 Communications Transmission and Distribution"
+            },
+            {
+                "index": "338300",
+                "title": "33 83 00 Wireless Communications Transmission and Distribution"
+            },
+            {
+                "index": "339000",
+                "title": "33 90 00 Unassigned"
+            }
+        ]
+    },
+    {
+        "index": "340000",
+        "title": "DIVISION 34 - TRANSPORTATION",
+        "sections": [
+            {
+                "index": "340100",
+                "title": "34 01 00 Operation and Maintenance of Transportation"
+            },
+            {
+                "index": "340500",
+                "title": "34 05 00 Common Work Results for Transportation"
+            },
+            {
+                "index": "340600",
+                "title": "34 06 00 Schedules for Transportation"
+            },
+            {
+                "index": "340800",
+                "title": "34 08 00 Commissioning of Transportation"
+            },
+            {
+                "index": "341000",
+                "title": "34 10 00 Guideways/Railways"
+            },
+            {
+                "index": "341100",
+                "title": "34 11 00 Rail Tracks"
+            },
+            {
+                "index": "341200",
+                "title": "34 12 00 Monorails"
+            },
+            {
+                "index": "341300",
+                "title": "34 13 00 Funiculars"
+            },
+            {
+                "index": "341400",
+                "title": "34 14 00 Cable Transportation"
+            },
+            {
+                "index": "342000",
+                "title": "34 20 00 Traction Power"
+            },
+            {
+                "index": "342100",
+                "title": "34 21 00 Traction Power Distribution"
+            },
+            {
+                "index": "342300",
+                "title": "34 23 00 Overhead Traction Power"
+            },
+            {
+                "index": "342400",
+                "title": "34 24 00 Third Rail Traction Power"
+            },
+            {
+                "index": "343000",
+                "title": "34 30 00 Unassigned"
+            },
+            {
+                "index": "344000",
+                "title": "34 40 00 Transportation Signaling and Control Equipment"
+            },
+            {
+                "index": "344100",
+                "title": "34 41 00 Roadway Signaling and Control Equipment"
+            },
+            {
+                "index": "344200",
+                "title": "34 42 00 Railway Signaling and Control Equipment"
+            },
+            {
+                "index": "344300",
+                "title": "34 43 00 Airfield Signaling and Control Equipment"
+            },
+            {
+                "index": "344800",
+                "title": "34 48 00 Bridge Signaling and Control Equipment"
+            },
+            {
+                "index": "345000",
+                "title": "34 50 00 Transportation Fare Collection Equipment"
+            },
+            {
+                "index": "345200",
+                "title": "34 52 00 Vehicle Fare Collection"
+            },
+            {
+                "index": "345400",
+                "title": "34 54 00 Passenger Fare Collection"
+            },
+            {
+                "index": "346000",
+                "title": "34 60 00 Unassigned"
+            },
+            {
+                "index": "347000",
+                "title": "34 70 00 Transportation Construction and Equipment"
+            },
+            {
+                "index": "347100",
+                "title": "34 71 00 Roadway Construction"
+            },
+            {
+                "index": "347200",
+                "title": "34 72 00 Railway Construction"
+            },
+            {
+                "index": "347300",
+                "title": "34 73 00 Airfield Construction"
+            },
+            {
+                "index": "347500",
+                "title": "34 75 00 Roadway Equipment"
+            },
+            {
+                "index": "347600",
+                "title": "34 76 00 Railway Equipment"
+            },
+            {
+                "index": "347700",
+                "title": "34 77 00 Transportation Equipment"
+            },
+            {
+                "index": "347800",
+                "title": "34 78 00 Weighing Equipment"
+            },
+            {
+                "index": "348000",
+                "title": "34 80 00 Bridges"
+            },
+            {
+                "index": "348100",
+                "title": "34 81 00 Bridge Machinery"
+            },
+            {
+                "index": "348200",
+                "title": "34 82 00 Bridge Specialties"
+            },
+            {
+                "index": "349000",
+                "title": "34 90 00 Unassigned"
+            }
+        ]
+    },
+    {
+        "index": "350000",
+        "title": "DIVISION 35 - WATERWAY AND MARINE CONSTRUCTION",
+        "sections": [
+            {
+                "index": "350100",
+                "title": "35 01 00 Operation and Maintenance of Waterway and Marine Construction"
+            },
+            {
+                "index": "350500",
+                "title": "35 05 00 Common Work Results for Waterway and Marine Construction"
+            },
+            {
+                "index": "350600",
+                "title": "35 06 00 Schedules for Waterway and Marine Construction"
+            },
+            {
+                "index": "350800",
+                "title": "35 08 00 Commissioning of Waterway and Marine Construction"
+            },
+            {
+                "index": "351000",
+                "title": "35 10 00 Waterway and Marine Signaling and Control Equipment"
+            },
+            {
+                "index": "351100",
+                "title": "35 11 00 Signaling and Control Equipment for Waterways"
+            },
+            {
+                "index": "351200",
+                "title": "35 12 00 Marine Signaling and Control Equipment"
+            },
+            {
+                "index": "351300",
+                "title": "35 13 00 Signaling and Control Equipment for Dams"
+            },
+            {
+                "index": "352000",
+                "title": "35 20 00 Waterway and Marine Construction and Equipment"
+            },
+            {
+                "index": "352100",
+                "title": "35 21 00 General Fabrications for Waterways"
+            },
+            {
+                "index": "352200",
+                "title": "35 22 00 Hydraulic Gates"
+            },
+            {
+                "index": "352400",
+                "title": "35 24 00 Dredging"
+            },
+            {
+                "index": "353000",
+                "title": "35 30 00 Coastal Construction"
+            },
+            {
+                "index": "353100",
+                "title": "35 31 00 Shoreline Protection"
+            },
+            {
+                "index": "353200",
+                "title": "35 32 00 Artificial Reefs"
+            },
+            {
+                "index": "354000",
+                "title": "35 40 00 Waterway Construction and Equipment"
+            },
+            {
+                "index": "354100",
+                "title": "35 41 00 Levees"
+            },
+            {
+                "index": "354200",
+                "title": "35 42 00 Waterway Bank Protection"
+            },
+            {
+                "index": "354300",
+                "title": "35 43 00 Waterway Scour Protection"
+            },
+            {
+                "index": "354900",
+                "title": "35 49 00 Waterway Structures"
+            },
+            {
+                "index": "355000",
+                "title": "35 50 00 Marine Construction and Equipment"
+            },
+            {
+                "index": "355100",
+                "title": "35 51 00 Floating Construction"
+            },
+            {
+                "index": "355200",
+                "title": "35 52 00 Offshore Platform Construction"
+            },
+            {
+                "index": "355300",
+                "title": "35 53 00 Underwater Construction"
+            },
+            {
+                "index": "355900",
+                "title": "35 59 00 Marine Specialties"
+            },
+            {
+                "index": "356000",
+                "title": "35 60 00 Unassigned"
+            },
+            {
+                "index": "357000",
+                "title": "35 70 00 Dam Construction and Equipment"
+            },
+            {
+                "index": "357100",
+                "title": "35 71 00 Gravity Dams"
+            },
+            {
+                "index": "357200",
+                "title": "35 72 00 Arch Dams"
+            },
+            {
+                "index": "357300",
+                "title": "35 73 00 Embankment Dams"
+            },
+            {
+                "index": "357400",
+                "title": "35 74 00 Buttress Dams"
+            },
+            {
+                "index": "357900",
+                "title": "35 79 00 Auxiliary Dam Structures"
+            },
+            {
+                "index": "358000",
+                "title": "35 80 00 to 35 90 00 Unassigned"
+            }
+        ]
+    },
+    {
+        "index": "360000",
+        "title": "Divisions 36 to 39 Reserved for Future Expansion",
+        "sections": []
+    },
+    {
+        "index": "400000",
+        "title": "DIVISION 40 - PROCESS INTERCONNECTIONS",
+        "sections": [
+            {
+                "index": "400100",
+                "title": "40 01 00 Operation and Maintenance of Process Interconnections"
+            },
+            {
+                "index": "400500",
+                "title": "40 05 00 Common Work Results for Process Interconnections"
+            },
+            {
+                "index": "400600",
+                "title": "40 06 00 Schedules for Process Interconnections"
+            },
+            {
+                "index": "401000",
+                "title": "40 10 00 Gas and Vapor Process Piping and Ductwork"
+            },
+            {
+                "index": "401100",
+                "title": "40 11 00 Steam Process Piping"
+            },
+            {
+                "index": "401200",
+                "title": "40 12 00 Compressed Air Process Piping"
+            },
+            {
+                "index": "401300",
+                "title": "40 13 00 Process Ductwork"
+            },
+            {
+                "index": "401500",
+                "title": "40 15 00 Combustion System Gas Piping"
+            },
+            {
+                "index": "401600",
+                "title": "40 16 00 Specialty and High-Purity Gases Piping"
+            },
+            {
+                "index": "401700",
+                "title": "40 17 00 Welding and Cutting Gases Piping"
+            },
+            {
+                "index": "401800",
+                "title": "40 18 00 Vacuum Systems Process Piping"
+            },
+            {
+                "index": "402000",
+                "title": "40 20 00 Liquids Process Piping"
+            },
+            {
+                "index": "402100",
+                "title": "40 21 00 Liquid Fuel Process Piping"
+            },
+            {
+                "index": "402200",
+                "title": "40 22 00 Petroleum Products Piping"
+            },
+            {
+                "index": "402300",
+                "title": "40 23 00 Water and Wastewater Process Piping"
+            },
+            {
+                "index": "402400",
+                "title": "40 24 00 Specialty Liquid Chemicals Piping"
+            },
+            {
+                "index": "402500",
+                "title": "40 25 00 Liquid Acids and Bases Piping"
+            },
+            {
+                "index": "402600",
+                "title": "40 26 00 Liquid Polymer Piping"
+            },
+            {
+                "index": "403000",
+                "title": "40 30 00 Solid and Mixed Materials Piping and Chutes"
+            },
+            {
+                "index": "403200",
+                "title": "40 32 00 Bulk Materials Piping and Chutes"
+            },
+            {
+                "index": "403300",
+                "title": "40 33 00 Bulk Materials Valves"
+            },
+            {
+                "index": "403400",
+                "title": "40 34 00 Pneumatic Conveying Lines"
+            },
+            {
+                "index": "404000",
+                "title": "40 40 00 Process Piping and Equipment Protection"
+            },
+            {
+                "index": "404100",
+                "title": "40 41 00 Process Piping and Equipment Heat Tracing"
+            },
+            {
+                "index": "404200",
+                "title": "40 42 00 Process Piping and Equipment Insulation"
+            },
+            {
+                "index": "404600",
+                "title": "40 46 00 Process Corrosion Protection"
+            },
+            {
+                "index": "404700",
+                "title": "40 47 00 Refractories"
+            },
+            {
+                "index": "405000",
+                "title": "40 50 00 Unassigned"
+            },
+            {
+                "index": "406000",
+                "title": "40 60 00 Process Control and Enterprise Management Systems"
+            },
+            {
+                "index": "406100",
+                "title": "40 61 00 Process Control and Enterprise Management Systems General Provisions"
+            },
+            {
+                "index": "406200",
+                "title": "40 62 00 Computer System Hardware and Ancillaries"
+            },
+            {
+                "index": "406300",
+                "title": "40 63 00 Control System Equipment"
+            },
+            {
+                "index": "406600",
+                "title": "40 66 00 Network and Communication Equipment"
+            },
+            {
+                "index": "406700",
+                "title": "40 67 00 Control System Equipment Panels and Racks"
+            },
+            {
+                "index": "406800",
+                "title": "40 68 00 Process Control Software"
+            },
+            {
+                "index": "406900",
+                "title": "40 69 00 Packaged Control Systems"
+            },
+            {
+                "index": "407000",
+                "title": "40 70 00 Instrumentation for Process Systems"
+            },
+            {
+                "index": "407100",
+                "title": "40 71 00 Flow Measurement"
+            },
+            {
+                "index": "407200",
+                "title": "40 72 00 Level Measurement"
+            },
+            {
+                "index": "407300",
+                "title": "40 73 00 Pressure, Strain, and Force Measurement"
+            },
+            {
+                "index": "407400",
+                "title": "40 74 00 Temperature Measurement"
+            },
+            {
+                "index": "407500",
+                "title": "40 75 00 Process Liquid Analytical Measurement"
+            },
+            {
+                "index": "407600",
+                "title": "40 76 00 Process Gas Analytical Measurement"
+            },
+            {
+                "index": "407700",
+                "title": "40 77 00 Position and Motion Measurement"
+            },
+            {
+                "index": "407800",
+                "title": "40 78 00 Panel Mounted Instruments"
+            },
+            {
+                "index": "407900",
+                "title": "40 79 00 Miscellaneous Instruments, Calibration Equipment, Instrument Valves, and Fittings"
+            },
+            {
+                "index": "408000",
+                "title": "40 80 00 Commissioning of Process Systems"
+            },
+            {
+                "index": "409000",
+                "title": "40 90 00 Primary Control Devices"
+            },
+            {
+                "index": "409100",
+                "title": "40 91 00 Primary Control Valves"
+            },
+            {
+                "index": "409200",
+                "title": "40 92 00 Self-Contained Flow Controllers"
+            },
+            {
+                "index": "409300",
+                "title": "40 93 00 Linear Actuators and Positioners"
+            },
+            {
+                "index": "409400",
+                "title": "40 94 00 Self-Contained Pressure Regulators"
+            },
+            {
+                "index": "409500",
+                "title": "40 95 00 Rotary Actuators"
+            },
+            {
+                "index": "409600",
+                "title": "40 96 00 Saturable Core Reactors"
+            },
+            {
+                "index": "409700",
+                "title": "40 97 00 Variable Frequency Drives"
+            }
+        ]
+    },
+    {
+        "index": "410000",
+        "title": "DIVISION 41 - MATERIAL PROCESSING AND HANDLING EQUIPMENT",
+        "sections": [
+            {
+                "index": "410100",
+                "title": "41 01 00 Operation and Maintenance of Material Processing and Handling Equipment"
+            },
+            {
+                "index": "410500",
+                "title": "41 05 00 Common Work Results for Material Processing and Handling Equipment"
+            },
+            {
+                "index": "410600",
+                "title": "41 06 00 Schedules for Material Processing and Handling Equipment"
+            },
+            {
+                "index": "410800",
+                "title": "41 08 00 Commissioning of Material Processing and Handling Equipment"
+            },
+            {
+                "index": "411000",
+                "title": "41 10 00 Bulk Material Processing Equipment"
+            },
+            {
+                "index": "411100",
+                "title": "41 11 00 Bulk Material Sizing Equipment"
+            },
+            {
+                "index": "411200",
+                "title": "41 12 00 Bulk Material Conveying Equipment"
+            },
+            {
+                "index": "411300",
+                "title": "41 13 00 Bulk Material Feeders"
+            },
+            {
+                "index": "411400",
+                "title": "41 14 00 Batching Equipment"
+            },
+            {
+                "index": "412000",
+                "title": "41 20 00 Piece Material Handling Equipment"
+            },
+            {
+                "index": "412100",
+                "title": "41 21 00 Conveyors"
+            },
+            {
+                "index": "412200",
+                "title": "41 22 00 Cranes and Hoists"
+            },
+            {
+                "index": "412300",
+                "title": "41 23 00 Lifting Devices"
+            },
+            {
+                "index": "412400",
+                "title": "41 24 00 Specialty Material Handling Equipment"
+            },
+            {
+                "index": "413000",
+                "title": "41 30 00 Manufacturing Equipment"
+            },
+            {
+                "index": "413100",
+                "title": "41 31 00 Manufacturing Lines and Equipment"
+            },
+            {
+                "index": "413200",
+                "title": "41 32 00 Forming Equipment"
+            },
+            {
+                "index": "413300",
+                "title": "41 33 00 Machining Equipment"
+            },
+            {
+                "index": "413400",
+                "title": "41 34 00 Finishing Equipment"
+            },
+            {
+                "index": "413500",
+                "title": "41 35 00 Dies and Molds"
+            },
+            {
+                "index": "413600",
+                "title": "41 36 00 Assembly and Testing Equipment"
+            },
+            {
+                "index": "414000",
+                "title": "41 40 00 Container Processing and Packaging"
+            },
+            {
+                "index": "414100",
+                "title": "41 41 00 Container Filling and Sealing"
+            },
+            {
+                "index": "414200",
+                "title": "41 42 00 Container Packing Equipment"
+            },
+            {
+                "index": "414300",
+                "title": "41 43 00 Shipping Packaging"
+            },
+            {
+                "index": "415000",
+                "title": "41 50 00 Material Storage"
+            },
+            {
+                "index": "415100",
+                "title": "41 51 00 Automatic Material Storage"
+            },
+            {
+                "index": "415200",
+                "title": "41 52 00 Bulk Material Storage"
+            },
+            {
+                "index": "415300",
+                "title": "41 53 00 Storage Equipment and Systems"
+            },
+            {
+                "index": "416000",
+                "title": "41 60 00 Mobile Plant Equipment"
+            },
+            {
+                "index": "416100",
+                "title": "41 61 00 Mobile Earth Moving Equipment"
+            },
+            {
+                "index": "416200",
+                "title": "41 62 00 Trucks"
+            },
+            {
+                "index": "416300",
+                "title": "41 63 00 General Vehicles"
+            },
+            {
+                "index": "416400",
+                "title": "41 64 00 Rail Vehicles"
+            },
+            {
+                "index": "416500",
+                "title": "41 65 00 Mobile Support Equipment"
+            },
+            {
+                "index": "416600",
+                "title": "41 66 00 Miscellaneous Mobile Equipment"
+            },
+            {
+                "index": "416700",
+                "title": "41 67 00 Plant Maintenance Equipment"
+            },
+            {
+                "index": "417000",
+                "title": "41 70 00 to 41 90 00 Unassigned"
+            }
+        ]
+    },
+    {
+        "index": "420000",
+        "title": "DIVISION 42 - PROCESSING HEATING, COOLING, AND DRYING EQUIPMENT",
+        "sections": [
+            {
+                "index": "420100",
+                "title": "42 01 00 Operation and Maintenance of Process Heating, Cooling, and Drying Equipment"
+            },
+            {
+                "index": "420500",
+                "title": "42 05 00 Common Work Results for Process Heating, Cooling, and Drying Equipment"
+            },
+            {
+                "index": "420600",
+                "title": "42 06 00 Schedules for Process Heating, Cooling, and Drying Equipment"
+            },
+            {
+                "index": "420800",
+                "title": "42 08 00 Commissioning of Process Heating, Cooling, and Drying Equipment"
+            },
+            {
+                "index": "421000",
+                "title": "42 10 00 Process Heating Equipment"
+            },
+            {
+                "index": "421100",
+                "title": "42 11 00 Process Boilers"
+            },
+            {
+                "index": "421200",
+                "title": "42 12 00 Process Heaters"
+            },
+            {
+                "index": "421300",
+                "title": "42 13 00 Industrial Heat Exchangers and Recuperators"
+            },
+            {
+                "index": "421400",
+                "title": "42 14 00 Industrial Furnaces"
+            },
+            {
+                "index": "421500",
+                "title": "42 15 00 Industrial Ovens"
+            },
+            {
+                "index": "422000",
+                "title": "42 20 00 Process Cooling Equipment"
+            },
+            {
+                "index": "422100",
+                "title": "42 21 00 Process Cooling Towers"
+            },
+            {
+                "index": "422200",
+                "title": "42 22 00 Process Chillers and Coolers"
+            },
+            {
+                "index": "422300",
+                "title": "42 23 00 Process Condensers and Evaporators"
+            },
+            {
+                "index": "423000",
+                "title": "42 30 00 Process Drying Equipment"
+            },
+            {
+                "index": "423100",
+                "title": "42 31 00 Gas Dryers and Dehumidifiers"
+            },
+            {
+                "index": "423200",
+                "title": "42 32 00 Material Dryers"
+            },
+            {
+                "index": "424000",
+                "title": "42 40 00 to 42 90 00 Unassigned"
+            }
+        ]
+    },
+    {
+        "index": "430000",
+        "title": "DIVISION 43 - PROCESS GAS AND LIQUID HANDLING, PURIFICATION, AND STORAGE EQUIPMENT",
+        "sections": [
+            {
+                "index": "430100",
+                "title": "43 01 00 Operation and Maintenance of Process Gas and Liquid Handling, Purification, and Storage Equipment"
+            },
+            {
+                "index": "430500",
+                "title": "43 05 00 Common Work Results for Process Gas and Liquid Handling, Purification, and Storage Equipment"
+            },
+            {
+                "index": "430600",
+                "title": "43 06 00 Schedules for Process Gas and Liquid Handling, Purification, and Storage Equipment"
+            },
+            {
+                "index": "430800",
+                "title": "43 08 00 Commissioning of Process Gas and Liquid Handling, Purification, and Storage Equipment"
+            },
+            {
+                "index": "431000",
+                "title": "43 10 00 Gas Handling Equipment"
+            },
+            {
+                "index": "431100",
+                "title": "43 11 00 Gas Fans, Blowers, Pumps and Boosters"
+            },
+            {
+                "index": "431200",
+                "title": "43 12 00 Gas Compressors"
+            },
+            {
+                "index": "431300",
+                "title": "43 13 00 Gas Process Equipment"
+            },
+            {
+                "index": "431500",
+                "title": "43 15 00 Process Air and Gas Filters"
+            },
+            {
+                "index": "432000",
+                "title": "43 20 00 Liquid Handling Equipment"
+            },
+            {
+                "index": "432200",
+                "title": "43 22 00 Liquid Process Equipment"
+            },
+            {
+                "index": "432300",
+                "title": "43 23 00 Dry Location Liquid Pumps"
+            },
+            {
+                "index": "432400",
+                "title": "43 24 00 Suspended Liquid Pumps"
+            },
+            {
+                "index": "432500",
+                "title": "43 25 00 Submersible/Immersible Liquid Pumps"
+            },
+            {
+                "index": "432600",
+                "title": "43 26 00 Specialized Liquid Pumps"
+            },
+            {
+                "index": "432700",
+                "title": "43 27 00 Process Liquid Filters"
+            },
+            {
+                "index": "433000",
+                "title": "43 30 00 Gas and Liquid Purification Equipment"
+            },
+            {
+                "index": "433100",
+                "title": "43 31 00 Gas and Liquid Purification Filtration Equipment"
+            },
+            {
+                "index": "433200",
+                "title": "43 32 00 Gas and Liquid Purification Process Equipment"
+            },
+            {
+                "index": "434000",
+                "title": "43 40 00 Gas and Liquid Storage"
+            },
+            {
+                "index": "434100",
+                "title": "43 41 00 Non-pressurized Tanks and Vessels"
+            },
+            {
+                "index": "434200",
+                "title": "43 42 00 Pressurized Tanks and Vessels"
+            },
+            {
+                "index": "435000",
+                "title": "43 50 00 to 43 90 00 Unassigned"
+            }
+        ]
+    },
+    {
+        "index": "440000",
+        "title": "DIVISION 44 - POLLUTION AND WASTE CONTROL EQUIPMENT",
+        "sections": [
+            {
+                "index": "440100",
+                "title": "44 01 00 Operation and Maintenance of Pollution and Waste Control Equipment"
+            },
+            {
+                "index": "440500",
+                "title": "44 05 00 Common Work Results for Pollution and Waste Control Equipment"
+            },
+            {
+                "index": "440600",
+                "title": "44 06 00 Schedules for Pollution and Waste Control Equipment"
+            },
+            {
+                "index": "440800",
+                "title": "44 08 00 Commissioning of Pollution and Waste Control Equipment"
+            },
+            {
+                "index": "441000",
+                "title": "44 10 00 Air Pollution Control"
+            },
+            {
+                "index": "441100",
+                "title": "44 11 00 Particulate Control Equipment"
+            },
+            {
+                "index": "441300",
+                "title": "44 13 00 Gaseous Air Pollution Control Equipment"
+            },
+            {
+                "index": "442000",
+                "title": "44 20 00 Noise Pollution Control"
+            },
+            {
+                "index": "442100",
+                "title": "44 21 00 Noise Pollution Control Equipment"
+            },
+            {
+                "index": "443000",
+                "title": "44 30 00 Odor Control"
+            },
+            {
+                "index": "443100",
+                "title": "44 31 00 Odor Treatment Equipment"
+            },
+            {
+                "index": "443200",
+                "title": "44 32 00 Odor Dispersing and Masking/Counteracting Equipment"
+            },
+            {
+                "index": "444000",
+                "title": "44 40 00 Water Pollution Control Equipment"
+            },
+            {
+                "index": "444100",
+                "title": "44 41 00 Water Pollution Containment and Cleanup Equipment"
+            },
+            {
+                "index": "445000",
+                "title": "44 50 00 Solid Waste Control and Reuse"
+            },
+            {
+                "index": "445100",
+                "title": "44 51 00 Solid Waste Collection, Transfer, and Hauling Equipment"
+            },
+            {
+                "index": "445300",
+                "title": "44 53 00 Solid Waste Processing Equipment"
+            },
+            {
+                "index": "445500",
+                "title": "44 55 00 Composting Equipment"
+            },
+            {
+                "index": "446000",
+                "title": "44 60 00 Waste Thermal Processing Equipment"
+            },
+            {
+                "index": "446100",
+                "title": "44 61 00 Waste-to-Energy Plants"
+            },
+            {
+                "index": "446200",
+                "title": "44 62 00 Fluidized Bed Combustion Equipment"
+            },
+            {
+                "index": "446300",
+                "title": "44 63 00 Rotary Kiln Incinerators"
+            },
+            {
+                "index": "446400",
+                "title": "44 64 00 Gasification Equipment"
+            },
+            {
+                "index": "446500",
+                "title": "44 65 00 Pyrolysis Equipment"
+            },
+            {
+                "index": "446600",
+                "title": "44 66 00 Hazardous Waste and Medical Waste Incinerators"
+            },
+            {
+                "index": "446700",
+                "title": "44 67 00 Heat Recovery Equipment for Waste Thermal Processing"
+            },
+            {
+                "index": "446800",
+                "title": "44 68 00 Synthesis Gas Cleanup and Handling Equipment"
+            },
+            {
+                "index": "447000",
+                "title": "44 70 00 to 44 90 00 Unassigned"
+            }
+        ]
+    },
+    {
+        "index": "450000",
+        "title": "DIVISION 45 - INDUSTRY-SPECIFIC MANUFACTURING EQUIPMENT",
+        "sections": [
+            {
+                "index": "450500",
+                "title": "45 05 00 Common Work Results for Industry-Specific Manufacturing Equipment"
+            },
+            {
+                "index": "450800",
+                "title": "45 08 00 Commissioning of Industry-Specific Manufacturing Equipment"
+            },
+            {
+                "index": "451000",
+                "title": "45 10 00 Unassigned"
+            },
+            {
+                "index": "451100",
+                "title": "45 11 00 Oil and Gas Extraction Equipment"
+            },
+            {
+                "index": "451200",
+                "title": "45 12 00 User-Defined Oil and Gas Extraction Equipment"
+            },
+            {
+                "index": "451300",
+                "title": "45 13 00 Mining Machinery and Equipment"
+            },
+            {
+                "index": "451400",
+                "title": "45 14 00 User-Defined Mining Machinery and Equipment"
+            },
+            {
+                "index": "451500",
+                "title": "45 15 00 Food Manufacturing Equipment"
+            },
+            {
+                "index": "451600",
+                "title": "45 16 00 User-Defined Food Manufacturing Equipment"
+            },
+            {
+                "index": "451700",
+                "title": "45 17 00 Beverage and Tobacco Manufacturing Equipment"
+            },
+            {
+                "index": "451800",
+                "title": "45 18 00 User-Defined Beverage and Tobacco Manufacturing Equipment"
+            },
+            {
+                "index": "451900",
+                "title": "45 19 00 Textiles and Apparel Manufacturing Equipment"
+            },
+            {
+                "index": "452000",
+                "title": "45 20 00 User-Defined Textiles and Apparel Manufacturing Equipment"
+            },
+            {
+                "index": "452100",
+                "title": "45 21 00 Leather and Allied Product Manufacturing Equipment"
+            },
+            {
+                "index": "452200",
+                "title": "45 22 00 User-Defined Leather and Allied Product Manufacturing Equipment"
+            },
+            {
+                "index": "452300",
+                "title": "45 23 00 Wood Product Manufacturing Equipment"
+            },
+            {
+                "index": "452400",
+                "title": "45 24 00 User-Defined Wood Product Manufacturing Equipment"
+            },
+            {
+                "index": "452500",
+                "title": "45 25 00 Paper Manufacturing Equipment"
+            },
+            {
+                "index": "452600",
+                "title": "45 26 00 User-Defined Paper Manufacturing Equipment"
+            },
+            {
+                "index": "452700",
+                "title": "45 27 00 Printing and Related Manufacturing Equipment"
+            },
+            {
+                "index": "452800",
+                "title": "45 28 00 User-Defined Printing and Related Manufacturing Equipment"
+            },
+            {
+                "index": "452900",
+                "title": "45 29 00 Petroleum and Coal Products Manufacturing Equipment"
+            },
+            {
+                "index": "453000",
+                "title": "45 30 00 User-Defined Petroleum and Coal Products Manufacturing Equipment"
+            },
+            {
+                "index": "453100",
+                "title": "45 31 00 Chemical Manufacturing Equipment"
+            },
+            {
+                "index": "453200",
+                "title": "45 32 00 User-Defined Chemical Manufacturing Equipment"
+            },
+            {
+                "index": "453300",
+                "title": "45 33 00 Plastics and Rubber Manufacturing Equipment"
+            },
+            {
+                "index": "453400",
+                "title": "45 34 00 User-Defined Plastics and Rubber Manufacturing Equipment"
+            },
+            {
+                "index": "453500",
+                "title": "45 35 00 Non-metallic Mineral Product Manufacturing Equipment"
+            },
+            {
+                "index": "453600",
+                "title": "45 36 00 User-Defined Non-Metallic Mineral Product Manufacturing Equipment"
+            },
+            {
+                "index": "453700",
+                "title": "45 37 00 Primary Metal Manufacturing Equipment"
+            },
+            {
+                "index": "453800",
+                "title": "45 38 00 User-Defined Primary Metal Manufacturing Equipment"
+            },
+            {
+                "index": "453900",
+                "title": "45 39 00 Fabricated Metal Product Manufacturing Equipment"
+            },
+            {
+                "index": "454000",
+                "title": "45 40 00 User-Defined Fabricated Metal Product Manufacturing Equipment"
+            },
+            {
+                "index": "454100",
+                "title": "45 41 00 Machinery Manufacturing Equipment"
+            },
+            {
+                "index": "454200",
+                "title": "45 42 00 User-Defined Machinery Manufacturing Equipment"
+            },
+            {
+                "index": "454300",
+                "title": "45 43 00 Computer and Electronic Product Manufacturing Equipment"
+            },
+            {
+                "index": "454400",
+                "title": "45 44 00 User-Defined Computer and Electronic Product Manufacturing Equipment"
+            },
+            {
+                "index": "454500",
+                "title": "45 45 00 Electrical Equipment, Appliance, and Component Manufacturing Equipment"
+            },
+            {
+                "index": "454600",
+                "title": "45 46 00 User-Defined Electrical Equipment, Appliance, and Component Manufacturing Equipment"
+            },
+            {
+                "index": "454700",
+                "title": "45 47 00 Transportation Manufacturing Equipment"
+            },
+            {
+                "index": "454800",
+                "title": "45 48 00 User-Defined Transportation Manufacturing Equipment"
+            },
+            {
+                "index": "454900",
+                "title": "45 49 00 Furniture and Related Product Manufacturing Equipment"
+            },
+            {
+                "index": "455000",
+                "title": "45 50 00 User-Defined Furniture and Related Product Manufacturing Equipment"
+            },
+            {
+                "index": "455200",
+                "title": "45 52 00 User-Defined Other Manufacturing Equipment"
+            },
+            {
+                "index": "455300",
+                "title": "45 53 00 Biopharmaceutical Manufacturing Equipment"
+            },
+            {
+                "index": "456000",
+                "title": "45 60 00 to 45 90 00 Unassigned"
+            }
+        ]
+    },
+    {
+        "index": "460000",
+        "title": "DIVISION 46 - INDUSTRY-SPECIFIC MANUFACTURING EQUIPMENT",
+        "sections": [
+            {
+                "index": "460100",
+                "title": "46 01 00 Operation and Maintenance of Water and Wastewater Equipment"
+            },
+            {
+                "index": "460500",
+                "title": "46 05 00 Common Work Results for Water and Wastewater Equipment"
+            },
+            {
+                "index": "460600",
+                "title": "46 06 00 Schedules for Water and Wastewater Equipment"
+            },
+            {
+                "index": "460700",
+                "title": "46 07 00 Packaged Water and Wastewater Treatment Equipment"
+            },
+            {
+                "index": "460800",
+                "title": "46 08 00 Commissioning of Water and Wastewater Equipment"
+            },
+            {
+                "index": "461000",
+                "title": "46 10 00 Unassigned"
+            },
+            {
+                "index": "462000",
+                "title": "46 20 00 Water and Wastewater Preliminary Treatment Equipment"
+            },
+            {
+                "index": "462100",
+                "title": "46 21 00 Screening Equipment"
+            },
+            {
+                "index": "462300",
+                "title": "46 23 00 Grit Removal and Handling Equipment"
+            },
+            {
+                "index": "462400",
+                "title": "46 24 00 Grinding and Shredding Equipment"
+            },
+            {
+                "index": "462500",
+                "title": "46 25 00 Oil and Grease Separation and Removal Equipment"
+            },
+            {
+                "index": "463000",
+                "title": "46 30 00 Water and Wastewater Chemical Feed Equipment"
+            },
+            {
+                "index": "463100",
+                "title": "46 31 00 Gas Chemical Feed Equipment"
+            },
+            {
+                "index": "463300",
+                "title": "46 33 00 Liquid Chemical Feed Equipment"
+            },
+            {
+                "index": "463600",
+                "title": "46 36 00 Dry Chemical Feed Equipment"
+            },
+            {
+                "index": "464000",
+                "title": "46 40 00 Water and Wastewater Clarification and Mixing Equipment"
+            },
+            {
+                "index": "464100",
+                "title": "46 41 00 Mixing Equipment"
+            },
+            {
+                "index": "464300",
+                "title": "46 43 00 Clarifier Equipment"
+            },
+            {
+                "index": "464600",
+                "title": "46 46 00 Sediment Removal Equipment"
+            },
+            {
+                "index": "465000",
+                "title": "46 50 00 Water and Wastewater Secondary Treatment Equipment"
+            },
+            {
+                "index": "465100",
+                "title": "46 51 00 Air and Gas Diffusion Equipment"
+            },
+            {
+                "index": "465300",
+                "title": "46 53 00 Biological Treatment Systems"
+            },
+            {
+                "index": "466000",
+                "title": "46 60 00 Water and Wastewater Advanced Treatment Equipment"
+            },
+            {
+                "index": "466100",
+                "title": "46 61 00 Filtration Equipment"
+            },
+            {
+                "index": "466300",
+                "title": "46 63 00 Demineralization Equipment"
+            },
+            {
+                "index": "466600",
+                "title": "46 66 00 Ultraviolet Equipment"
+            },
+            {
+                "index": "467000",
+                "title": "46 70 00 Water and Wastewater Residuals Handling and Treatment"
+            },
+            {
+                "index": "467100",
+                "title": "46 71 00 Residuals Thickening Equipment"
+            },
+            {
+                "index": "467300",
+                "title": "46 73 00 Residuals Stabilization"
+            },
+            {
+                "index": "467600",
+                "title": "46 76 00 Residuals Dewatering Equipment"
+            },
+            {
+                "index": "467800",
+                "title": "46 78 00 Thermal Treatment of Residuals"
+            },
+            {
+                "index": "468000",
+                "title": "46 80 00 to 46 90 00 Unassigned"
+            }
+        ]
+    },
+    {
+        "index": "470000",
+        "title": "Division 47 Reserved for Future Expansion",
+        "sections": []
+    }
+]
