@@ -30,7 +30,7 @@ const Job = () => {
     const server = 'https://tk64sfyklbku3h6cviltbs7xde0vxdqm.lambda-url.us-east-1.on.aws';
 
     const getUserLibrary = async () => {
-        await axios.get(`${server}/api/get_user_library?user=${user}`)
+        await axios.get(`${server}/api/specs?user=${user}`)
             .then(responseFiles => {
                 setUserLibrary(responseFiles.data)
 
