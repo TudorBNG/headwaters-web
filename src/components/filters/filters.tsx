@@ -15,6 +15,7 @@ interface FiltersProps {
     setOpenDivision: Function;
     openSection: Section;
     setOpenSection: Function;
+    extractedSections: object;
 }
 
 
@@ -27,12 +28,17 @@ const Filters = ({
     openDivision,
     setOpenDivision,
     openSection,
-    setOpenSection }: FiltersProps) => {
+    setOpenSection,
+    extractedSections,
+}: FiltersProps) => {
 
     const divisions = useMemo(() => {
         return importedDivisions.map(division => {
             let count = 0;
+            let enabled = false;
             const sections = division.sections.map(section => {
+
+                enabled = Object.keys(extractedSections).includes(section.index) || enabled
 
                 const labels = { "All": 0 };
 
@@ -55,7 +61,7 @@ const Filters = ({
                 return { ...section, uncovered, labels: [...Object.keys(labels).map(key => ({ label: key, uncovered: labels[key] }))], keys: sectionKeys }
             })
 
-            return { ...division, sections, uncovered: count }
+            return { ...division, sections, uncovered: count, enabled }
         })
     }, [importedDivisions, initialKeys])
 
@@ -83,10 +89,12 @@ const Filters = ({
 
     useEffect(() => {
         if (selectedLabel) {
+            const tempSection = divisions.find(division => division.index === openDivision.index)?.sections?.find(section => section.index === openSection.index);
+
             if (selectedLabel === 'All') {
-                setKeys(openSection.keys)
+                setKeys((tempSection || openSection).keys)
             } else {
-                setKeys(openSection.keys.filter(key => key.label === selectedLabel))
+                setKeys((tempSection || openSection).keys.filter(key => key.label === selectedLabel))
             }
         }
     }, [selectedLabel, initialKeys])
@@ -94,12 +102,12 @@ const Filters = ({
     return <div className={"filters-container"}>
         {divisions.map((division, index) => (
             <div className={"division-container"} >
-                <div className={`division ${openDivision?.index === division.index && 'division-selected'}`} onClick={() => handleOpenDivision(division)}>
+                <button className={`division ${openDivision?.index === division.index && 'division-selected'}`} onClick={() => handleOpenDivision(division)} disabled={!division.enabled}>
                     <span className={`division-title ${openDivision?.index === division.index && 'division-title-selected'}`}>
                         {division.title}
                     </span>
                     {!!division.uncovered && <UncoveredSign uncoveredItemsNumber={division.uncovered} />}
-                </div>
+                </button>
                 <div className={"sections-container"}>
                     {openDivision?.index === division.index && division.sections.map((section) => (
                         <React.Fragment>
