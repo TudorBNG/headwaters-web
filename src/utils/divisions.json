@@ -4,6 +4,10 @@
         "title": "DIVISION 00 - PROCUREMENT AND CONTRACTING",
         "sections": [
             {
+                "index": "000100",
+                "title": "00 01 00 Certifications Page"
+            },
+            {
                 "index": "001000",
                 "title": "00 10 00 Solicitation"
             },
