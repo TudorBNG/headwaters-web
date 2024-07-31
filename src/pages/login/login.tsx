@@ -3,7 +3,7 @@ import "./login.scss";
 import users from './../../utils/users.json'
 import { useNavigate } from 'react-router';
 import moment from 'moment';
-import Logo from './../../assets/images/png/logo.png'
+import Logo from './../../assets/images/png/headwaters_estimating.png'
 
 const Login = () => {
 

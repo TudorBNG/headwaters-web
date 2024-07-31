@@ -1,6 +1,6 @@
 import React from "react"
 import { Outlet, useNavigate } from "react-router"
-import Logo from './../../assets/images/png/logo.png'
+import Logo from './../../assets/images/png/headwaters_estimating.png'
 
 import './navigationBar.scss'
 
