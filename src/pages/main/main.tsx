@@ -10,7 +10,7 @@ import Highlights from "../../components/highlight";
 
 import { ConvertNoteObject } from '../../utils';
 
-import { getFileUsingPresignedUrl, uploadFileToPresignedUrl } from '../../utils/pdfManager';
+import { getFileUsingPresignedUrl, getSections, uploadFileToPresignedUrl } from '../../utils/pdfManager';
 import { useLocation, useNavigate } from 'react-router';
 
 import './main.scss'
@@ -42,6 +42,7 @@ const Main = () => {
   const [fileIsLoading, setFileIsLoading] = useState(false);
   const [processCompleted, setProcessCompleted] = useState(false);
   const [processFailed, setProcessFailed] = useState(false);
+  const [extractedSections, setExtractedSections] = useState({});
 
   const [selectedKey, setSelectedKey] = useState<KeyProps>();
   const [selectedAIKey, setSelectedAIKey] = useState<KeyProps>();
@@ -75,11 +76,15 @@ const Main = () => {
         setFileIsLoading(false);
       })
 
-    await axios.get(`${server}/api/get_pdf_highlights?user=${user}&filename=${filename}`)
+    const sections = await getSections({ user, file: filename, server });
+
+    setExtractedSections(sections?.data)
+
+    await axios.get(`${server}/api/keys?user=${user}&filename=${filename}`)
       .then(response => response.data)
       .then(highlights => {
         try {
-          if (highlights?.message && highlights?.message === 'File not found in S3') {
+          if (highlights?.message && highlights?.message === 'Spec not found in S3') {
             setFileIsLoading(false);
             setTriggerProcessing(true);
             return;
@@ -108,7 +113,7 @@ const Main = () => {
 
     if (pdfFile) {
       await uploadFileToPresignedUrl({ user, file, server }).then(() => {
-        axios.post(`${server}/api/highlight?user=${user}&filename=${file?.name}`, {
+        axios.post(`${server}/api/extract-keys?user=${user}&filename=${file?.name}&division=1`, {
           headers: {
             'Content-Type': 'multipart/form-data',
             'Access-Control-Allow-Origin': '*',
@@ -192,9 +197,9 @@ const Main = () => {
 
       // Save Highlights to S3
       const highlightsFormData = new FormData();
-      highlightsFormData.append('highlight', JSON.stringify(initialKeys));
+      highlightsFormData.append('keys', JSON.stringify(initialKeys));
 
-      await axios.post(`${server}/api/save_highlights?user=${user}&pdf_filename=${file?.name}`, highlightsFormData, {
+      await axios.post(`${server}/api/keys?user=${user}&filename=${file?.name}`, highlightsFormData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Access-Control-Allow-Origin': '*',
@@ -354,6 +359,7 @@ const Main = () => {
                 setSelectedAIKey={setSelectedAIKey}
                 filename={state?.filename}
                 saveKey={saveKey}
+                extractedSections={extractedSections}
               />
 
             )}
