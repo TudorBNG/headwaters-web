@@ -48,7 +48,8 @@ const Highlights = ({
     selectedAIKey,
     setSelectedAIKey,
     filename,
-    saveKey
+    saveKey,
+    extractedSections
 }) => {
     const [message, setMessage] = useState("");
     const [selectedId, setSelectedId] = useState(-1);
@@ -73,18 +74,18 @@ const Highlights = ({
 
     let noteId = initialKeys.length;
 
-    const filterNotes = useCallback((filter: string) => {
-        switch (filter) {
-            case 'All':
-                setKeys([...initialKeys]);
-                break;
-            default:
-                setKeys([...initialKeys].filter((note) => note.label === filter));
-                break;
-        }
+    // const filterNotes = useCallback((filter: string) => {
+    //     switch (filter) {
+    //         case 'All':
+    //             setKeys([...initialKeys]);
+    //             break;
+    //         default:
+    //             setKeys([...initialKeys].filter((note) => note.label === filter));
+    //             break;
+    //     }
 
-        setSelectedLabel(filter);
-    }, [initialKeys, setKeys])
+    //     setSelectedLabel(filter);
+    // }, [initialKeys, setKeys])
 
     // const renderToolbar = (Toolbar: (props: ToolbarProps) => ReactElement) => (
     //     <Toolbar>
@@ -260,9 +261,9 @@ const Highlights = ({
         );
     };
 
-    useEffect(() => {
-        filterNotes(selectedLabel)
-    }, [initialKeys, selectedLabel])
+    // useEffect(() => {
+    //     filterNotes(selectedLabel)
+    // }, [initialKeys, selectedLabel])
 
     useEffect(() => {
         setHighlightLabel(labels[0])
@@ -381,6 +382,7 @@ const Highlights = ({
             setOpenDivision={setOpenDivision}
             openSection={openSection}
             setOpenSection={setOpenSection}
+            extractedSections={extractedSections}
         />
         <div className={"main-view"}>
             <Tabs currentTab={currentTab} setCurrentTab={setCurrentTab} />
