@@ -26,7 +26,8 @@ const SidePanel = ({
     openDivision,
     setOpenDivision,
     openSection,
-    setOpenSection
+    setOpenSection,
+    extractedSections = {}
 }) => {
 
     const parsedJobName = useMemo(() => {
@@ -54,6 +55,7 @@ const SidePanel = ({
                     setOpenDivision={setOpenDivision}
                     openSection={openSection}
                     setOpenSection={setOpenSection}
+                    extractedSections={extractedSections}
                 />
             </div>
             <div className={"side-panel-bottom"}>
