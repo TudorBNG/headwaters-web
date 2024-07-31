@@ -42,7 +42,7 @@ export const ConvertNoteObject = (data: any) => {
   })
 
   Object.keys(myObj).map((key: string, index: number) => {
-    if (myObj[key]['score'] > 0.7) {
+    if (myObj[key]['score'] > 0.3) {
       const x0 = myObj[key]['quads'][0];
       const y0 = myObj[key]['quads'][1];
       const x1 = myObj[key]['quads'][2];
