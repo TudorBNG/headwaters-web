@@ -85,8 +85,8 @@ const CommentsPanel = ({
 
                 <div className={"covered-status-container"}>
                     <div className={"covered-status-buttons"}>
-                        <button className={`${selectedAIKey.covered && "covered"}`} onClick={() => coverKey(true)}>Covered</button>
-                        <button className={`${!selectedAIKey.covered && "not-covered"}`} onClick={() => coverKey(false)}>Not Covered</button>
+                        <button className={`${selectedAIKey.covered && "covered"}`} onClick={() => coverKey(true)}>Low cost</button>
+                        <button className={`${!selectedAIKey.covered && "not-covered"}`} onClick={() => coverKey(false)}>High cost</button>
                     </div>
                 </div>
 
