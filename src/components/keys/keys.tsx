@@ -41,7 +41,7 @@ const Keys = ({ keys,
             className={"keys-container"}
         >
             {keys.length === 0 && (
-                <div style={{ textAlign: "center" }}>There is no note</div>
+                <div style={{ textAlign: "center" }}>There are no keys</div>
             )}
             {keys.map((key: KeyProps, index) => {
                 return (
