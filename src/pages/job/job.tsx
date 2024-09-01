@@ -27,7 +27,7 @@ const Job = () => {
         return JSON.parse(localStorage.getItem('keystone-auth'))?.user;
     }, [localStorage])
 
-    const server = 'https://tk64sfyklbku3h6cviltbs7xde0vxdqm.lambda-url.us-east-1.on.aws';
+    const server = process.env.REACT_APP_SERVER_URL;// 'https://tk64sfyklbku3h6cviltbs7xde0vxdqm.lambda-url.us-east-1.on.aws';
 
     const getUserLibrary = async () => {
         await axios.get(`${server}/api/specs?user=${user}`)
