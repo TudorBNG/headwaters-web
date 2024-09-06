@@ -80,7 +80,7 @@ const Main = () => {
 
     setExtractedSections(sections?.data)
 
-    await axios.get(`${server}/api/keys?user=${user}&filename=${filename}`)
+    await axios.get(`${server}api/keys?user=${user}&filename=${filename}`)
       .then(response => response.data)
       .then(highlights => {
         try {
@@ -113,7 +113,7 @@ const Main = () => {
 
     if (pdfFile) {
       await uploadFileToPresignedUrl({ user, file, server }).then(() => {
-        axios.post(`${server}/api/extract-keys?user=${user}&filename=${file?.name}&division=1`, {
+        axios.post(`${server}api/extract-keys?user=${user}&filename=${file?.name}&division=1`, {
           headers: {
             'Content-Type': 'multipart/form-data',
             'Access-Control-Allow-Origin': '*',
@@ -153,7 +153,7 @@ const Main = () => {
       formData.append('highlight', JSON.stringify(keys));
 
       await uploadFileToPresignedUrl({ user, file, server })
-        .then(() => axios.post(`${server}/api/save_pdf?user=${user}&filename=${file?.name}`, formData, {
+        .then(() => axios.post(`${server}api/save_pdf?user=${user}&filename=${file?.name}`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
             'Access-Control-Allow-Origin': '*',
@@ -199,7 +199,7 @@ const Main = () => {
       const highlightsFormData = new FormData();
       highlightsFormData.append('keys', JSON.stringify(initialKeys));
 
-      await axios.post(`${server}/api/keys?user=${user}&filename=${file?.name}`, highlightsFormData, {
+      await axios.post(`${server}api/keys?user=${user}&filename=${file?.name}`, highlightsFormData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Access-Control-Allow-Origin': '*',
