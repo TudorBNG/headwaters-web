@@ -66,8 +66,8 @@ const AITab = ({ openDivision, openSection, keys, selectedAIKey, setSelectedAIKe
                 </div>
             </div>
             <div className={"comments"}>
-                <Comments aiComments={true} selectedAIKey={selectedAIKey} header={"AI:"} inputPlaceholder={"Add AI comments..."} removeComment={removeComment} />
-                <Comments aiComments={false} selectedAIKey={selectedAIKey} header={"Job Comments:"} inputPlaceholder={"Add job comments..."} removeComment={removeComment} />
+                <Comments aiComments={true} selectedAIKey={selectedAIKey} header={"AI:"} inputPlaceholder={"Add AI comments..."} removeComment={removeComment} saveKey={saveKey} setSelectedAIKey={setSelectedAIKey} />
+                <Comments aiComments={false} selectedAIKey={selectedAIKey} header={"Job Comments:"} inputPlaceholder={"Add job comments..."} removeComment={removeComment} saveKey={saveKey} setSelectedAIKey={setSelectedAIKey} />
             </div>
         </div>
     )
