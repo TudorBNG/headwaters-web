@@ -1,7 +1,7 @@
 import axios from "axios"
 
 export const uploadFileToPresignedUrl = async ({ user, file, server }) => {
-  await axios.post(`${server}/api/presigned-url?user=${user}&filename=${file?.name}&method=put_object`)
+  await axios.post(`${server}api/presigned-url?user=${user}&filename=${file?.name}&method=put_object`)
     .then(async (response) => {
       if (response.data?.url) {
 
@@ -23,7 +23,7 @@ export const uploadFileToPresignedUrl = async ({ user, file, server }) => {
 }
 
 export const getFileUsingPresignedUrl = async ({ user, filename, server }) => {
-  return await axios.post(`${server}/api/presigned-url?user=${user}&filename=${filename}&method=get_object`)
+  return await axios.post(`${server}api/presigned-url?user=${user}&filename=${filename}&method=get_object`)
     .then(async (response) => {
       if (response.data?.url) {
 
@@ -44,6 +44,6 @@ export const getFileUsingPresignedUrl = async ({ user, filename, server }) => {
     })
 }
 
-export const getSections = async ({ user, file, server }) => await axios.get(`${server}/api/sections?user=${user}&filename=${file}`)
+export const getSections = async ({ user, file, server }) => await axios.get(`${server}api/sections?user=${user}&filename=${file}`)
 
 
