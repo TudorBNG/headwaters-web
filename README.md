@@ -9,15 +9,15 @@ A simple react application that view PDF files in browsers, built with React-PDF
 
 ## Getting Started
 
-* On the comandline, at the project's root, run ```npm install``` to install app dependencies
+* On the comandline, at the project's root, run ```yarn install``` to install app dependencies
 
-* Next, run ```npm start``` which will run the app in the development mode.
+* Next, run ```yarn start``` which will run the app in the development mode.
 
 * Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 * ALTERNATIVELY
 
-  * Just run ```npm run build``` which will build the project and generate output files into the ```build``` directory.
+  * Just run ```yarn build``` which will build the project and generate output files into the ```build``` directory.
 
   * Go to ```build``` directory and manually open ```index.html``` to interact with the app
 
